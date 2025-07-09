@@ -1,0 +1,446 @@
+[2025-07-08T19:02:48.844+0000] {processor.py:161} INFO - Started process (PID=190) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:02:48.846+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:02:48.849+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:02:48.848+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:02:49.404+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:02:49.396+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:02:49.407+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:02:49.439+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.606 seconds
+[2025-07-08T19:03:20.299+0000] {processor.py:161} INFO - Started process (PID=217) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:20.300+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:03:20.303+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:03:20.303+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:20.432+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:03:20.424+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:03:20.435+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:20.461+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.169 seconds
+[2025-07-08T19:03:50.973+0000] {processor.py:161} INFO - Started process (PID=242) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:50.975+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:03:50.978+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:03:50.978+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:51.175+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:03:51.163+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:03:51.179+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:03:51.215+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.253 seconds
+[2025-07-08T19:04:21.773+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:21.775+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:04:21.778+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:04:21.778+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:22.092+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:04:22.083+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:04:22.096+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:22.120+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.359 seconds
+[2025-07-08T19:04:52.383+0000] {processor.py:161} INFO - Started process (PID=292) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:52.386+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:04:52.389+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:04:52.389+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:52.579+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:04:52.565+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:04:52.584+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:04:52.625+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.254 seconds
+[2025-07-08T19:05:23.103+0000] {processor.py:161} INFO - Started process (PID=317) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:23.105+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:05:23.108+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:05:23.107+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:23.317+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:05:23.306+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:05:23.320+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:23.354+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.261 seconds
+[2025-07-08T19:05:53.950+0000] {processor.py:161} INFO - Started process (PID=342) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:53.951+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:05:53.953+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:05:53.953+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:54.080+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:05:54.071+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:05:54.082+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:05:54.107+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.165 seconds
+[2025-07-08T19:06:24.811+0000] {processor.py:161} INFO - Started process (PID=367) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:24.812+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:06:24.814+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:06:24.814+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:24.926+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:06:24.919+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:06:24.929+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:24.953+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.149 seconds
+[2025-07-08T19:06:55.138+0000] {processor.py:161} INFO - Started process (PID=392) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:55.140+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:06:55.142+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:06:55.142+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:55.259+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:06:55.251+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:06:55.261+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:06:55.284+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.153 seconds
+[2025-07-08T19:07:25.954+0000] {processor.py:161} INFO - Started process (PID=417) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:25.956+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:07:25.958+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:07:25.958+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:26.101+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:07:26.092+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:07:26.104+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:26.130+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.185 seconds
+[2025-07-08T19:07:56.267+0000] {processor.py:161} INFO - Started process (PID=442) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:56.269+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:07:56.271+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:07:56.270+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:56.384+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:07:56.377+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:07:56.386+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:07:56.408+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.148 seconds
+[2025-07-08T19:08:26.836+0000] {processor.py:161} INFO - Started process (PID=467) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:26.837+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:08:26.839+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:08:26.839+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:26.950+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:08:26.944+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:08:26.953+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:26.975+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.145 seconds
+[2025-07-08T19:08:57.451+0000] {processor.py:161} INFO - Started process (PID=492) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:57.453+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:08:57.455+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:08:57.455+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:57.569+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:08:57.562+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:08:57.571+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:08:57.593+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.149 seconds
+[2025-07-08T19:09:27.904+0000] {processor.py:161} INFO - Started process (PID=517) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:27.905+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:09:27.907+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:09:27.907+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:28.024+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:09:28.017+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:09:28.027+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:28.047+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.150 seconds
+[2025-07-08T19:09:58.837+0000] {processor.py:161} INFO - Started process (PID=542) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:58.838+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:09:58.840+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:09:58.840+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:58.962+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:09:58.955+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:09:58.964+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:09:58.987+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.157 seconds
+[2025-07-08T19:10:29.912+0000] {processor.py:161} INFO - Started process (PID=567) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:10:29.913+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:10:29.915+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:10:29.915+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:10:30.044+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:10:30.036+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:10:30.047+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:10:30.070+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.167 seconds
+[2025-07-08T19:11:00.546+0000] {processor.py:161} INFO - Started process (PID=592) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:11:00.548+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:11:00.551+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:11:00.550+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:11:00.763+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:11:00.751+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:11:00.767+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:11:00.798+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.262 seconds
+[2025-07-08T19:13:09.961+0000] {processor.py:161} INFO - Started process (PID=200) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:09.963+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:13:09.966+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:09.965+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:10.651+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:10.639+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:13:10.656+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:10.694+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.742 seconds
+[2025-07-08T19:13:41.395+0000] {processor.py:161} INFO - Started process (PID=237) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:41.398+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:13:41.402+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:41.402+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:41.584+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:41.575+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:13:41.587+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:13:41.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.229 seconds
+[2025-07-08T19:14:11.953+0000] {processor.py:161} INFO - Started process (PID=272) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:11.955+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:14:11.957+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:11.957+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:12.108+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:12.098+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:14:12.111+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:12.137+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.193 seconds
+[2025-07-08T19:14:42.776+0000] {processor.py:161} INFO - Started process (PID=307) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:42.778+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:14:42.779+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:42.779+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:42.889+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:42.882+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:14:42.891+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:14:42.914+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.145 seconds
+[2025-07-08T19:16:51.101+0000] {processor.py:161} INFO - Started process (PID=200) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:16:51.102+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:16:51.104+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:16:51.104+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:16:51.546+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:16:51.539+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:16:51.549+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:16:51.576+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.484 seconds
+[2025-07-08T19:17:21.819+0000] {processor.py:161} INFO - Started process (PID=237) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:21.820+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:17:21.822+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:21.821+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:21.930+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:21.922+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:17:21.933+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:21.954+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.143 seconds
+[2025-07-08T19:17:52.499+0000] {processor.py:161} INFO - Started process (PID=272) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:52.501+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:17:52.511+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:52.511+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:52.688+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:52.681+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:17:52.691+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:17:52.716+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.239 seconds
+[2025-07-08T19:18:22.909+0000] {processor.py:161} INFO - Started process (PID=307) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:22.911+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:18:22.914+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:22.913+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:23.037+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:23.030+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:18:23.040+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:23.062+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.163 seconds
+[2025-07-08T19:18:53.813+0000] {processor.py:161} INFO - Started process (PID=342) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:53.815+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:18:53.817+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:53.817+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:53.931+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:53.923+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:18:53.934+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:18:53.959+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.154 seconds
+[2025-07-08T19:19:24.396+0000] {processor.py:161} INFO - Started process (PID=372) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:24.397+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:19:24.398+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:24.398+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:24.506+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:24.500+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+  File "/opt/airflow/dags/crewai_etl_utils.py", line 5, in <module>
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+[2025-07-08T19:19:24.508+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:24.530+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.141 seconds
+[2025-07-08T19:19:54.898+0000] {processor.py:161} INFO - Started process (PID=402) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:54.899+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-08T19:19:54.900+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:54.900+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:54.923+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:54.919+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/equity_report_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/equity_report_dag.py", line 4, in <module>
+    from crewai_etl_utils import run_crewai_agents, save_report_to_s3, save_data_to_mongo, send_slack_notification
+ModuleNotFoundError: No module named 'crewai_etl_utils'
+[2025-07-08T19:19:54.924+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-08T19:19:54.949+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.059 seconds

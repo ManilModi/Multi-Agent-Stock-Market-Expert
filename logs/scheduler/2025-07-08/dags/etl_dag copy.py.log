@@ -1,0 +1,190 @@
+[2025-07-08T19:13:09.197+0000] {processor.py:161} INFO - Started process (PID=175) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:09.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:13:09.203+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:09.202+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:09.332+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:09.306+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:13:09.338+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:09.371+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.186 seconds
+[2025-07-08T19:13:39.885+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:39.886+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:13:39.889+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:39.889+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:39.948+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:13:39.935+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:13:39.951+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:13:39.974+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.098 seconds
+[2025-07-08T19:14:10.132+0000] {processor.py:161} INFO - Started process (PID=245) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:10.134+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:14:10.139+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:10.138+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:10.250+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:10.225+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:14:10.256+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:10.291+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.172 seconds
+[2025-07-08T19:14:41.333+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:41.334+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:14:41.336+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:41.336+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:41.397+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:14:41.383+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:14:41.400+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:14:41.421+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.095 seconds
+[2025-07-08T19:16:50.502+0000] {processor.py:161} INFO - Started process (PID=175) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:16:50.504+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:16:50.508+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:16:50.507+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:16:50.630+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:16:50.612+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:16:50.635+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:16:50.668+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.178 seconds
+[2025-07-08T19:17:21.278+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:21.279+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:17:21.281+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:21.281+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:21.344+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:21.330+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:17:21.347+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:21.372+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.103 seconds
+[2025-07-08T19:17:51.870+0000] {processor.py:161} INFO - Started process (PID=245) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:51.872+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:17:51.874+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:51.874+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:51.942+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:17:51.926+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:17:51.945+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:17:51.971+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.110 seconds
+[2025-07-08T19:18:22.137+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:22.139+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:18:22.142+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:22.141+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:22.214+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:22.198+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:18:22.220+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:22.248+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.122 seconds
+[2025-07-08T19:18:53.267+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:53.268+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:18:53.271+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:53.270+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:53.337+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:18:53.322+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+  File "/opt/airflow/dags/extract_task.py", line 1, in <module>
+    from Features.agents import get_agents
+  File "/opt/airflow/dags/Features/agents.py", line 3, in <module>
+    from crewai import Agent, LLM
+ModuleNotFoundError: No module named 'crewai'
+[2025-07-08T19:18:53.341+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:18:53.367+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.110 seconds
+[2025-07-08T19:19:24.024+0000] {processor.py:161} INFO - Started process (PID=347) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:24.025+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:19:24.027+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:24.026+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:24.053+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:24.048+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+ModuleNotFoundError: No module named 'extract_task'
+[2025-07-08T19:19:24.055+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:24.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.064 seconds
+[2025-07-08T19:19:54.534+0000] {processor.py:161} INFO - Started process (PID=377) to work on /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:54.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dags/etl_dag copy.py for tasks to queue
+[2025-07-08T19:19:54.537+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:54.537+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:54.566+0000] {logging_mixin.py:188} INFO - [2025-07-08T19:19:54.562+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dags/etl_dag copy.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/etl_dag copy.py", line 4, in <module>
+    from extract_task import extract_data
+ModuleNotFoundError: No module named 'extract_task'
+[2025-07-08T19:19:54.569+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dags/etl_dag copy.py
+[2025-07-08T19:19:54.602+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dags/etl_dag copy.py took 0.077 seconds

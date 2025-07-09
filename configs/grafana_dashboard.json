@@ -1,0 +1,27 @@
+{
+    "annotations": { "list": [] },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "panels": [
+      {
+        "datasource": "MongoDB",
+        "type": "stat",
+        "title": "Total Reports",
+        "targets": [ { "rawQuery": true, "query": "{}" } ],
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 5 }
+      },
+      {
+        "datasource": "MongoDB",
+        "type": "stat",
+        "title": "Last Report Time",
+        "targets": [ { "rawQuery": true, "query": "{}" } ],
+        "gridPos": { "x": 12, "y": 0, "w": 12, "h": 5 }
+      }
+    ],
+    "schemaVersion": 27,
+    "title": "Equity ETL Dashboard",
+    "version": 1
+  }
+  

@@ -1,0 +1,402 @@
+[2025-07-08T19:02:47.753+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-08T19:02:47.755+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-08T19:02:47.757+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-08T19:02:47.759+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-08T19:02:48.281+0000] {manager.py:740} INFO - There are 5 files in /opt/airflow/dags
+[2025-07-08T19:02:48.454+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/equity_report_dag.py                                           0           0
+/opt/airflow/dags/etl_dag.py                              172  0.08s             0           0
+/opt/airflow/dags/.astro/test_dag_integrity_default.py    175  0.06s             0           0
+/opt/airflow/dags/dags/exampledag.py                                             0           0
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           0
+================================================================================
+[2025-07-08T19:03:15.880+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.65s           2025-07-08T19:02:49
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.27s           2025-07-08T19:02:48
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.17s           2025-07-08T19:02:48
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:02:48
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.14s           2025-07-08T19:02:48
+================================================================================
+[2025-07-08T19:03:43.410+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.21s           2025-07-08T19:03:20
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:03:19
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:03:19
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:03:19
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:03:19
+================================================================================
+[2025-07-08T19:04:11.001+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.31s           2025-07-08T19:03:51
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.16s           2025-07-08T19:03:49
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.13s           2025-07-08T19:03:49
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.13s           2025-07-08T19:03:49
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.13s           2025-07-08T19:03:49
+================================================================================
+[2025-07-08T19:04:38.630+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.43s           2025-07-08T19:04:22
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.19s           2025-07-08T19:04:20
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.15s           2025-07-08T19:04:20
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.13s           2025-07-08T19:04:20
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.13s           2025-07-08T19:04:20
+================================================================================
+[2025-07-08T19:05:06.159+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.32s           2025-07-08T19:04:52
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:04:51
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:04:51
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.14s           2025-07-08T19:04:51
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.13s           2025-07-08T19:04:51
+================================================================================
+[2025-07-08T19:05:34.056+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.31s           2025-07-08T19:05:23
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.20s           2025-07-08T19:05:22
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.20s           2025-07-08T19:05:21
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.19s           2025-07-08T19:05:21
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.18s           2025-07-08T19:05:21
+================================================================================
+[2025-07-08T19:06:01.664+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.21s           2025-07-08T19:05:54
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.13s           2025-07-08T19:05:52
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.13s           2025-07-08T19:05:52
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:05:52
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:05:52
+================================================================================
+[2025-07-08T19:06:29.047+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:06:24
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.13s           2025-07-08T19:06:23
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:06:23
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:06:23
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.10s           2025-07-08T19:06:23
+================================================================================
+[2025-07-08T19:06:57.324+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:06:55
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.14s           2025-07-08T19:06:53
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.12s           2025-07-08T19:06:54
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:06:53
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.10s           2025-07-08T19:06:54
+================================================================================
+[2025-07-08T19:07:24.751+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:06:55
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:07:24
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:07:24
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.12s           2025-07-08T19:06:54
+/opt/airflow/dags/dags/exampledag.py                      407  0.01s             0           1  0.10s           2025-07-08T19:06:54
+================================================================================
+[2025-07-08T19:07:48.121+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-08T19:07:48.525+0000] {manager.py:740} INFO - There are 5 files in /opt/airflow/dags
+[2025-07-08T19:07:52.699+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.23s           2025-07-08T19:07:26
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:07:24
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:07:24
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.13s           2025-07-08T19:07:25
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.12s           2025-07-08T19:07:24
+================================================================================
+[2025-07-08T19:08:20.405+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:07:56
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.12s           2025-07-08T19:07:54
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:07:55
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:07:54
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.10s           2025-07-08T19:07:55
+================================================================================
+[2025-07-08T19:08:47.926+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.18s           2025-07-08T19:08:26
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.12s           2025-07-08T19:08:25
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:08:25
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:08:25
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:08:25
+================================================================================
+[2025-07-08T19:09:15.882+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:08:57
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.14s           2025-07-08T19:08:56
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:08:56
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:08:56
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.10s           2025-07-08T19:08:56
+================================================================================
+[2025-07-08T19:09:44.074+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:09:28
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.17s           2025-07-08T19:09:26
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.13s           2025-07-08T19:09:26
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.12s           2025-07-08T19:09:26
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.12s           2025-07-08T19:09:26
+================================================================================
+[2025-07-08T19:10:11.576+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.20s           2025-07-08T19:09:59
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.17s           2025-07-08T19:09:57
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.15s           2025-07-08T19:09:57
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.14s           2025-07-08T19:09:57
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.13s           2025-07-08T19:09:57
+================================================================================
+[2025-07-08T19:10:39.311+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.21s           2025-07-08T19:10:30
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:10:28
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.14s           2025-07-08T19:10:28
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.13s           2025-07-08T19:10:28
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:10:28
+================================================================================
+[2025-07-08T19:11:05.708+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-07-08T19:13:11.144+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-08T19:13:11.146+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-08T19:13:11.147+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-08T19:13:11.149+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-08T19:13:10.794+0000] {manager.py:740} INFO - There are 7 files in /opt/airflow/dags
+[2025-07-08T19:13:09.223+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/equity_report_dag.py                                           0           0
+/opt/airflow/dags/etl_dag.py                              172  0.09s             0           0
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           0
+/opt/airflow/dags/dags/etl_dag copy.py                    175  0.07s             0           0
+/opt/airflow/dags/dags/etl_dag.py                                                0           0
+/opt/airflow/dags/dags/exampledag.py                                             0           0
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           0
+================================================================================
+[2025-07-08T19:13:36.748+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.78s           2025-07-08T19:13:10
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.26s           2025-07-08T19:13:09
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.26s           2025-07-08T19:13:09
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.26s           2025-07-08T19:13:09
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:13:09
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.15s           2025-07-08T19:13:10
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.14s           2025-07-08T19:13:09
+================================================================================
+[2025-07-08T19:14:04.756+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.29s           2025-07-08T19:13:41
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.14s           2025-07-08T19:13:39
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.14s           2025-07-08T19:13:40
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.14s           2025-07-08T19:13:39
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.13s           2025-07-08T19:13:40
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.13s           2025-07-08T19:13:40
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.12s           2025-07-08T19:13:40
+================================================================================
+[2025-07-08T19:14:33.105+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.25s           2025-07-08T19:14:10
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.24s           2025-07-08T19:14:12
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.23s           2025-07-08T19:14:10
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.19s           2025-07-08T19:14:10
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.16s           2025-07-08T19:14:10
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.15s           2025-07-08T19:14:10
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.14s           2025-07-08T19:14:10
+================================================================================
+[2025-07-08T19:15:00.483+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-07-08T19:16:49.656+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-08T19:16:49.659+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-08T19:16:49.661+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-08T19:16:49.663+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-08T19:16:50.310+0000] {manager.py:740} INFO - There are 7 files in /opt/airflow/dags
+[2025-07-08T19:16:50.530+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/equity_report_dag.py                                           0           0
+/opt/airflow/dags/etl_dag.py                              172  0.09s             0           0
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           0
+/opt/airflow/dags/dags/etl_dag copy.py                    175  0.07s             0           0
+/opt/airflow/dags/dags/etl_dag.py                                                0           0
+/opt/airflow/dags/dags/exampledag.py                                             0           0
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           0
+================================================================================
+[2025-07-08T19:17:18.162+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.52s           2025-07-08T19:16:51
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.27s           2025-07-08T19:16:50
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.23s           2025-07-08T19:16:50
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.16s           2025-07-08T19:16:50
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.12s           2025-07-08T19:16:51
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.12s           2025-07-08T19:16:51
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.12s           2025-07-08T19:16:50
+================================================================================
+[2025-07-08T19:17:45.681+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.18s           2025-07-08T19:17:21
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.14s           2025-07-08T19:17:21
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.14s           2025-07-08T19:17:21
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.14s           2025-07-08T19:17:21
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:17:21
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:17:21
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:17:21
+================================================================================
+[2025-07-08T19:18:13.824+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.30s           2025-07-08T19:17:52
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.21s           2025-07-08T19:17:52
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.21s           2025-07-08T19:17:52
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.16s           2025-07-08T19:17:52
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.16s           2025-07-08T19:17:52
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.15s           2025-07-08T19:17:51
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.15s           2025-07-08T19:17:51
+================================================================================
+[2025-07-08T19:18:41.932+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.27s           2025-07-08T19:18:22
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.22s           2025-07-08T19:18:22
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.21s           2025-07-08T19:18:23
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.18s           2025-07-08T19:18:22
+/opt/airflow/dags/etl_dag.py                                                     0           1  0.17s           2025-07-08T19:18:22
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.16s           2025-07-08T19:18:22
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:18:22
+================================================================================
+[2025-07-08T19:19:05.070+0000] {manager.py:1128} WARNING - Skipping processing of missing file: /opt/airflow/dags/etl_dag.py
+[2025-07-08T19:19:09.525+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.19s           2025-07-08T19:18:53
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.16s           2025-07-08T19:18:53
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.13s           2025-07-08T19:18:53
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.12s           2025-07-08T19:18:53
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:18:53
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:18:53
+================================================================================
+[2025-07-08T19:19:37.070+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.18s           2025-07-08T19:19:24
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.11s           2025-07-08T19:19:24
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:19:24
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.11s           2025-07-08T19:19:24
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.11s           2025-07-08T19:19:24
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.09s           2025-07-08T19:19:24
+================================================================================
+[2025-07-08T19:20:04.610+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dags/etl_dag.py                                                0           1  0.12s           2025-07-08T19:19:54
+/opt/airflow/dags/dags/etl_dag copy.py                                           0           1  0.12s           2025-07-08T19:19:54
+/opt/airflow/dags/tests/dags/test_dag_example.py                                 0           1  0.11s           2025-07-08T19:19:54
+/opt/airflow/dags/dags/exampledag.py                                             0           1  0.10s           2025-07-08T19:19:54
+/opt/airflow/dags/.astro/test_dag_integrity_default.py                           0           1  0.10s           2025-07-08T19:19:54
+/opt/airflow/dags/equity_report_dag.py                                           0           1  0.09s           2025-07-08T19:19:54
+================================================================================
+[2025-07-08T19:20:20.769+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
