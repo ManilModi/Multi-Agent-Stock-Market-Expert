@@ -1,6 +1,7 @@
 x-airflow-common:
   &airflow-common
-  image: apache/airflow:2.9.1-python3.9
+  build: .
+  # image: apache/airflow:2.9.1-python3.9  # don't need this if using build
   environment:
     - AIRFLOW__CORE__EXECUTOR=LocalExecutor
     - AIRFLOW__CORE__LOAD_EXAMPLES=False

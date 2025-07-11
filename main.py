@@ -1,6 +1,6 @@
 from crewai import Crew, Process
-from Features.agents import get_agents
-from Features.tasks import get_tasks
+from dags.Features.agents import get_agents
+from dags.Features.tasks import get_tasks
 from qualifire import client
 import os
 import json
@@ -60,7 +60,7 @@ def run():
 
     # === Save to file ===
     with open("qualifire_eval_report.json", "w", encoding="utf-8") as f:
-        json.dump(validation.model_dump(), f, indent=2)
+        json.dump(validation.__dict__, f, indent=2, default=str)
         print("📄 Saved evaluation results to qualifire_eval_report.json")
 
 if __name__ == "__main__":

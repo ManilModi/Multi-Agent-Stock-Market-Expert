@@ -1,0 +1,1218 @@
+[2025-07-10T00:15:20.122+0000] {processor.py:161} INFO - Started process (PID=207) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T00:15:20.126+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T00:15:20.138+0000] {logging_mixin.py:188} INFO - [2025-07-10T00:15:20.130+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T00:15:20.169+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T00:15:20.234+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.136 seconds
+[2025-07-10T11:01:05.504+0000] {processor.py:161} INFO - Started process (PID=224) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:05.529+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:01:05.541+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:01:05.540+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:05.861+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:05.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.453 seconds
+[2025-07-10T11:01:36.360+0000] {processor.py:161} INFO - Started process (PID=239) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:36.362+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:01:36.365+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:01:36.364+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:36.392+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:01:36.421+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.072 seconds
+[2025-07-10T11:02:06.651+0000] {processor.py:161} INFO - Started process (PID=253) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:06.652+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:02:06.655+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:02:06.655+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:06.684+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:06.712+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.071 seconds
+[2025-07-10T11:02:36.959+0000] {processor.py:161} INFO - Started process (PID=265) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:36.961+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:02:36.966+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:02:36.966+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:37.002+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:02:37.042+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.104 seconds
+[2025-07-10T11:03:07.523+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:07.527+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:03:07.539+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:03:07.537+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:07.579+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:07.622+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.122 seconds
+[2025-07-10T11:03:41.140+0000] {processor.py:161} INFO - Started process (PID=294) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:41.143+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:03:41.147+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:03:41.146+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:41.194+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:03:41.229+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.105 seconds
+[2025-07-10T11:04:11.705+0000] {processor.py:161} INFO - Started process (PID=299) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:11.707+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:04:11.713+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:04:11.712+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:11.751+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:11.790+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.102 seconds
+[2025-07-10T11:04:42.335+0000] {processor.py:161} INFO - Started process (PID=316) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:42.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:04:42.361+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:04:42.359+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:42.421+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:04:42.403+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.187 seconds
+[2025-07-10T11:05:13.223+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:13.225+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:05:13.233+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:05:13.232+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:13.279+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:13.320+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.113 seconds
+[2025-07-10T11:05:44.009+0000] {processor.py:161} INFO - Started process (PID=343) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:44.011+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:05:44.016+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:05:44.015+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:44.059+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:05:44.097+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.104 seconds
+[2025-07-10T11:06:14.225+0000] {processor.py:161} INFO - Started process (PID=357) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:14.228+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:06:14.233+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:06:14.232+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:14.281+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:14.317+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.110 seconds
+[2025-07-10T11:06:45.027+0000] {processor.py:161} INFO - Started process (PID=365) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:45.030+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:06:45.037+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:06:45.037+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:45.083+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:06:45.123+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.115 seconds
+[2025-07-10T11:07:15.818+0000] {processor.py:161} INFO - Started process (PID=379) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:15.822+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:07:15.827+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:07:15.826+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:15.874+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:15.917+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.118 seconds
+[2025-07-10T11:07:46.543+0000] {processor.py:161} INFO - Started process (PID=391) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:46.546+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:07:46.552+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:07:46.551+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:46.593+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:07:46.634+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.110 seconds
+[2025-07-10T11:08:16.849+0000] {processor.py:161} INFO - Started process (PID=403) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:16.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:08:16.857+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:08:16.856+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:16.898+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:16.941+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:08:47.196+0000] {processor.py:161} INFO - Started process (PID=420) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:47.198+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:08:47.203+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:08:47.202+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:47.247+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:08:47.290+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.111 seconds
+[2025-07-10T11:09:18.016+0000] {processor.py:161} INFO - Started process (PID=428) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:18.020+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:09:18.026+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:09:18.025+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:18.064+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:18.101+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.109 seconds
+[2025-07-10T11:09:48.773+0000] {processor.py:161} INFO - Started process (PID=442) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:48.776+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:09:48.782+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:09:48.781+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:48.827+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:09:48.869+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.119 seconds
+[2025-07-10T11:10:19.569+0000] {processor.py:161} INFO - Started process (PID=454) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:19.572+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:10:19.580+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:10:19.579+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:19.615+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:19.655+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T11:10:50.402+0000] {processor.py:161} INFO - Started process (PID=466) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:50.405+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:10:50.411+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:10:50.408+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:50.451+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:10:50.489+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.101 seconds
+[2025-07-10T11:11:21.036+0000] {processor.py:161} INFO - Started process (PID=483) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:21.039+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:11:21.044+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:11:21.043+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:21.078+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:21.117+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.101 seconds
+[2025-07-10T11:11:51.396+0000] {processor.py:161} INFO - Started process (PID=495) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:51.398+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:11:51.403+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:11:51.403+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:51.443+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:11:51.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.112 seconds
+[2025-07-10T11:12:22.182+0000] {processor.py:161} INFO - Started process (PID=500) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:22.185+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:12:22.190+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:12:22.189+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:22.221+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:22.265+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.102 seconds
+[2025-07-10T11:12:52.912+0000] {processor.py:161} INFO - Started process (PID=517) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:52.915+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:12:52.927+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:12:52.926+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:52.989+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:12:53.018+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.137 seconds
+[2025-07-10T11:13:23.737+0000] {processor.py:161} INFO - Started process (PID=529) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:23.739+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:13:23.744+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:13:23.744+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:23.790+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:23.827+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.106 seconds
+[2025-07-10T11:13:54.532+0000] {processor.py:161} INFO - Started process (PID=546) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:54.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:13:54.545+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:13:54.544+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:54.586+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:13:54.632+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.123 seconds
+[2025-07-10T11:14:25.090+0000] {processor.py:161} INFO - Started process (PID=558) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:25.093+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:14:25.103+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:14:25.102+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:25.146+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:25.188+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.119 seconds
+[2025-07-10T11:14:55.980+0000] {processor.py:161} INFO - Started process (PID=566) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:55.983+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:14:55.992+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:14:55.992+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:56.030+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:14:56.066+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.104 seconds
+[2025-07-10T11:15:26.711+0000] {processor.py:161} INFO - Started process (PID=580) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:26.713+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:15:26.718+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:15:26.717+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:26.761+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:26.802+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T11:15:57.596+0000] {processor.py:161} INFO - Started process (PID=592) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:57.598+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:15:57.603+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:15:57.602+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:57.647+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:15:57.683+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T11:16:28.642+0000] {processor.py:161} INFO - Started process (PID=607) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:28.645+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:16:28.650+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:16:28.650+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:28.693+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:28.732+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:16:59.378+0000] {processor.py:161} INFO - Started process (PID=621) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:59.382+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:16:59.388+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:16:59.387+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:59.430+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:16:59.476+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.118 seconds
+[2025-07-10T11:17:30.218+0000] {processor.py:161} INFO - Started process (PID=633) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:17:30.221+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:17:30.225+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:17:30.224+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:17:30.260+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:17:30.296+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.096 seconds
+[2025-07-10T11:18:21.297+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:21.300+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:18:21.307+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:18:21.305+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:21.343+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:21.392+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.115 seconds
+[2025-07-10T11:18:51.874+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:51.877+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:18:51.883+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:18:51.882+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:51.923+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:18:51.972+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.119 seconds
+[2025-07-10T11:19:22.282+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:22.285+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:19:22.290+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:19:22.289+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:22.330+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:22.372+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T11:19:53.043+0000] {processor.py:161} INFO - Started process (PID=218) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:53.045+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:19:53.051+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:19:53.050+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:53.091+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:19:53.130+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T11:20:23.842+0000] {processor.py:161} INFO - Started process (PID=230) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:23.844+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:20:23.849+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:20:23.848+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:23.894+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:23.942+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.119 seconds
+[2025-07-10T11:20:54.675+0000] {processor.py:161} INFO - Started process (PID=238) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:54.677+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:20:54.682+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:20:54.681+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:54.717+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:20:54.758+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.100 seconds
+[2025-07-10T11:21:25.324+0000] {processor.py:161} INFO - Started process (PID=252) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:25.327+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:21:25.333+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:21:25.332+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:25.372+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:25.411+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T11:21:55.894+0000] {processor.py:161} INFO - Started process (PID=264) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:55.897+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:21:55.902+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:21:55.901+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:55.940+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:21:55.985+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.111 seconds
+[2025-07-10T11:22:26.514+0000] {processor.py:161} INFO - Started process (PID=279) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:26.517+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:22:26.522+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:22:26.521+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:26.558+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:26.595+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:22:57.210+0000] {processor.py:161} INFO - Started process (PID=293) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:57.212+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:22:57.218+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:22:57.217+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:57.261+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:22:57.302+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.110 seconds
+[2025-07-10T11:23:27.581+0000] {processor.py:161} INFO - Started process (PID=301) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:27.583+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:23:27.589+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:23:27.588+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:27.631+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:27.669+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.104 seconds
+[2025-07-10T11:23:58.340+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:58.342+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:23:58.347+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:23:58.346+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:58.389+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:23:58.428+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:24:28.700+0000] {processor.py:161} INFO - Started process (PID=327) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:28.702+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:24:28.707+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:24:28.706+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:28.749+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:28.786+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.105 seconds
+[2025-07-10T11:24:59.501+0000] {processor.py:161} INFO - Started process (PID=339) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:59.504+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:24:59.509+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:24:59.509+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:59.553+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:24:59.593+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.109 seconds
+[2025-07-10T11:25:30.136+0000] {processor.py:161} INFO - Started process (PID=356) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:25:30.138+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:25:30.146+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:25:30.143+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:25:30.182+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:25:30.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.105 seconds
+[2025-07-10T11:26:00.431+0000] {processor.py:161} INFO - Started process (PID=368) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:00.433+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:26:00.440+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:26:00.439+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:00.484+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:00.522+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.106 seconds
+[2025-07-10T11:26:36.651+0000] {processor.py:161} INFO - Started process (PID=385) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:36.654+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:26:36.662+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:26:36.661+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:36.695+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:26:36.728+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:27:07.182+0000] {processor.py:161} INFO - Started process (PID=390) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:07.185+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:27:07.191+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:27:07.190+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:07.230+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:07.279+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.118 seconds
+[2025-07-10T11:27:37.733+0000] {processor.py:161} INFO - Started process (PID=402) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:37.736+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:27:37.741+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:27:37.740+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:37.782+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:27:37.823+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T11:28:08.254+0000] {processor.py:161} INFO - Started process (PID=419) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:08.258+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:28:08.263+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:28:08.262+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:08.306+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:08.349+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.111 seconds
+[2025-07-10T11:28:39.069+0000] {processor.py:161} INFO - Started process (PID=431) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:39.072+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:28:39.078+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:28:39.077+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:39.121+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:28:39.161+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:29:09.476+0000] {processor.py:161} INFO - Started process (PID=446) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:09.479+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:29:09.484+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:29:09.483+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:09.524+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:09.564+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T11:29:43.691+0000] {processor.py:161} INFO - Started process (PID=460) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:43.694+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:29:43.698+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:29:43.698+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:43.740+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:29:43.776+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.099 seconds
+[2025-07-10T11:30:14.544+0000] {processor.py:161} INFO - Started process (PID=465) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:14.547+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:30:14.552+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:30:14.551+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:14.595+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:14.638+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.112 seconds
+[2025-07-10T11:30:45.255+0000] {processor.py:161} INFO - Started process (PID=482) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:45.257+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:30:45.263+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:30:45.262+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:45.307+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:30:45.349+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.114 seconds
+[2025-07-10T11:31:16.019+0000] {processor.py:161} INFO - Started process (PID=494) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:16.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:31:16.028+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:31:16.027+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:16.074+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:16.117+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.118 seconds
+[2025-07-10T11:31:46.902+0000] {processor.py:161} INFO - Started process (PID=506) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:46.906+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:31:46.912+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:31:46.911+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:46.959+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:31:46.999+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.117 seconds
+[2025-07-10T11:32:17.303+0000] {processor.py:161} INFO - Started process (PID=523) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:17.306+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:32:17.313+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:32:17.312+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:17.354+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:17.397+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.119 seconds
+[2025-07-10T11:32:48.106+0000] {processor.py:161} INFO - Started process (PID=532) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:48.113+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:32:48.118+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:32:48.117+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:48.160+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:32:48.198+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:33:18.950+0000] {processor.py:161} INFO - Started process (PID=544) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:18.953+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:33:18.958+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:33:18.957+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:18.998+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:19.039+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.105 seconds
+[2025-07-10T11:33:49.894+0000] {processor.py:161} INFO - Started process (PID=557) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:49.897+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:33:49.910+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:33:49.909+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:49.953+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:33:49.996+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.124 seconds
+[2025-07-10T11:48:14.985+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:14.989+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:48:14.994+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:48:14.993+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:15.032+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:15.077+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.109 seconds
+[2025-07-10T11:48:45.782+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:45.784+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:48:45.792+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:48:45.791+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:45.831+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:48:46.277+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.513 seconds
+[2025-07-10T11:49:17.319+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:17.321+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:49:17.326+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:49:17.326+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:17.360+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:17.397+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.091 seconds
+[2025-07-10T11:49:47.559+0000] {processor.py:161} INFO - Started process (PID=218) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:47.562+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:49:47.568+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:49:47.567+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:47.607+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:49:47.650+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.116 seconds
+[2025-07-10T11:50:17.856+0000] {processor.py:161} INFO - Started process (PID=230) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:17.860+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:50:17.866+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:50:17.865+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:17.910+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:17.953+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.122 seconds
+[2025-07-10T11:50:48.690+0000] {processor.py:161} INFO - Started process (PID=242) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:48.692+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:50:48.699+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:50:48.698+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:48.739+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:50:48.779+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T11:51:19.362+0000] {processor.py:161} INFO - Started process (PID=259) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:51:19.365+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:51:19.371+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:51:19.370+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:51:19.408+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:51:19.443+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.100 seconds
+[2025-07-10T11:53:17.827+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:17.830+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:53:17.836+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:53:17.835+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:17.877+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:17.928+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.122 seconds
+[2025-07-10T11:53:48.282+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:48.285+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:53:48.290+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:53:48.289+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:48.334+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:53:48.380+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.121 seconds
+[2025-07-10T11:54:19.107+0000] {processor.py:161} INFO - Started process (PID=203) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:19.109+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:54:19.118+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:54:19.115+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:19.160+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:19.200+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.114 seconds
+[2025-07-10T11:54:49.868+0000] {processor.py:161} INFO - Started process (PID=222) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:49.870+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T11:54:49.875+0000] {logging_mixin.py:188} INFO - [2025-07-10T11:54:49.874+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:49.917+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T11:54:49.955+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.104 seconds
+[2025-07-10T12:20:50.868+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:20:50.870+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:20:50.873+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:20:50.873+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:20:50.893+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:20:50.921+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.063 seconds
+[2025-07-10T12:21:21.480+0000] {processor.py:161} INFO - Started process (PID=191) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:21.482+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:21:21.486+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:21:21.485+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:21.507+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:21.532+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.063 seconds
+[2025-07-10T12:21:52.038+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:52.040+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:21:52.045+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:21:52.044+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:52.065+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:21:52.089+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.062 seconds
+[2025-07-10T12:22:22.440+0000] {processor.py:161} INFO - Started process (PID=225) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:22.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:22:22.446+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:22:22.445+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:22.468+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:22.493+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.066 seconds
+[2025-07-10T12:22:52.828+0000] {processor.py:161} INFO - Started process (PID=239) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:52.830+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:22:52.834+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:22:52.833+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:52.856+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:22:52.878+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.062 seconds
+[2025-07-10T12:23:23.196+0000] {processor.py:161} INFO - Started process (PID=253) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:23.197+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:23:23.200+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:23:23.199+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:23.214+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:23.232+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T12:23:53.336+0000] {processor.py:161} INFO - Started process (PID=270) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:53.337+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:23:53.340+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:23:53.339+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:53.358+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:23:53.377+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.051 seconds
+[2025-07-10T12:24:23.846+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:23.847+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:24:23.850+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:24:23.849+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:23.864+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:23.881+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T12:24:54.131+0000] {processor.py:161} INFO - Started process (PID=297) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:54.132+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:24:54.135+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:24:54.135+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:54.152+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:24:54.172+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.050 seconds
+[2025-07-10T12:25:26.373+0000] {processor.py:161} INFO - Started process (PID=311) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:26.374+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:25:26.376+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:25:26.375+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:26.390+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:26.406+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T12:25:57.222+0000] {processor.py:161} INFO - Started process (PID=318) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:57.223+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:25:57.225+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:25:57.225+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:57.238+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:25:57.253+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.037 seconds
+[2025-07-10T12:26:27.520+0000] {processor.py:161} INFO - Started process (PID=335) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:27.521+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:26:27.523+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:26:27.523+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:27.537+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:27.554+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T12:26:57.861+0000] {processor.py:161} INFO - Started process (PID=349) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:57.863+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:26:57.865+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:26:57.864+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:57.879+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:26:57.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.040 seconds
+[2025-07-10T12:27:28.234+0000] {processor.py:161} INFO - Started process (PID=366) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:28.235+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:27:28.238+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:27:28.238+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:28.257+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:28.277+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.053 seconds
+[2025-07-10T12:27:58.614+0000] {processor.py:161} INFO - Started process (PID=378) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:58.616+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:27:58.618+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:27:58.618+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:58.635+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:27:58.654+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.050 seconds
+[2025-07-10T12:28:29.046+0000] {processor.py:161} INFO - Started process (PID=390) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:29.047+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:28:29.050+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:28:29.049+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:29.065+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:29.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T12:28:59.348+0000] {processor.py:161} INFO - Started process (PID=407) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:59.349+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:28:59.351+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:28:59.351+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:59.366+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:28:59.383+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T12:29:29.699+0000] {processor.py:161} INFO - Started process (PID=421) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:29.700+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:29:29.703+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:29:29.703+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:29.716+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:29.734+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T12:29:59.835+0000] {processor.py:161} INFO - Started process (PID=438) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:59.836+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:29:59.839+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:29:59.839+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:59.855+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:29:59.878+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.053 seconds
+[2025-07-10T12:30:30.182+0000] {processor.py:161} INFO - Started process (PID=450) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:30:30.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:30:30.187+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:30:30.186+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:30:30.206+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:30:30.229+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.057 seconds
+[2025-07-10T12:31:00.551+0000] {processor.py:161} INFO - Started process (PID=460) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:31:00.552+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T12:31:00.556+0000] {logging_mixin.py:188} INFO - [2025-07-10T12:31:00.555+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:31:00.573+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T12:31:00.591+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.049 seconds
+[2025-07-10T13:29:48.341+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:29:48.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:29:48.346+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:29:48.345+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:29:48.362+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:29:48.387+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.054 seconds
+[2025-07-10T13:30:19.024+0000] {processor.py:161} INFO - Started process (PID=185) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:19.025+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:30:19.028+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:30:19.027+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:19.043+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:19.063+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.048 seconds
+[2025-07-10T13:30:49.359+0000] {processor.py:161} INFO - Started process (PID=197) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:49.361+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:30:49.365+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:30:49.364+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:49.383+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:30:49.400+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.055 seconds
+[2025-07-10T13:31:19.707+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:19.709+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:31:19.711+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:31:19.711+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:19.726+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:19.747+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.048 seconds
+[2025-07-10T13:31:50.027+0000] {processor.py:161} INFO - Started process (PID=220) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:50.028+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:31:50.031+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:31:50.030+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:50.048+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:31:50.071+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.055 seconds
+[2025-07-10T13:32:20.472+0000] {processor.py:161} INFO - Started process (PID=230) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:20.473+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:32:20.475+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:32:20.475+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:20.488+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:20.507+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T13:32:50.771+0000] {processor.py:161} INFO - Started process (PID=243) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:50.772+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:32:50.774+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:32:50.774+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:50.789+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:32:50.806+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T13:33:21.072+0000] {processor.py:161} INFO - Started process (PID=255) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:21.073+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:33:21.075+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:33:21.075+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:21.090+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:21.107+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T13:33:51.427+0000] {processor.py:161} INFO - Started process (PID=268) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:51.428+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:33:51.431+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:33:51.430+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:51.446+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:33:51.466+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.049 seconds
+[2025-07-10T13:34:21.733+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:21.734+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:34:21.737+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:34:21.737+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:21.754+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:21.775+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.051 seconds
+[2025-07-10T13:34:52.539+0000] {processor.py:161} INFO - Started process (PID=293) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:52.540+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:34:52.545+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:34:52.544+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:52.560+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:34:52.576+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T13:35:22.811+0000] {processor.py:161} INFO - Started process (PID=303) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:22.812+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:35:22.815+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:35:22.814+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:22.830+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:22.846+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T13:35:53.142+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:53.143+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:35:53.146+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:35:53.146+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:53.160+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:35:53.176+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:36:23.435+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:23.436+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:36:23.440+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:36:23.439+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:23.455+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:23.480+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.052 seconds
+[2025-07-10T13:36:53.882+0000] {processor.py:161} INFO - Started process (PID=340) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:53.883+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:36:53.885+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:36:53.885+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:53.898+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:36:53.914+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.038 seconds
+[2025-07-10T13:37:24.198+0000] {processor.py:161} INFO - Started process (PID=353) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:24.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:37:24.201+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:37:24.200+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:24.215+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:24.230+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.039 seconds
+[2025-07-10T13:37:54.339+0000] {processor.py:161} INFO - Started process (PID=363) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:54.340+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:37:54.342+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:37:54.342+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:54.357+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:37:54.375+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T13:38:24.675+0000] {processor.py:161} INFO - Started process (PID=373) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:24.676+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:38:24.678+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:38:24.678+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:24.693+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:24.710+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T13:38:54.981+0000] {processor.py:161} INFO - Started process (PID=383) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:54.982+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:38:54.984+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:38:54.984+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:54.998+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:38:55.015+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:39:25.330+0000] {processor.py:161} INFO - Started process (PID=395) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:25.331+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:39:25.333+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:39:25.333+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:25.347+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:25.364+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:39:56.133+0000] {processor.py:161} INFO - Started process (PID=408) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:56.134+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:39:56.136+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:39:56.136+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:56.150+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:39:56.165+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.040 seconds
+[2025-07-10T13:40:26.463+0000] {processor.py:161} INFO - Started process (PID=420) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:26.464+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:40:26.467+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:40:26.466+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:26.480+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:26.496+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:40:56.786+0000] {processor.py:161} INFO - Started process (PID=433) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:56.787+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:40:56.789+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:40:56.789+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:56.803+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:40:56.821+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T13:41:27.113+0000] {processor.py:161} INFO - Started process (PID=445) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:27.114+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:41:27.116+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:41:27.116+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:27.129+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:27.147+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:41:57.417+0000] {processor.py:161} INFO - Started process (PID=458) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:57.418+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:41:57.420+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:41:57.420+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:57.435+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:41:57.453+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T13:42:27.714+0000] {processor.py:161} INFO - Started process (PID=470) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:42:27.715+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:42:27.717+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:42:27.717+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:42:27.731+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:42:27.748+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:55:18.064+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:18.067+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:55:18.070+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:55:18.070+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:18.090+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:18.111+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.057 seconds
+[2025-07-10T13:55:48.368+0000] {processor.py:161} INFO - Started process (PID=185) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:48.369+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:55:48.375+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:55:48.374+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:48.391+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:55:48.410+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.050 seconds
+[2025-07-10T13:56:18.679+0000] {processor.py:161} INFO - Started process (PID=197) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:18.680+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:56:18.682+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:56:18.682+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:18.696+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:18.713+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T13:56:49.018+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:49.019+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:56:49.022+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:56:49.021+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:49.037+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:56:49.054+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.047 seconds
+[2025-07-10T13:57:19.328+0000] {processor.py:161} INFO - Started process (PID=222) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:19.329+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:57:19.331+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:57:19.331+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:19.344+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:19.360+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T13:57:49.643+0000] {processor.py:161} INFO - Started process (PID=235) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:49.644+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:57:49.646+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:57:49.646+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:49.661+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:57:49.681+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.047 seconds
+[2025-07-10T13:58:19.928+0000] {processor.py:161} INFO - Started process (PID=245) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:19.929+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:58:19.931+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:58:19.931+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:19.946+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:19.965+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.046 seconds
+[2025-07-10T13:58:50.011+0000] {processor.py:161} INFO - Started process (PID=257) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:50.012+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:58:50.014+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:58:50.014+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:50.027+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:58:50.044+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.040 seconds
+[2025-07-10T13:59:20.300+0000] {processor.py:161} INFO - Started process (PID=270) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:20.301+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:59:20.303+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:59:20.303+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:20.319+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:20.337+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T13:59:50.614+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:50.615+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T13:59:50.617+0000] {logging_mixin.py:188} INFO - [2025-07-10T13:59:50.617+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:50.630+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T13:59:50.646+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.039 seconds
+[2025-07-10T14:00:21.476+0000] {processor.py:161} INFO - Started process (PID=295) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:21.478+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:00:21.481+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:00:21.480+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:21.500+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:21.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.054 seconds
+[2025-07-10T14:00:51.804+0000] {processor.py:161} INFO - Started process (PID=305) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:51.806+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:00:51.809+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:00:51.808+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:51.827+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:00:51.850+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.057 seconds
+[2025-07-10T14:01:22.332+0000] {processor.py:161} INFO - Started process (PID=317) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:22.333+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:01:22.335+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:01:22.335+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:22.348+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:22.364+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.039 seconds
+[2025-07-10T14:01:52.587+0000] {processor.py:161} INFO - Started process (PID=330) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:52.590+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:01:52.596+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:01:52.595+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:52.612+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:01:52.634+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.058 seconds
+[2025-07-10T14:02:23.275+0000] {processor.py:161} INFO - Started process (PID=342) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:23.277+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:02:23.279+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:02:23.279+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:23.293+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:23.308+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.040 seconds
+[2025-07-10T14:02:53.573+0000] {processor.py:161} INFO - Started process (PID=355) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:53.575+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:02:53.577+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:02:53.577+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:53.592+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:02:53.608+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T14:03:23.863+0000] {processor.py:161} INFO - Started process (PID=367) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:23.864+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:03:23.867+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:03:23.866+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:23.880+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:23.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.038 seconds
+[2025-07-10T14:03:54.171+0000] {processor.py:161} INFO - Started process (PID=380) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:54.172+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:03:54.174+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:03:54.174+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:54.190+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:03:54.207+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T14:04:24.395+0000] {processor.py:161} INFO - Started process (PID=385) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:24.397+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:04:24.399+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:04:24.398+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:24.413+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:24.429+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T14:04:54.741+0000] {processor.py:161} INFO - Started process (PID=397) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:54.742+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:04:54.744+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:04:54.744+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:54.757+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:04:54.773+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.039 seconds
+[2025-07-10T14:05:25.388+0000] {processor.py:161} INFO - Started process (PID=410) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:25.389+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:05:25.391+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:05:25.391+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:25.406+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:25.422+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T14:05:55.730+0000] {processor.py:161} INFO - Started process (PID=422) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:55.731+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:05:55.733+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:05:55.733+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:55.748+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:05:55.763+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T14:06:26.041+0000] {processor.py:161} INFO - Started process (PID=435) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:26.042+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:06:26.046+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:06:26.045+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:26.061+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:26.079+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.046 seconds
+[2025-07-10T14:06:57.005+0000] {processor.py:161} INFO - Started process (PID=447) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:57.006+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:06:57.008+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:06:57.008+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:57.022+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:06:57.038+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.039 seconds
+[2025-07-10T14:07:27.313+0000] {processor.py:161} INFO - Started process (PID=460) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:27.315+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:07:27.317+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:07:27.317+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:27.332+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:27.351+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.047 seconds
+[2025-07-10T14:07:57.641+0000] {processor.py:161} INFO - Started process (PID=472) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:57.642+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:07:57.645+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:07:57.644+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:57.657+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:07:57.673+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.038 seconds
+[2025-07-10T14:08:28.004+0000] {processor.py:161} INFO - Started process (PID=485) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:28.005+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:08:28.007+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:08:28.007+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:28.023+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:28.039+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.044 seconds
+[2025-07-10T14:08:58.284+0000] {processor.py:161} INFO - Started process (PID=495) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:58.285+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:08:58.289+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:08:58.288+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:58.304+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:08:58.311+0000] {processor.py:186} ERROR - Got an exception! Propagating...
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "postgres" (172.24.0.2), port 5432 failed: FATAL:  sorry, too many clients already
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/dag_processing/processor.py", line 182, in _run_file_processor
+    _handle_dag_file_processing()
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/dag_processing/processor.py", line 163, in _handle_dag_file_processing
+    result: tuple[int, int] = dag_file_processor.process_file(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/dag_processing/processor.py", line 843, in process_file
+    DagFileProcessor.update_import_errors(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/dag_processing/processor.py", line 615, in update_import_errors
+    session.execute(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "postgres" (172.24.0.2), port 5432 failed: FATAL:  sorry, too many clients already
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-07-10T14:09:28.928+0000] {processor.py:161} INFO - Started process (PID=507) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:28.929+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:09:28.931+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:09:28.931+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:28.945+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:28.959+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.038 seconds
+[2025-07-10T14:09:59.214+0000] {processor.py:161} INFO - Started process (PID=520) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:59.215+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:09:59.218+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:09:59.217+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:59.232+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:09:59.251+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T14:10:30.069+0000] {processor.py:161} INFO - Started process (PID=532) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:10:30.070+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:10:30.072+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:10:30.072+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:10:30.085+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:10:30.101+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.038 seconds
+[2025-07-10T14:11:00.353+0000] {processor.py:161} INFO - Started process (PID=545) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:00.354+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:11:00.357+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:11:00.357+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:00.372+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:00.389+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T14:11:30.692+0000] {processor.py:161} INFO - Started process (PID=557) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:30.693+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:11:30.696+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:11:30.696+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:30.709+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:11:30.724+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.037 seconds
+[2025-07-10T14:12:00.957+0000] {processor.py:161} INFO - Started process (PID=570) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:00.958+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:12:00.961+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:12:00.960+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:00.975+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:00.993+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T14:12:31.308+0000] {processor.py:161} INFO - Started process (PID=582) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:31.309+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:12:31.311+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:12:31.310+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:31.323+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:12:31.339+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.037 seconds
+[2025-07-10T14:13:01.602+0000] {processor.py:161} INFO - Started process (PID=595) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:01.603+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:13:01.607+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:13:01.606+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:01.620+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:01.640+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T14:13:31.782+0000] {processor.py:161} INFO - Started process (PID=607) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:31.783+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:13:31.785+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:13:31.785+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:31.798+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:13:31.813+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.037 seconds
+[2025-07-10T14:14:02.077+0000] {processor.py:161} INFO - Started process (PID=615) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:02.078+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:14:02.082+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:14:02.081+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:02.103+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:02.130+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.064 seconds
+[2025-07-10T14:14:32.291+0000] {processor.py:161} INFO - Started process (PID=625) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:32.292+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:14:32.295+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:14:32.294+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:32.310+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:14:32.327+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T14:15:02.604+0000] {processor.py:161} INFO - Started process (PID=637) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:02.605+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:15:02.607+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:15:02.607+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:02.621+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:02.638+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T14:15:33.415+0000] {processor.py:161} INFO - Started process (PID=650) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:33.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:15:33.420+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:15:33.419+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:33.439+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:15:33.460+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.059 seconds
+[2025-07-10T14:16:04.132+0000] {processor.py:161} INFO - Started process (PID=662) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:04.133+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:16:04.135+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:16:04.135+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:04.149+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:04.167+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.042 seconds
+[2025-07-10T14:16:34.457+0000] {processor.py:161} INFO - Started process (PID=675) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:34.459+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:16:34.462+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:16:34.461+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:34.483+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:16:34.505+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.063 seconds
+[2025-07-10T14:17:04.746+0000] {processor.py:161} INFO - Started process (PID=685) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:04.747+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:17:04.750+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:17:04.749+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:04.766+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:04.787+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.050 seconds
+[2025-07-10T14:17:35.100+0000] {processor.py:161} INFO - Started process (PID=697) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:35.101+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:17:35.103+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:17:35.103+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:35.115+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:17:35.130+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.036 seconds
+[2025-07-10T14:18:05.342+0000] {processor.py:161} INFO - Started process (PID=710) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:05.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:18:05.346+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:18:05.345+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:05.361+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:05.379+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.045 seconds
+[2025-07-10T14:18:35.946+0000] {processor.py:161} INFO - Started process (PID=722) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:35.948+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:18:35.950+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:18:35.950+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:35.966+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:18:35.981+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.043 seconds
+[2025-07-10T14:19:06.241+0000] {processor.py:161} INFO - Started process (PID=735) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:06.243+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:19:06.248+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:19:06.248+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:06.268+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:06.297+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.067 seconds
+[2025-07-10T14:19:36.580+0000] {processor.py:161} INFO - Started process (PID=747) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:36.582+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:19:36.584+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:19:36.583+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:36.598+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:19:36.615+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.041 seconds
+[2025-07-10T14:20:06.885+0000] {processor.py:161} INFO - Started process (PID=760) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:06.887+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:20:06.890+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:20:06.889+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:06.908+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:06.929+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.054 seconds
+[2025-07-10T14:20:37.619+0000] {processor.py:161} INFO - Started process (PID=770) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:37.623+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:20:37.628+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:20:37.627+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:37.671+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:20:37.712+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.111 seconds
+[2025-07-10T14:21:07.881+0000] {processor.py:161} INFO - Started process (PID=780) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:07.884+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:21:07.889+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:21:07.888+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:07.933+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:07.972+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T14:21:39.264+0000] {processor.py:161} INFO - Started process (PID=793) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:39.267+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:21:39.279+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:21:39.278+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:39.330+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:21:39.365+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.124 seconds
+[2025-07-10T14:22:09.992+0000] {processor.py:161} INFO - Started process (PID=798) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:09.995+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:22:09.999+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:22:09.998+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:10.038+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:10.076+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T14:22:40.722+0000] {processor.py:161} INFO - Started process (PID=811) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:40.726+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:22:40.734+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:22:40.733+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:40.775+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:22:40.813+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T14:23:10.976+0000] {processor.py:161} INFO - Started process (PID=821) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:10.979+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:23:10.984+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:23:10.983+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:11.029+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:11.070+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.116 seconds
+[2025-07-10T14:23:41.681+0000] {processor.py:161} INFO - Started process (PID=831) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:41.684+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:23:41.688+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:23:41.687+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:41.725+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:23:41.765+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.103 seconds
+[2025-07-10T14:24:12.381+0000] {processor.py:161} INFO - Started process (PID=844) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:12.385+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:24:12.391+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:24:12.390+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:12.432+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:12.481+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.117 seconds
+[2025-07-10T14:24:43.209+0000] {processor.py:161} INFO - Started process (PID=854) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:43.213+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:24:43.219+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:24:43.218+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:43.259+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:24:43.299+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.114 seconds
+[2025-07-10T14:25:13.987+0000] {processor.py:161} INFO - Started process (PID=867) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:13.990+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:25:13.996+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:25:13.995+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:14.051+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:14.087+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.135 seconds
+[2025-07-10T14:25:44.830+0000] {processor.py:161} INFO - Started process (PID=877) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:44.833+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:25:44.839+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:25:44.838+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:44.882+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:25:44.936+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.127 seconds
+[2025-07-10T14:26:15.701+0000] {processor.py:161} INFO - Started process (PID=887) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:15.703+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:26:15.708+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:26:15.707+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:15.748+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:15.785+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.099 seconds
+[2025-07-10T14:26:46.001+0000] {processor.py:161} INFO - Started process (PID=900) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:46.004+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:26:46.008+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:26:46.007+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:46.047+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:26:46.106+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.121 seconds
+[2025-07-10T14:27:16.549+0000] {processor.py:161} INFO - Started process (PID=905) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:16.555+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:27:16.564+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:27:16.563+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:16.605+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:16.645+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.123 seconds
+[2025-07-10T14:27:47.085+0000] {processor.py:161} INFO - Started process (PID=915) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:47.087+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:27:47.092+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:27:47.091+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:47.126+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:27:47.167+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.099 seconds
+[2025-07-10T14:37:24.826+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:24.829+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:37:24.834+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:37:24.833+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:24.876+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:24.917+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.107 seconds
+[2025-07-10T14:37:55.527+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:55.529+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:37:55.534+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:37:55.533+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:55.576+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:37:55.625+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.116 seconds
+[2025-07-10T14:38:26.284+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:26.286+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:38:26.293+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:38:26.292+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:26.340+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:26.397+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.144 seconds
+[2025-07-10T14:38:57.038+0000] {processor.py:161} INFO - Started process (PID=218) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:57.042+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:38:57.047+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:38:57.046+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:57.092+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:38:57.135+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.121 seconds
+[2025-07-10T14:39:27.501+0000] {processor.py:161} INFO - Started process (PID=230) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:27.503+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:39:27.509+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:39:27.508+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:27.547+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:27.631+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.148 seconds
+[2025-07-10T14:39:58.433+0000] {processor.py:161} INFO - Started process (PID=235) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:58.436+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:39:58.442+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:39:58.441+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:58.496+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:39:58.544+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.133 seconds
+[2025-07-10T14:40:29.016+0000] {processor.py:161} INFO - Started process (PID=252) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:40:29.019+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T14:40:29.027+0000] {logging_mixin.py:188} INFO - [2025-07-10T14:40:29.026+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:40:29.068+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T14:40:29.115+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.118 seconds
+[2025-07-10T15:40:54.436+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:40:54.440+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:40:54.447+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:40:54.446+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:40:54.495+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:40:54.548+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.134 seconds
+[2025-07-10T15:41:25.562+0000] {processor.py:161} INFO - Started process (PID=185) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:25.565+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:41:25.574+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:41:25.573+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:25.620+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:25.670+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.131 seconds
+[2025-07-10T15:41:56.254+0000] {processor.py:161} INFO - Started process (PID=195) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:56.256+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:41:56.262+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:41:56.261+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:56.308+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:41:56.349+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.116 seconds
+[2025-07-10T15:42:26.773+0000] {processor.py:161} INFO - Started process (PID=208) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:26.776+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:42:26.783+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:42:26.782+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:26.820+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:26.863+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T15:42:57.177+0000] {processor.py:161} INFO - Started process (PID=218) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:57.182+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:42:57.188+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:42:57.187+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:57.231+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:42:57.272+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.116 seconds
+[2025-07-10T15:43:27.922+0000] {processor.py:161} INFO - Started process (PID=228) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:27.924+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:43:27.936+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:43:27.931+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:27.984+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:28.023+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.137 seconds
+[2025-07-10T15:43:58.429+0000] {processor.py:161} INFO - Started process (PID=241) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:58.431+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:43:58.436+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:43:58.436+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:58.477+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:43:58.519+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T15:44:29.050+0000] {processor.py:161} INFO - Started process (PID=251) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:29.052+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:44:29.058+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:44:29.057+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:29.095+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:29.133+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.100 seconds
+[2025-07-10T15:44:59.588+0000] {processor.py:161} INFO - Started process (PID=259) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:59.591+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:44:59.596+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:44:59.595+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:59.638+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:44:59.678+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T15:45:30.292+0000] {processor.py:161} INFO - Started process (PID=269) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:45:30.295+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:45:30.302+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:45:30.301+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:45:30.345+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:45:30.389+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.117 seconds
+[2025-07-10T15:46:01.365+0000] {processor.py:161} INFO - Started process (PID=279) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:01.367+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:46:01.372+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:46:01.371+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:01.405+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:01.441+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.091 seconds
+[2025-07-10T15:46:31.669+0000] {processor.py:161} INFO - Started process (PID=292) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:31.672+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:46:31.680+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:46:31.679+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:31.721+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:46:31.763+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.113 seconds
+[2025-07-10T15:47:02.465+0000] {processor.py:161} INFO - Started process (PID=302) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:02.468+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:47:02.474+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:47:02.473+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:02.510+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:02.552+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.110 seconds
+[2025-07-10T15:47:32.932+0000] {processor.py:161} INFO - Started process (PID=312) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:32.936+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:47:32.942+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:47:32.941+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:32.977+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:47:33.013+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.097 seconds
+[2025-07-10T15:48:03.212+0000] {processor.py:161} INFO - Started process (PID=325) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:03.215+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:48:03.222+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:48:03.221+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:03.263+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:03.311+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.122 seconds
+[2025-07-10T15:48:33.572+0000] {processor.py:161} INFO - Started process (PID=335) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:33.576+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:48:33.581+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:48:33.580+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:33.625+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:48:33.672+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.117 seconds
+[2025-07-10T15:49:04.164+0000] {processor.py:161} INFO - Started process (PID=348) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:04.167+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:49:04.172+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:49:04.171+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:04.222+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:04.261+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.111 seconds
+[2025-07-10T15:49:34.433+0000] {processor.py:161} INFO - Started process (PID=358) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:34.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:49:34.440+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:49:34.439+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:34.481+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:49:34.525+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.108 seconds
+[2025-07-10T15:50:05.419+0000] {processor.py:161} INFO - Started process (PID=366) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:05.422+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:50:05.429+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:50:05.427+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:05.476+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:05.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.122 seconds
+[2025-07-10T15:50:35.392+0000] {processor.py:161} INFO - Started process (PID=376) to work on /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:35.395+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/equity_report_dag.py for tasks to queue
+[2025-07-10T15:50:35.401+0000] {logging_mixin.py:188} INFO - [2025-07-10T15:50:35.400+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:35.446+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/equity_report_dag.py
+[2025-07-10T15:50:35.493+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/equity_report_dag.py took 0.127 seconds
