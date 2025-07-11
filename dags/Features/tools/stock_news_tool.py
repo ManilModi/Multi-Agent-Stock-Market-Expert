@@ -1,13 +1,14 @@
 from crewai.tools import BaseTool
 import os
 import requests
+import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv()
 
 class IndianStockNewsTool(BaseTool):
     name: str = "Indian Stock News Tool"
-    description: str = "Fetches recent news articles about Indian companies using NewsAPI.org."
+    description: str = "Fetches recent news articles about Indian companies using NewsAPI.org and saves them as CSV."
 
     def _run(self, query: str) -> str:
         api_key = os.getenv("NEWS_API_KEY")
@@ -31,28 +32,40 @@ class IndianStockNewsTool(BaseTool):
             if not articles:
                 return f"ℹ️ No recent news found for {query}."
 
-            result = f"📰 Top News for {query}:\n"
+            # Build list of dicts
+            news_list = []
             for article in articles:
-                result += (
-                    f"\n🗞️ {article['title']}\n"
-                    f"📅 {article['publishedAt'][:10]}\n"
-                    f"🔗 {article['url']}\n"
-                )
+                news_list.append({
+                    "title": article["title"],
+                    "date": article["publishedAt"][:10],
+                    "url": article["url"],
+                    "source": article["source"]["name"]
+                })
 
-            return result
+            # Convert to DataFrame
+            df = pd.DataFrame(news_list)
+
+            # Create filename
+            csv_filename = f"{query.lower().replace(' ', '_')}_news.csv"
+
+            # Save as CSV
+            df.to_csv(csv_filename, index=False, encoding='utf-8-sig')
+
+            return f"✅ News saved to {csv_filename}"
 
         except Exception as e:
-            return f"❌ Error fetching news: {str(e)}"
+            return f"❌ Error fetching or saving news: {str(e)}"
 
     async def _arun(self, query: str) -> str:
+        # Just run the same sync logic
         return self._run(query)
 
 
-# if __name__ == "__main__":
-#     tool = IndianStockNewsTool()
-#     company_name = "Torrent"  # You can change this to test other companies
-#     result = tool._run(company_name)
+if __name__ == "__main__":
+    tool = IndianStockNewsTool()
+    company_name = "tata motors"  # Test company
+    result = tool._run(company_name)
 
-#     print("\n========== NEWS RESULTS ==========\n")
-#     print(result)
-#     print("\n==================================\n")
+    print("\n========== NEWS TOOL OUTPUT ==========\n")
+    print(result)
+    print("\n======================================\n")

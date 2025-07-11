@@ -4,18 +4,17 @@ import pandas as pd
 
 class YFinanceFundamentalsTool(BaseTool):
     name: str = "Yahoo Finance Fundamentals Tool"
-    description: str = "Fetches financial ratios and latest balance sheet for Indian stocks using yfinance."
+    description: str = "Fetches financial ratios and latest balance sheet for Indian stocks using yfinance and saves them to CSV."
 
     def _run(self, symbol: str) -> str:
         try:
             ticker = yf.Ticker(symbol)
-            
-            info = ticker.info
 
-            ratios_lines = []
-            # Loop through all fields and display numeric metrics
+            # === Financial Ratios ===
+            info = ticker.info
+            ratios_list = []
+
             for key, value in info.items():
-                # Skip large text fields or non-ratio info
                 if key.lower() in ["longbusinesssummary", "companyofficers"]:
                     continue
                 if isinstance(value, (int, float)):
@@ -24,37 +23,37 @@ class YFinanceFundamentalsTool(BaseTool):
                     else:
                         formatted = f"{round(value, 2):,}"
                     label = key.replace('_', ' ').title()
-                    ratios_lines.append(f"• {label}: {formatted}")
+                    ratios_list.append({"Metric": label, "Value": formatted})
 
-            ratios_summary = "\n".join(ratios_lines) or "❌ No ratios found."
-            ratios_summary = f"--BEGIN FUNDAMENTALS--\n{ratios_summary}\n--END FUNDAMENTALS--"
+            # Convert to DataFrame & save
+            ratios_df = pd.DataFrame(ratios_list)
+            ratios_csv = f"{symbol.lower()}_ratios.csv"
+            ratios_df.to_csv(ratios_csv, index=False, encoding='utf-8-sig')
 
-            
             # === Balance Sheet ===
-            # === Balance Sheet (most recent column) ===
             bs = ticker.balance_sheet
             if bs.empty:
-                bs_summary = "❌ No balance sheet data available."
+                bs_msg = "❌ No balance sheet data available."
             else:
                 latest = bs.columns[0]
+                bs_list = []
 
-                # Loop through all items in the most recent column
-                lines = []
                 for key, value in bs[latest].items():
                     try:
                         formatted_value = f"{int(value):,}" if pd.notnull(value) else "N/A"
                     except Exception:
                         formatted_value = str(value)
-                    lines.append(f"• {key}: {formatted_value}")
+                    bs_list.append({"Item": key, "Value": formatted_value})
 
-                bs_summary = "\n".join(lines)
-                bs_summary = f"--BEGIN BALANCE SHEET--\n{bs_summary}\n--END BALANCE SHEET--"
-                
-                return (
-                    f"📊 Financial Ratios for {symbol}:\n{ratios_summary}\n\n"
-                    f"📘 Balance Sheet (Most Recent):\n{bs_summary}"
-                )
+                bs_df = pd.DataFrame(bs_list)
+                bs_csv = f"{symbol.lower()}_balance_sheet.csv"
+                bs_df.to_csv(bs_csv, index=False, encoding='utf-8-sig')
+                bs_msg = f"✅ Balance sheet saved to {bs_csv}"
 
+            return (
+                f"✅ Financial ratios saved to {ratios_csv}\n"
+                f"{bs_msg}"
+            )
 
         except Exception as e:
             return f"❌ Error fetching data for {symbol}: {str(e)}"
@@ -63,6 +62,9 @@ class YFinanceFundamentalsTool(BaseTool):
         return self._run(symbol)
 
 
-# if __name__ == "__main__":
-#     tool = YFinanceFundamentalsTool()
-#     print(tool._run("TATAMOTORS.NS"))
+if __name__ == "__main__":
+    tool = YFinanceFundamentalsTool()
+    result = tool._run("TATAMOTORS.NS")
+    print("\n========== TOOL OUTPUT ==========\n")
+    print(result)
+    print("\n=================================\n")
