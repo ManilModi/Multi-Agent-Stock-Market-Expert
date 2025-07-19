@@ -50,7 +50,10 @@ class IndianStockNewsTool(BaseTool):
             df = pd.DataFrame(news_list)
 
             # Create filename
-            csv_filename = f"{query.lower().replace(' ', '_')}_news.csv"
+            output_dir = "Tools_Data/indian_stock_news"
+            os.makedirs(output_dir, exist_ok=True)
+            csv_filename = os.path.join(output_dir, f"{query.lower().replace(' ', '_')}_news.csv")
+
 
             # Save as CSV
             df.to_csv(csv_filename, index=False, encoding='utf-8-sig')

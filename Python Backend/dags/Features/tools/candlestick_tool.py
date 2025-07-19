@@ -101,7 +101,10 @@ class AngelOneCandlestickTool(BaseTool):
 
 
 
-            filename = f"{company_name.lower().replace(' ', '_')}_candles_angel.csv"
+            output_dir = "Tools_Data/candlestick_data"
+            os.makedirs(output_dir, exist_ok=True)  # ensure the folder exists
+            filename = os.path.join(output_dir, f"{company_name.lower().replace(' ', '_')}_candles_angel.csv")
+
 
             # === Check if file exists and append new data ===
             if os.path.exists(filename):
@@ -120,8 +123,8 @@ class AngelOneCandlestickTool(BaseTool):
 
 if __name__ == "__main__":
     tool = AngelOneCandlestickTool()
-    company_name = "Tata Motors"
-    stock_name = "TATAMOTORS"
+    company_name = "Infosys Limited"
+    stock_name = "INFY"
     exchange = "NSE"
     interval = "ONE_MINUTE"
 

@@ -1,13 +1,18 @@
 from crewai.tools import BaseTool
 import yfinance as yf
 import pandas as pd
+import os
 
 class YFinanceFundamentalsTool(BaseTool):
     name: str = "Yahoo Finance Fundamentals Tool"
-    description: str = "Fetches financial ratios and latest balance sheet for Indian stocks using yfinance and saves them to CSV."
+    description: str = "Fetches financial ratios and latest balance sheet for Indian stocks using yfinance and saves them to CSV in Tool_Data folder."
 
     def _run(self, symbol: str) -> str:
         try:
+            # Ensure Tool_Data folder exists
+            output_folder = "Tools_Data/Ratios_Balance_Sheet"
+            os.makedirs(output_folder, exist_ok=True)
+
             ticker = yf.Ticker(symbol)
 
             # === Financial Ratios ===
@@ -27,7 +32,7 @@ class YFinanceFundamentalsTool(BaseTool):
 
             # Convert to DataFrame & save
             ratios_df = pd.DataFrame(ratios_list)
-            ratios_csv = f"{symbol.lower()}_ratios.csv"
+            ratios_csv = os.path.join(output_folder, f"{symbol.lower()}_ratios.csv")
             ratios_df.to_csv(ratios_csv, index=False, encoding='utf-8-sig')
 
             # === Balance Sheet ===
@@ -46,7 +51,7 @@ class YFinanceFundamentalsTool(BaseTool):
                     bs_list.append({"Item": key, "Value": formatted_value})
 
                 bs_df = pd.DataFrame(bs_list)
-                bs_csv = f"{symbol.lower()}_balance_sheet.csv"
+                bs_csv = os.path.join(output_folder, f"{symbol.lower()}_balance_sheet.csv")
                 bs_df.to_csv(bs_csv, index=False, encoding='utf-8-sig')
                 bs_msg = f"✅ Balance sheet saved to {bs_csv}"
 
