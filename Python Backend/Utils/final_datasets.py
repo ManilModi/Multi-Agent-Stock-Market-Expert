@@ -1,6 +1,7 @@
 import pandas as pd
 import pandas_ta as ta
 from datetime import date
+
 # import talib
 
 def add_features(df):
@@ -11,8 +12,6 @@ def add_features(df):
 
     macd = ta.macd(df['close'])
     df = pd.concat([df, macd], axis=1)
-
-    
 
     df['avg_volume_10d'] = df['volume'].rolling(window=10).mean()
     df['avg_volume_50d'] = df['volume'].rolling(window=50).mean()
@@ -27,13 +26,12 @@ def add_features(df):
     return df
 
 
-# === Step 1: Load all CSV files ===
-candles_df = pd.read_csv("tata_motors_candles_angel.csv")
-news_df = pd.read_csv("tata_motors_news.csv")
+# === Step 1: Load all CSV files from tools_data ===
+candles_df = pd.read_csv("../dags/Features/tools/Tools_Data/candlestick_data/tata_motors_candles_angel.csv")
+news_df = pd.read_csv("../dags/Features/tools/Tools_Data/indian_stock_news/tata_motors_news.csv")
 
 # === Step 2: Convert timestamp columns to datetime ===
 candles_df['timestamp'] = pd.to_datetime(candles_df['timestamp'])
-
 
 # === Step 3: Prepare news sentiment data ===
 news_df['date'] = pd.to_datetime(news_df['date']).dt.date
@@ -57,8 +55,8 @@ merged_df['sentiment'] = merged_df['sentiment'].fillna(0)
 final_df = add_features(merged_df)
 
 # === Step 7: (Optional) Add static fundamental features if you have them ===
-# ratios_df = pd.read_csv("tatamotors.ns_ratios.csv")
-# bs_df = pd.read_csv("tatamotors.ns_balance_sheet.csv")
+# ratios_df = pd.read_csv("tools_data/tatamotors.ns_ratios.csv")
+# bs_df = pd.read_csv("tools_data/tatamotors.ns_balance_sheet.csv")
 #
 # if 'ratios_df' in locals():
 #     for col in ratios_df.columns:
@@ -69,5 +67,5 @@ final_df = add_features(merged_df)
 #         final_df[f'bs_{col}'] = bs_df[col].iloc[0]
 
 # === Step 8: Save final enriched dataset ===
-final_df.to_csv('final_dataset_with_sentiment_and_features.csv', index=False)
-print("✅ Final dataset with features & sentiment saved as 'final_dataset_with_sentiment_and_features.csv'")
+final_df.to_csv('../Final_Datasets/Final_dataset_with_sentiment_and_features.csv', index=False)
+print("✅ Final dataset with features & sentiment saved as 'tools_data/final_dataset_with_sentiment_and_features.csv'")
