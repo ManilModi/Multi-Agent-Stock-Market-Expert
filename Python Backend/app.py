@@ -58,18 +58,24 @@ async def add_candlestick(request: CandlestickRequest):
         raise HTTPException(status_code=500, detail=str(e))
     
 @app.post("/balance-sheet-and-ratios/")
-async def add_balance_sheet(sheet: BalanceSheetSchema):
+async def add_balance_sheet(symbol: str):
     try:
         tool = YFinanceFundamentalsTool()
-        result = await tool._arun(sheet.symbol)  # Use `symbol` from the input schema
-        return {"message": "Balance sheet and ratios added successfully", "details": result}
+        result = await tool._arun(symbol)
+        return {
+            "message": "✅ Balance sheet and ratios added successfully",
+            "details": result
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    
+        raise HTTPException(status_code=500, detail=f"❌ {str(e)}")
 
 
 
 @app.get("/news/{company_name}")
 def get_news(company_name: str):
-    result = IndianStockNewsTool._run(company_name)
-    return {"result": result}
+    try:
+        tool = IndianStockNewsTool()
+        result = tool._run(company_name)
+        return {"result": result}
+    except Exception as e:
+        return {"error": str(e)}

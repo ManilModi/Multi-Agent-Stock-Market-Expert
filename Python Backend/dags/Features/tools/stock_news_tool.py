@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 from textblob import TextBlob
+from Utils.cloudinary import upload_csv_to_cloudinary
 
 load_dotenv()
 
@@ -58,7 +59,9 @@ class IndianStockNewsTool(BaseTool):
             # Save as CSV
             df.to_csv(csv_filename, index=False, encoding='utf-8-sig')
 
-            return f"✅ News saved to {csv_filename} (with sentiment column)."
+            cloud_url = upload_csv_to_cloudinary(csv_filename, folder="indian_stock_news")
+
+            return f"✅ News data uploaded to Cloudinary: {cloud_url}"
 
         except Exception as e:
             return f"❌ Error fetching or saving news: {str(e)}"
@@ -68,11 +71,11 @@ class IndianStockNewsTool(BaseTool):
         return self._run(query)
 
 
-if __name__ == "__main__":
-    tool = IndianStockNewsTool()
-    company_name = "tata motors"  # Test company
-    result = tool._run(company_name)
+# if __name__ == "__main__":
+#     tool = IndianStockNewsTool()
+#     company_name = "tata motors"  # Test company
+#     result = tool._run(company_name)
 
-    print("\n========== NEWS TOOL OUTPUT ==========\n")
-    print(result)
-    print("\n======================================\n")
+#     print("\n========== NEWS TOOL OUTPUT ==========\n")
+#     print(result)
+#     print("\n======================================\n")

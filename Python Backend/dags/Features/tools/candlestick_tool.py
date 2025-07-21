@@ -5,6 +5,7 @@ from SmartApi.smartConnect import SmartConnect
 import pyotp
 import pandas_ta as ta
 from dotenv import load_dotenv
+from Utils.cloudinary import upload_csv_to_cloudinary
 import os
 
 
@@ -114,7 +115,9 @@ class AngelOneCandlestickTool(BaseTool):
                 combined_df.drop_duplicates(subset='timestamp', keep='last', inplace=True)
                 combined_df.sort_values(by='timestamp', inplace=True)
                 combined_df.to_csv(filename, index=False)
-                return f"✅ Appended new candlestick data to existing file: {filename}"
+                cloud_url = upload_csv_to_cloudinary(filename, folder="candlestick_patterns")
+
+                return f"✅ Candlestick patterns uploaded to Cloudinary: {cloud_url}"
             else:
                 df.to_csv(filename, index=False)
                 return f"✅ Saved candlestick + indicator data to new file: {filename}"
@@ -122,18 +125,18 @@ class AngelOneCandlestickTool(BaseTool):
         except Exception as e:
             return f"❌ Error fetching candlestick data: {str(e)}"
 
-# if __name__ == "__main__":
-#     tool = AngelOneCandlestickTool()
-#     company_name = "MRF"
-#     stock_name = "MRF"
-#     exchange = "NSE"
-#     # interval = "ONE_MINUTE"
+if __name__ == "__main__":
+    tool = AngelOneCandlestickTool()
+    company_name = "MRF"
+    stock_name = "MRF"
+    exchange = "NSE"
+    # interval = "ONE_MINUTE"
 
-#     result = tool._run(
-#         company_name=company_name,
-#         stock_name=stock_name,
-#         exchange=exchange,
-#         # interval=interval
-#     )
+    result = tool._run(
+        company_name=company_name,
+        stock_name=stock_name,
+        exchange=exchange,
+        # interval=interval
+    )
 
-#     print(result)
+    print(result)
