@@ -1,18 +1,20 @@
-// server.js
-import express from 'express';
-import connectDB from './DB/db.js';
-import cors from 'cors';
-import dotenv from 'dotenv';
-// import stockRoutes from './routes/stockRoutes.js';
+import express from "express";
+import mongoose from "mongoose";
+import authRoutes from "./routes/auth.route.js";
+import { ClerkExpressRequireAuth } from "@clerk/clerk-sdk-node";
+import { config } from "dotenv";
 
-dotenv.config();
+config();
 const app = express();
 
-connectDB();
-app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
 
-// app.use('/api', stockRoutes);
+const PORT = process.env.PORT || 5000;
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+  })
+  .catch(err => console.error("MongoDB connection error:", err));
