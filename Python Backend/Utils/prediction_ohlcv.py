@@ -5,10 +5,10 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import xgboost as xgb
 import plotly.graph_objs as go
 import plotly.io as pio
-pio.renderers.default = 'browser'   # ✅ Force open in browser
+pio.renderers.default = 'browser'
 
 # Load data
-df = pd.read_csv('final_dataset_with_sentiment_and_features.csv')
+df = pd.read_csv('./Final_Datasets/Final_dataset_with_sentiment_and_features.csv')
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = df.sort_values('timestamp')
 

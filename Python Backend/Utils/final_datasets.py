@@ -2,12 +2,9 @@ import pandas as pd
 import pandas_ta as ta
 from datetime import date
 
-# import talib
-
 def add_features(df):
     df['ema_50'] = ta.ema(df['close'], length=50)
     df['ema_200'] = ta.ema(df['close'], length=200)
-
     df['rsi'] = ta.rsi(df['close'], length=14)
 
     macd = ta.macd(df['close'])
@@ -17,7 +14,6 @@ def add_features(df):
     df['avg_volume_50d'] = df['volume'].rolling(window=50).mean()
     df['volume_ratio'] = df['volume'] / df['avg_volume_50d']
 
-    # Optional: master score based on your features (without RS)
     df['master_score'] = (df['rsi'].fillna(0)/100 + df['volume_ratio'].fillna(0)) / 2
 
     df['52_week_high'] = df['close'].rolling(window=252).max()
@@ -26,46 +22,40 @@ def add_features(df):
     return df
 
 
-# === Step 1: Load all CSV files from tools_data ===
-candles_df = pd.read_csv("../dags/Features/tools/Tools_Data/candlestick_data/tata_motors_candles_angel.csv")
-news_df = pd.read_csv("../dags/Features/tools/Tools_Data/indian_stock_news/tata_motors_news.csv")
+def generate_final_dataset(company_name: str):
+    """
+    Generates the final dataset with technical indicators and sentiment scores for a given company.
+    Saves the final CSV to ../Final_Datasets/final_dataset_{company_name}.csv
+    """
+    candle_path = f"../dags/Features/tools/Tools_Data/candlestick_data/{company_name.lower()}_candles_angel.csv"
+    news_path = f"../dags/Features/tools/Tools_Data/indian_stock_news/{company_name.lower()}_news.csv"
+    
+    # Load data
+    candles_df = pd.read_csv(candle_path)
+    news_df = pd.read_csv(news_path)
 
-# === Step 2: Convert timestamp columns to datetime ===
-candles_df['timestamp'] = pd.to_datetime(candles_df['timestamp'])
+    # Convert dates
+    candles_df['timestamp'] = pd.to_datetime(candles_df['timestamp'])
+    news_df['date'] = pd.to_datetime(news_df['date']).dt.date
 
-# === Step 3: Prepare news sentiment data ===
-news_df['date'] = pd.to_datetime(news_df['date']).dt.date
-daily_sentiment = news_df.groupby('date')['sentiment'].mean().reset_index()
+    # Aggregate sentiment
+    daily_sentiment = news_df.groupby('date')['sentiment'].mean().reset_index()
 
-# === Step 4: Prepare candles dataframe ===
-candles_df['date'] = candles_df['timestamp'].dt.date
+    # Extract date from timestamp in candles
+    candles_df['date'] = candles_df['timestamp'].dt.date
 
-# === Step 5: Merge candles with daily sentiment ===
-merged_df = pd.merge(
-    candles_df, 
-    daily_sentiment, 
-    on='date', 
-    how='left'
-)
+    # Merge
+    merged_df = pd.merge(candles_df, daily_sentiment, on='date', how='left')
+    merged_df['sentiment'] = merged_df['sentiment'].fillna(0)
 
-# Fill missing sentiment with 0 if no news that day
-merged_df['sentiment'] = merged_df['sentiment'].fillna(0)
+    # Add technical features
+    final_df = add_features(merged_df)
 
-# === Step 6: Add feature engineering ===
-final_df = add_features(merged_df)
+    # Save
+    output_path = f"../Final_Datasets/final_dataset_{company_name.lower()}.csv"
+    final_df.to_csv(output_path, index=False)
 
-# === Step 7: (Optional) Add static fundamental features if you have them ===
-# ratios_df = pd.read_csv("tools_data/tatamotors.ns_ratios.csv")
-# bs_df = pd.read_csv("tools_data/tatamotors.ns_balance_sheet.csv")
-#
-# if 'ratios_df' in locals():
-#     for col in ratios_df.columns:
-#         final_df[f'ratio_{col}'] = ratios_df[col].iloc[0]
-#
-# if 'bs_df' in locals():
-#     for col in bs_df.columns:
-#         final_df[f'bs_{col}'] = bs_df[col].iloc[0]
+    print(f"✅ Final dataset for {company_name} saved to '{output_path}'")
 
-# === Step 8: Save final enriched dataset ===
-final_df.to_csv('../Final_Datasets/Final_dataset_with_sentiment_and_features.csv', index=False)
-print("✅ Final dataset with features & sentiment saved as 'tools_data/final_dataset_with_sentiment_and_features.csv'")
+# Example usage
+# generate_final_dataset("tata_motors")

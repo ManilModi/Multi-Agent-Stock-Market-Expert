@@ -7,6 +7,7 @@ import pandas_ta as ta
 from dotenv import load_dotenv
 import os
 
+
 class AngelOneCandlestickTool(BaseTool):
     name: str = "AngelOneCandlestickTool"
     description: str = "Fetches historical candlestick data for Indian stocks using Angel One SmartAPI and saves to CSV."
@@ -101,7 +102,7 @@ class AngelOneCandlestickTool(BaseTool):
 
 
 
-            output_dir = "Tools_Data/candlestick_data"
+            output_dir = "dags/Features/tools/Tools_Data/candlestick_data"
             os.makedirs(output_dir, exist_ok=True)  # ensure the folder exists
             filename = os.path.join(output_dir, f"{company_name.lower().replace(' ', '_')}_candles_angel.csv")
 
@@ -121,18 +122,18 @@ class AngelOneCandlestickTool(BaseTool):
         except Exception as e:
             return f"❌ Error fetching candlestick data: {str(e)}"
 
-if __name__ == "__main__":
-    tool = AngelOneCandlestickTool()
-    company_name = "Infosys Limited"
-    stock_name = "INFY"
-    exchange = "NSE"
-    interval = "ONE_MINUTE"
+# if __name__ == "__main__":
+#     tool = AngelOneCandlestickTool()
+#     company_name = "MRF"
+#     stock_name = "MRF"
+#     exchange = "NSE"
+#     # interval = "ONE_MINUTE"
 
-    result = tool._run(
-        company_name=company_name,
-        stock_name=stock_name,
-        exchange=exchange,
-        interval=interval
-    )
+#     result = tool._run(
+#         company_name=company_name,
+#         stock_name=stock_name,
+#         exchange=exchange,
+#         # interval=interval
+#     )
 
-    print(result)
+#     print(result)

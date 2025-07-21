@@ -8,7 +8,7 @@ import plotly.io as pio
 pio.renderers.default = 'browser'
 
 # Load data
-df = pd.read_csv('final_dataset_with_sentiment_and_features.csv')
+df = pd.read_csv('./Final_Datasets/Final_dataset_with_sentiment_and_features.csv')
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = df.sort_values('timestamp')
 

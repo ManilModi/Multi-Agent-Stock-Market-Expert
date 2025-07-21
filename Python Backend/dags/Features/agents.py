@@ -11,7 +11,7 @@ from .tools.yfinance_tool import YFinanceFundamentalsTool
 from crewai_tools.tools import ScrapeWebsiteTool
 
 load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY2")
 
 llm = LLM(model="gemini/gemini-2.0-flash", temperature=0.7, api_key=api_key)
 

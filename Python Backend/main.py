@@ -5,6 +5,7 @@ from qualifire import client
 import os
 import json
 from dotenv import load_dotenv
+from Utils.final_datasets import generate_final_dataset
 
 # === Load config ===
 load_dotenv()
@@ -12,7 +13,7 @@ QUALIFIRE_API_KEY = os.getenv("QUALIFIRE_API_KEY")
 
 # === Company config ===
 company_name = "MRF"
-stock_ticker = "MRF.NS"
+stock_ticker = "MRF.NSE"
 
 def run():
     # === Initialize agents and tasks ===
@@ -34,6 +35,12 @@ def run():
 
     print("\n📝 Final Output:\n")
     print(result)
+
+    # === Run Final Dataset Generator ===
+    try:
+        generate_final_dataset(company_name.lower().replace(" ", "_"))  # 👈 MRF => mrf
+    except Exception as e:
+        print(f"❌ Error generating final dataset CSV: {e}")
 
     # === Validate with Qualifire ===
     q = client.Client(api_key=QUALIFIRE_API_KEY)

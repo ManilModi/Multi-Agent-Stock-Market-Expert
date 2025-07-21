@@ -10,7 +10,7 @@ class YFinanceFundamentalsTool(BaseTool):
     def _run(self, symbol: str) -> str:
         try:
             # Ensure Tool_Data folder exists
-            output_folder = "Tools_Data/Ratios_Balance_Sheet"
+            output_folder = "dags/Features/tools/Tools_Data/Ratios_Balance_Sheet"
             os.makedirs(output_folder, exist_ok=True)
 
             ticker = yf.Ticker(symbol)
