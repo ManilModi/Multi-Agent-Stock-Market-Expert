@@ -1,20 +1,37 @@
-import express from "express";
-import mongoose from "mongoose";
-import authRoutes from "./routes/auth.route.js";
-import { ClerkExpressRequireAuth } from "@clerk/clerk-sdk-node";
-import { config } from "dotenv";
+// server.js
+import express from 'express';
+import mongoose from 'mongoose';
+import authRoutes from './routes/auth.route.js';
+import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-config();
+dotenv.config();
+
 const app = express();
-
 app.use(express.json());
-app.use("/api/auth", authRoutes);
 
-const PORT = process.env.PORT || 5000;
+app.use(cors({
+    origin: 'http://localhost:5173',  // frontend origin
+    credentials: true
+  }));
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
-    app.listen(PORT, () => console.log(`Server running on ${PORT}`));
-  })
-  .catch(err => console.error("MongoDB connection error:", err));
+// Clerk middleware
+app.use(ClerkExpressWithAuth());
+
+// API routes
+app.use('/api/auth', authRoutes);
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected');
+  // Start server after DB is connected
+  app.listen(5000, () => {
+    console.log('Server running on http://127.0.0.1:5000');
+  });
+}).catch(err => {
+  console.error('DB connection error:', err);
+});

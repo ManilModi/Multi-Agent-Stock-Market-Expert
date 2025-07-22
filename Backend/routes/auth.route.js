@@ -1,46 +1,47 @@
-// routes/auth.js
 import express from "express";
-import User from "../models/users.model.js";
 import { requireAuth } from "../middlewares/requireAuth.middleware.js";
+import User from "../models/users.model.js";
+import { clerkClient } from '@clerk/clerk-sdk-node';
 
 const router = express.Router();
 
+
 router.post("/register", requireAuth, async (req, res) => {
-  const { userId, session, user } = req.auth;
-
   try {
-    // Check if user already exists
-    let existingUser = await User.findOne({ clerkId: userId });
-    if (existingUser) {
-      return res.status(200).json({ message: "User already registered", user: existingUser });
-    }
+    const userId = req.auth.userId;
 
-    // Clerk provides email & name
-    const email = user?.emailAddresses?.[0]?.emailAddress;
-    const name = user?.firstName + " " + user?.lastName;
+    const user = await clerkClient.users.getUser(userId);
+    const email = user.emailAddresses[0]?.emailAddress;
+    const fullName = `${user.firstName || ""} ${user.lastName || ""}`.trim();
 
-    if (!email || !name) {
+    if (!userId || !email || !fullName) {
+      console.log("Missing Clerk Fields (After SDK):", { userId, email, fullName });
       return res.status(400).json({ error: "Incomplete user information from Clerk." });
     }
 
-    // You can ask for 'role' from frontend form separately if needed
+    const existingUser = await User.findOne({ clerkId: userId });
+    if (existingUser) {
+      return res.status(409).json({ error: "User already registered." });
+    }
+
     const { role } = req.body;
 
     const newUser = new User({
       clerkId: userId,
       email,
-      name,
+      name: fullName,
       role,
     });
 
     await newUser.save();
 
-    return res.status(201).json({ message: "User registered", user: newUser });
+    res.status(201).json({ message: "User registered successfully", user: newUser });
 
-  } catch (err) {
-    console.error("Registration Error:", err);
-    return res.status(500).json({ error: "Server error during registration" });
+  } catch (error) {
+    console.error("Registration error:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
+  
 
 export default router;
