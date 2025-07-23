@@ -2,6 +2,8 @@ venv
 .venv/
 Data
 
+Tools_Data/
+
 .env
 
 __pycache__

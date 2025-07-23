@@ -16,19 +16,18 @@ app.use(cors({
     credentials: true
   }));
 
-// Clerk middleware
+
 app.use(ClerkExpressWithAuth());
 
-// API routes
+
 app.use('/api/auth', authRoutes);
 
-// MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
   console.log('MongoDB connected');
-  // Start server after DB is connected
+
   app.listen(5000, () => {
     console.log('Server running on http://127.0.0.1:5000');
   });
