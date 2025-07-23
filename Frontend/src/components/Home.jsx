@@ -26,15 +26,15 @@ import {
 // import { useTheme } from "next-themes"
 import AuthModal from "./auth-modal"
 import Dashboard from "./Dashboard"
+import { useTheme } from "../Hooks/useTheme"
 
 const HomePage=()=> {
   const [user, setUser] = useState(null)
   const [showAuth, setShowAuth] = useState(false)
-//   const { theme, setTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
+//   const toggleTheme = () =>
+//     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
 
   if (user) {
     return <Dashboard user={user} onLogout={() => setUser(null)} />
@@ -58,6 +58,13 @@ const HomePage=()=> {
             </div>
 
             <div className="flex items-center space-x-4">
+
+            <button
+            onClick={toggleTheme}
+            className="px-3 py-2 border border-gray-400 dark:border-white rounded-md"
+          >
+            {theme === "dark" ? "🌞 " : "🌙 "}
+          </button>
               
               <Button
                 onClick={() => setShowAuth(true)}
