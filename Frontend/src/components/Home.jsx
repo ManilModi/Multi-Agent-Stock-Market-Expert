@@ -24,17 +24,48 @@ import {
 } from "lucide-react"
 // import { ThemeProvider } from "./theme-provider"
 // import { useTheme } from "next-themes"
-import AuthModal from "./auth-modal"
 import Dashboard from "./Dashboard"
 import { useTheme } from "../Hooks/useTheme"
+import Login from "./Login"
+import Header from "./Header"
+import Footer from "./Footer"
+import RoleSelection from "./RoleSelection"
 
 const HomePage=()=> {
   const [user, setUser] = useState(null)
   const [showAuth, setShowAuth] = useState(false)
   const { theme, toggleTheme } = useTheme()
-
+  const [showRoleSelection, setShowRoleSelection] = useState(false)
+  const [selectedRole, setSelectedRole] = useState("")
+  
 //   const toggleTheme = () =>
 //     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+
+const handleGetStarted = () => {
+    setShowRoleSelection(true)
+  }
+
+  const handleRoleSelect = (role) => {
+    setSelectedRole(role)
+    setShowRoleSelection(false)
+    setTimeout(() => {
+        setShowLogin(true)
+      }, 100) 
+  }
+
+  const handleLoginClose = () => {
+    setShowLogin(false)
+    setSelectedRole("")
+  }
+
+  const handleRoleSelectionClose = () => {
+    setShowRoleSelection(false)
+  }
+
+  const handleBackToRoleSelection = () => {
+    setShowLogin(false)
+    setShowRoleSelection(true)
+  }
 
   if (user) {
     return <Dashboard user={user} onLogout={() => setUser(null)} />
@@ -42,41 +73,8 @@ const HomePage=()=> {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
-      {/* Header */}
-      <header className="border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="relative">
-                <TrendingUp className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">StockMarket AI</h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Multi-Agentic Intelligence</p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-
-            <button
-            onClick={toggleTheme}
-            className="px-3 py-2 border border-gray-400 dark:border-white rounded-md"
-          >
-            {theme === "dark" ? "🌞 " : "🌙 "}
-          </button>
-              
-              <Button
-                onClick={() => setShowAuth(true)}
-                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      
+      <Header onLoginOpen={handleGetStarted} />
 
       {/* Hero Section */}
       <section className="py-20 px-4">
@@ -104,7 +102,7 @@ const HomePage=()=> {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button
                 size="lg"
-                onClick={() => setShowAuth(true)}
+                onClick={handleGetStarted}
                 className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-lg px-8 py-3"
               >
                 Start Trading Now
@@ -312,7 +310,7 @@ const HomePage=()=> {
           <div className="grid md:grid-cols-3 gap-8">
             <Card
               className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-              onClick={() => setShowAuth(true)}
+              onClick={handleGetStarted}
             >
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -346,7 +344,7 @@ const HomePage=()=> {
 
             <Card
               className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-              onClick={() => setShowAuth(true)}
+              onClick={handleGetStarted}
             >
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -380,7 +378,7 @@ const HomePage=()=> {
 
             <Card
               className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-              onClick={() => setShowAuth(true)}
+              onClick={handleGetStarted}
             >
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -480,7 +478,7 @@ const HomePage=()=> {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              onClick={() => setShowAuth(true)}
+              onClick={handleGetStarted}
               className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
             >
               Start Free Trial
@@ -498,103 +496,20 @@ const HomePage=()=> {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <TrendingUp className="h-6 w-6 text-blue-400" />
-                <span className="text-xl font-bold">StockMarket AI</span>
-              </div>
-              <p className="text-gray-400 text-sm">Multi-agentic intelligence for smarter financial decisions.</p>
-            </div>
+      
+      <Footer />
 
-            <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    AI Agents
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    API
-                  </a>
-                </li>
-              </ul>
-            </div>
+      {/* <button onClick={handleLoginOpen}>Login</button> */}
+      
+            {/* Modals */}
+      <RoleSelection isOpen={showRoleSelection} onClose={handleRoleSelectionClose} onRoleSelect={handleRoleSelect} />
+      <Login
+        isOpen={showAuth}
+        onClose={handleLoginClose}
+        selectedRole={selectedRole}
+        onBack={handleBackToRoleSelection}
+      />
 
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Tutorials
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; 2024 StockMarket AI. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-
-      <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} onLogin={setUser} />
     </div>
   )
 }

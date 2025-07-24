@@ -1,22 +1,26 @@
-// src/components/LogoutButton.jsx
-import React from "react";
-import { useClerk } from "@clerk/clerk-react";
+"use client"
+import { useClerk } from "@clerk/clerk-react"
+import { Button } from "./UI/button"
+import { LogOut } from "lucide-react"
 
-const LogoutButton = () => {
-  const { signOut } = useClerk();
+const Logout = ({ variant = "default", size = "default", showIcon = true, className = "" }) => {
+  const { signOut } = useClerk()
 
   const handleLogout = () => {
-    signOut();
-  };
+    signOut()
+  }
 
   return (
-    <button
+    <Button
       onClick={handleLogout}
-      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+      variant={variant}
+      size={size}
+      className={`bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white transition-colors ${className}`}
     >
+      {showIcon && <LogOut className="h-4 w-4 mr-2" />}
       Log Out
-    </button>
-  );
-};
+    </Button>
+  )
+}
 
-export default LogoutButton;
+export default Logout
