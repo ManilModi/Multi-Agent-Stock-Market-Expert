@@ -22,22 +22,23 @@ import {
   CheckCircle,
   Star,
 } from "lucide-react"
-// import { ThemeProvider } from "./theme-provider"
-// import { useTheme } from "next-themes"
+
 import Dashboard from "./Dashboard"
 import { useTheme } from "../Hooks/useTheme"
-import Login from "./Login"
+import { useAuthFlow } from "../Hooks/useAuthFlow"
 import Header from "./Header"
 import Footer from "./Footer"
+import Login from "./Login"
 import RoleSelection from "./RoleSelection"
 
 const HomePage=()=> {
   const [user, setUser] = useState(null)
   const [showLogin, setShowLogin] = useState(false)
+  const [selectedRole, setSelectedRole] = useState("")
   const { theme, toggleTheme } = useTheme()
   const [showRoleSelection, setShowRoleSelection] = useState(false)
-  const [selectedRole, setSelectedRole] = useState("")
-  
+  const { isSignedIn, registrationComplete } = useAuthFlow()
+
 //   const toggleTheme = () =>
 //     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
 
@@ -56,13 +57,18 @@ const handleGetStarted = () => {
     setSelectedRole("")
   }
 
+  const handleBackToRoleSelection = () => {
+    setShowLogin(false)
+    setShowRoleSelection(true)
+  }
+
+
   const handleRoleSelectionClose = () => {
     setShowRoleSelection(false)
   }
 
-  const handleBackToRoleSelection = () => {
-    setShowLogin(false)
-    setShowRoleSelection(true)
+  if (isSignedIn && registrationComplete) {
+    return <Dashboard />
   }
 
   if (user) {

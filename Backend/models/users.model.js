@@ -1,4 +1,4 @@
-// models/User.js
+// models/users.model.js
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   role: {
     type: String,
-    enum: ["Investor", "Broker", "Company"],
+    enum: ["investor", "broker", "company"],
     required: true,
   },
   name: { type: String, required: true },

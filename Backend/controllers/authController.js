@@ -1,30 +1,65 @@
-import User from "../models/user.models.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+// controllers/auth.controller.js
+import { clerkClient } from "@clerk/clerk-sdk-node"
+import User from "../models/users.model.js"
+
+console.log("entered controller")
 
 export const registerUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const hashed = await bcrypt.hash(password, 10);
-    const user = await User.create({ username, email, password: hashed });
-    res.status(201).json({ message: "User registered", userId: user._id });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+    const userId = req.auth.userId
 
-export const loginUser = async (req, res) => {
+    const clerkUser = await clerkClient.users.getUser(userId)
+    const email = clerkUser.emailAddresses[0]?.emailAddress
+    const name = `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim()
+    const { role } = req.body
+    console.log("Received role:", role);
+
+
+    if (!userId || !email || !name || !role) {
+      return res.status(400).json({ error: "Missing required fields." })
+    }
+
+    const existingUser = await User.findOne({ clerkId: userId })
+    if (existingUser) {
+      return res.status(409).json({ error: "User already registered." })
+    }
+
+    const newUser = new User({
+      clerkId: userId,
+      email,
+      name,
+      role,
+    })
+
+    await newUser.save()
+
+    res.status(201).json({ message: "User registered successfully", user: newUser })
+  } catch (err) {
+    console.error("Register Error:", err)
+    res.status(500).json({ error: "Server error during registration" })
+  }
+}
+
+export const getProfile = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (!user) return res.status(404).json({ message: "User not found" });
+    const userId = req.auth.userId
+    const user = await User.findOne({ clerkId: userId })
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(401).json({ message: "Invalid credentials" });
+    if (!user) {
+      return res.status(404).json({ error: "User not found in database" })
+    }
 
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
-    res.json({ token, user });
+    res.status(200).json({
+      id: user._id,
+      clerkId: user.clerkId,
+      email: user.email,
+      name: user.name,
+      role: user.role,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    })
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Profile fetch error:", err)
+    res.status(500).json({ error: "Internal server error" })
   }
-};
+}

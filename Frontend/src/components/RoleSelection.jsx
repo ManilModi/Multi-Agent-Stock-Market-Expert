@@ -1,15 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { SignIn } from "@clerk/clerk-react"
+import { SignIn, useAuth } from "@clerk/clerk-react"
 import { Button } from "./UI/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./UI/card"
-import { Users, Building2, BarChart3, ArrowLeft, CheckCircle, X, Mail, Lock } from "lucide-react"
+import { Users, Building2, BarChart3, ArrowLeft, CheckCircle, X } from "lucide-react"
 
 const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
   const [selectedRole, setSelectedRole] = useState("")
   const [showLogin, setShowLogin] = useState(false)
-  const [clerkLoaded, setClerkLoaded] = useState(false)
+  const [isRegistering, setIsRegistering] = useState(false)
+  const { isSignedIn, getToken } = useAuth()
 
   if (!isOpen) return null
 
@@ -73,7 +74,59 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
   const handleBackToRoles = () => {
     setShowLogin(false)
     setSelectedRole("")
-    setClerkLoaded(false)
+  }
+
+  // Register user with backend after Clerk authentication
+  const registerUserWithBackend = async (role) => {
+    try {
+      setIsRegistering(true)
+      const token = await getToken()
+
+      const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ role }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        console.log("User registered successfully:", data)
+        // Clear localStorage and close modal
+        localStorage.removeItem("selectedRole")
+        onClose()
+        // Redirect to dashboard or trigger success callback
+        if (onRoleSelect) {
+          onRoleSelect(role)
+        }
+      } else {
+        console.error("Registration failed:", data.error)
+        // Handle registration error (user might already exist)
+        if (response.status === 409) {
+          // User already exists, just proceed
+          localStorage.removeItem("selectedRole")
+          onClose()
+          if (onRoleSelect) {
+            onRoleSelect(role)
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error)
+    } finally {
+      setIsRegistering(false)
+    }
+  }
+
+  // Handle successful Clerk authentication
+  const handleClerkSuccess = () => {
+    const storedRole = localStorage.getItem("selectedRole") || selectedRole
+    if (storedRole && isSignedIn) {
+      registerUserWithBackend(storedRole)
+    }
   }
 
   const selectedRoleData = roles.find((role) => role.id === selectedRole)
@@ -92,6 +145,7 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
                   size="sm"
                   onClick={handleBackToRoles}
                   className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  disabled={isRegistering}
                 >
                   <ArrowLeft className="w-4 h-4 mr-1" />
                   Back
@@ -100,6 +154,7 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
               <button
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
                 onClick={onClose}
+                disabled={isRegistering}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -114,15 +169,19 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome to StockMarket AI</h2>
               <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
-                Sign in to access your personalized {selectedRoleData.title.toLowerCase()} dashboard
+                Sign in to access your personalized {selectedRoleData.title} dashboard
               </p>
             </div>
           </div>
 
           {/* Login Content */}
           <div className="p-6">
-            {/* Try to render Clerk SignIn */}
-            <div className="mb-4">
+            {isRegistering ? (
+              <div className="text-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Setting up your account...</p>
+              </div>
+            ) : (
               <SignIn
                 appearance={{
                   elements: {
@@ -130,12 +189,15 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
                     card: "shadow-none border-0 bg-transparent",
                     headerTitle: "hidden",
                     headerSubtitle: "hidden",
-                    socialButtonsBlockButton: "w-full justify-center mb-4",
+                    socialButtonsBlockButton:
+                      "w-full justify-center mb-4 py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors",
                     formButtonPrimary: `w-full bg-${selectedRoleData.color}-600 hover:bg-${selectedRoleData.color}-700 text-white py-2 px-4 rounded-lg font-medium transition-colors`,
                     footerActionLink: `text-${selectedRoleData.color}-600 hover:text-${selectedRoleData.color}-700`,
                     formFieldInput:
                       "w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-800 dark:text-white",
                     formFieldLabel: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
+                    dividerLine: "bg-gray-300 dark:bg-gray-600",
+                    dividerText: "text-gray-500 dark:text-gray-400 text-sm",
                   },
                   variables: {
                     colorPrimary:
@@ -150,15 +212,9 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
                 }}
                 afterSignInUrl="/dashboard"
                 afterSignUpUrl="/dashboard"
-                onLoad={() => setClerkLoaded(true)}
+                redirectUrl="/dashboard"
               />
-            </div>
-
-            {/* Fallback if Clerk doesn't load */}
-            
-
-            {/* Debug info */}
-            
+            )}
           </div>
 
           {/* Footer */}
@@ -185,7 +241,7 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
     )
   }
 
-  // Default role selection view (unchanged)
+  // Default role selection view
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
       <div className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
