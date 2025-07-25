@@ -33,7 +33,7 @@ import RoleSelection from "./RoleSelection"
 
 const HomePage=()=> {
   const [user, setUser] = useState(null)
-  const [showAuth, setShowAuth] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const [showRoleSelection, setShowRoleSelection] = useState(false)
   const [selectedRole, setSelectedRole] = useState("")
@@ -48,9 +48,7 @@ const handleGetStarted = () => {
   const handleRoleSelect = (role) => {
     setSelectedRole(role)
     setShowRoleSelection(false)
-    setTimeout(() => {
-        setShowLogin(true)
-      }, 100) 
+    setShowLogin(true)
   }
 
   const handleLoginClose = () => {
@@ -504,7 +502,7 @@ const handleGetStarted = () => {
             {/* Modals */}
       <RoleSelection isOpen={showRoleSelection} onClose={handleRoleSelectionClose} onRoleSelect={handleRoleSelect} />
       <Login
-        isOpen={showAuth}
+        isOpen={showLogin}
         onClose={handleLoginClose}
         selectedRole={selectedRole}
         onBack={handleBackToRoleSelection}

@@ -43,7 +43,10 @@ const Login = ({ isOpen, onClose, selectedRole, onBack }) => {
           <div className="mt-4 text-center">
             <div
               className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-${currentRole.color}-100 dark:bg-${currentRole.color}-900/30 text-${currentRole.color}-800 dark:text-${currentRole.color}-200 text-sm font-medium mb-3`}
+              onClick={() => setShowLogin(true)}
+            
             >
+              
               <span>{currentRole.icon}</span>
               <span>Signing in as {currentRole.title}</span>
             </div>

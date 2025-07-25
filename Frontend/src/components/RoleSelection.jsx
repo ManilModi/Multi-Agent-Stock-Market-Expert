@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import { SignIn } from "@clerk/clerk-react"
 import { Button } from "./UI/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./UI/card"
-import { Users, Building2, BarChart3, ArrowRight, CheckCircle, X } from "lucide-react"
+import { Users, Building2, BarChart3, ArrowLeft, CheckCircle, X, Mail, Lock } from "lucide-react"
 
 const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
   const [selectedRole, setSelectedRole] = useState("")
+  const [showLogin, setShowLogin] = useState(false)
+  const [clerkLoaded, setClerkLoaded] = useState(false)
 
   if (!isOpen) return null
 
@@ -63,14 +66,126 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
 
   const handleRoleSelect = (roleId) => {
     setSelectedRole(roleId)
+    setShowLogin(true)
+    localStorage.setItem("selectedRole", roleId)
+  }
 
-    setTimeout(() => {
-      onRoleSelect(roleId)
-    }, 300)
+  const handleBackToRoles = () => {
+    setShowLogin(false)
+    setSelectedRole("")
+    setClerkLoaded(false)
   }
 
   const selectedRoleData = roles.find((role) => role.id === selectedRole)
 
+  // If showing login, render the login view
+  if (showLogin && selectedRoleData) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-md">
+          {/* Header */}
+          <div className="p-6 pb-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleBackToRoles}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <ArrowLeft className="w-4 h-4 mr-1" />
+                  Back
+                </Button>
+              </div>
+              <button
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                onClick={onClose}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="mt-4 text-center">
+              <div
+                className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-${selectedRoleData.color}-100 dark:bg-${selectedRoleData.color}-900/30 text-${selectedRoleData.color}-800 dark:text-${selectedRoleData.color}-200 text-sm font-medium mb-3`}
+              >
+                <span>{selectedRoleData.icon}</span>
+                <span>Signing in as {selectedRoleData.title}</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome to StockMarket AI</h2>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                Sign in to access your personalized {selectedRoleData.title.toLowerCase()} dashboard
+              </p>
+            </div>
+          </div>
+
+          {/* Login Content */}
+          <div className="p-6">
+            {/* Try to render Clerk SignIn */}
+            <div className="mb-4">
+              <SignIn
+                appearance={{
+                  elements: {
+                    rootBox: "mx-auto",
+                    card: "shadow-none border-0 bg-transparent",
+                    headerTitle: "hidden",
+                    headerSubtitle: "hidden",
+                    socialButtonsBlockButton: "w-full justify-center mb-4",
+                    formButtonPrimary: `w-full bg-${selectedRoleData.color}-600 hover:bg-${selectedRoleData.color}-700 text-white py-2 px-4 rounded-lg font-medium transition-colors`,
+                    footerActionLink: `text-${selectedRoleData.color}-600 hover:text-${selectedRoleData.color}-700`,
+                    formFieldInput:
+                      "w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-800 dark:text-white",
+                    formFieldLabel: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
+                  },
+                  variables: {
+                    colorPrimary:
+                      selectedRoleData.color === "blue"
+                        ? "#2563eb"
+                        : selectedRoleData.color === "green"
+                          ? "#16a34a"
+                          : selectedRoleData.color === "purple"
+                            ? "#9333ea"
+                            : "#6b7280",
+                  },
+                }}
+                afterSignInUrl="/dashboard"
+                afterSignUpUrl="/dashboard"
+                onLoad={() => setClerkLoaded(true)}
+              />
+            </div>
+
+            {/* Fallback if Clerk doesn't load */}
+            
+
+            {/* Debug info */}
+            
+          </div>
+
+          {/* Footer */}
+          <div className="px-6 pb-6">
+            <div className="text-center text-xs text-gray-500 dark:text-gray-400">
+              By signing in, you agree to our{" "}
+              <a
+                href="#"
+                className={`text-${selectedRoleData.color}-600 hover:text-${selectedRoleData.color}-700 underline`}
+              >
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a
+                href="#"
+                className={`text-${selectedRoleData.color}-600 hover:text-${selectedRoleData.color}-700 underline`}
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Default role selection view (unchanged)
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
       <div className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -96,18 +211,12 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
             {roles.map((role) => (
               <Card
                 key={role.id}
-                className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                  selectedRole === role.id
-                    ? `ring-2 ring-${role.color}-500 bg-${role.color}-50 dark:bg-${role.color}-900/20 shadow-lg`
-                    : "hover:bg-gray-50 dark:hover:bg-slate-800 border-gray-200 dark:border-gray-700"
-                } bg-white dark:bg-slate-900`}
+                className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-slate-800 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                 onClick={() => handleRoleSelect(role.id)}
               >
                 <CardHeader className="text-center pb-4">
                   <div
-                    className={`w-16 h-16 bg-${role.color}-100 dark:bg-${role.color}-900 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform ${
-                      selectedRole === role.id ? "scale-110" : ""
-                    }`}
+                    className={`w-16 h-16 bg-${role.color}-100 dark:bg-${role.color}-900 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform hover:scale-110`}
                   >
                     <div className={`text-${role.color}-600 dark:text-${role.color}-400`}>{role.iconComponent}</div>
                   </div>
@@ -131,49 +240,15 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
                       </li>
                     )}
                   </ul>
+
+                  <Button
+                    className={`w-full mt-4 bg-${role.color}-600 hover:bg-${role.color}-700 dark:bg-${role.color}-500 dark:hover:bg-${role.color}-600 text-white`}
+                  >
+                    Sign in as {role.title}
+                  </Button>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          {/* Selected Role Details */}
-          {selectedRoleData && (
-            <div className="mb-6 p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border-l-4 border-blue-500">
-              <div className="flex items-center space-x-3 mb-3">
-                <div
-                  className={`w-8 h-8 bg-${selectedRoleData.color}-100 dark:bg-${selectedRoleData.color}-900 rounded-full flex items-center justify-center`}
-                >
-                  <div
-                    className={`text-${selectedRoleData.color}-600 dark:text-${selectedRoleData.color}-400 scale-75`}
-                  >
-                    {selectedRoleData.iconComponent}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Selected: {selectedRoleData.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    You'll get access to {selectedRoleData.title.toLowerCase()}-specific features and insights
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-3">
-                {selectedRoleData.features.map((feature, index) => (
-                  <div key={index} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
-                    {feature}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Action Buttons */}
-          <div className="flex justify-end">
-            <Button variant="outline" onClick={onClose} className="border-gray-300 dark:border-gray-600 bg-transparent">
-              Cancel
-            </Button>
-            
           </div>
 
           {/* Benefits Footer */}
