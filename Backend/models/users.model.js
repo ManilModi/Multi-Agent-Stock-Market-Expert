@@ -8,9 +8,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ["investor", "broker", "company"],
     required: true,
+    immutable: true
   },
-  name: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now }
+  name: { type: String },
+  createdAt: { type: Date, default: Date.now },
+  lastLogin: {
+    type: Date,
+    default: null,
+  }
 });
 
 export default mongoose.model("User", userSchema);

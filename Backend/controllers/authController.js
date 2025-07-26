@@ -2,43 +2,65 @@
 import { clerkClient } from "@clerk/clerk-sdk-node"
 import User from "../models/users.model.js"
 
-console.log("entered controller")
+
 
 export const registerUser = async (req, res) => {
   try {
-    const userId = req.auth.userId
+    const userId = req.auth.userId;
 
-    const clerkUser = await clerkClient.users.getUser(userId)
-    const email = clerkUser.emailAddresses[0]?.emailAddress
-    const name = `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim()
-    const { role } = req.body
-    console.log("Received role:", role);
+    // Get Clerk user
+    const clerkUser = await clerkClient.users.getUser(userId);
+    const email = clerkUser.emailAddresses[0]?.emailAddress;
+    const name = `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim();
+    const { role } = req.body;
+    console.log("Registering user:", { userId, email, name, role });
 
+    // if (!role) {
+    //   return res.status(400).json({ error: "Role is required for registration." });
+    // }
 
-    if (!userId || !email || !name || !role) {
-      return res.status(400).json({ error: "Missing required fields." })
-    }
+    // Check if user already exists in DB
+    const existingUser = await User.findOne({ clerkId: userId });
+    console.log("Existing user found:", existingUser);
 
-    const existingUser = await User.findOne({ clerkId: userId })
     if (existingUser) {
-      return res.status(409).json({ error: "User already registered." })
+      if (existingUser.role !== role) {
+        console.error("User already registered with a different role:", existingUser.role);
+        return res.status(403).json({
+          error: `User already registered with role '${existingUser.role}'. Cannot re-register as '${role}'.`,
+        });
+      } else {
+        // return res.status(400).json({ error: "User is already registered with this role." });
+      }
     }
 
+    // Create new user entry
     const newUser = new User({
       clerkId: userId,
-      email,
       name,
+      email,
       role,
-    })
+      lastLogin: Date.now(),
+    });
 
-    await newUser.save()
+    await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully", user: newUser })
+    return res.status(201).json({
+      message: "User registered successfully",
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role,
+      },
+    });
+
   } catch (err) {
-    console.error("Register Error:", err)
-    res.status(500).json({ error: "Server error during registration" })
+    console.error("Registration error:", err);
+    return res.status(500).json({ error: "Internal server error during registration." });
   }
-}
+};
+
 
 export const getProfile = async (req, res) => {
   try {

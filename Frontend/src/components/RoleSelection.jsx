@@ -210,9 +210,7 @@ const RoleSelection = ({ isOpen, onClose, onRoleSelect }) => {
                             : "#6b7280",
                   },
                 }}
-                afterSignInUrl="/dashboard"
-                afterSignUpUrl="/dashboard"
-                redirectUrl="/dashboard"
+                
               />
             )}
           </div>

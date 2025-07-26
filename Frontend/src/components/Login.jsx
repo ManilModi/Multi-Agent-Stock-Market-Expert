@@ -121,7 +121,7 @@ const Login = ({ isOpen, onClose, selectedRole, onBack }) => {
               }}
               // Clerk will redirect to /dashboard after successful sign-in/sign-up
               // The useEffect above will then handle the backend registration
-              redirectUrl="/dashboard"
+              redirectUrl="/"
             />
           )}
         </div>
