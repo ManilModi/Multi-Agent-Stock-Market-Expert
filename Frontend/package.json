@@ -16,6 +16,7 @@
     "dotenv": "^17.2.0",
     "lucide-react": "^0.525.0",
     "next-theme": "^0.1.5",
+    "radix-ui": "^1.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.0",

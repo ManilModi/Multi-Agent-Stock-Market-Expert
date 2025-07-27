@@ -1,9 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "./UI/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./UI/card"
-import { Badge } from "./UI/badge"
+import { Button } from "./components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card"
+import { Badge } from "./components/ui/badge"
 import {
   Users,
   Building2,
@@ -20,25 +20,23 @@ import {
   Star,
   ArrowLeft,
 } from "lucide-react"
-import Dashboard from "./Dashboard"
-import { useTheme } from "../Hooks/useTheme" // Corrected import path
-import { useAuthFlow } from "../Hooks/useAuthFlow" // Corrected import path
-import Header from "./Header"
-import Footer from "./Footer"
-import Login from "./Login"
-import RoleSelection from "./RoleSelection"
-import CandlestickChart from "./CandlestickChart"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import RoleSelection from "./components/RoleSelection"
+import Dashboard from "./components/Dashboard"
+import { useAuthFlow } from "./hooks/useAuthFlow"
+import Login from "./components/Login"
+import CandlestickChart from "./components/CandlestickChart" // Import CandlestickChart
 
-const HomePage = () => {
+export default function App() {
+  const [showRoleSelection, setShowRoleSelection] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [selectedRole, setSelectedRole] = useState("")
-  const { theme, toggleTheme } = useTheme()
-  const [showRoleSelection, setShowRoleSelection] = useState(false)
-  const { isLoaded, isSignedIn, registrationComplete } = useAuthFlow()
   const [activeDashboardTab, setActiveDashboardTab] = useState("overview")
-  const [showStandaloneChart, setShowStandaloneChart] = useState(false)
-  const [stockData, setStockData] = useState([])
-  const [isConnected, setIsConnected] = useState(false)
+  const [showStandaloneChart, setShowStandaloneChart] = useState(false) // New state for standalone chart
+  const [stockData, setStockData] = useState([]) // Moved stockData state here
+  const [isConnected, setIsConnected] = useState(false) // Moved isConnected state here
+  const { isSignedIn, registrationComplete } = useAuthFlow()
 
   // WebSocket connection for real-time data (moved from Dashboard)
   useEffect(() => {
@@ -89,18 +87,18 @@ const HomePage = () => {
   }
 
   const handleNavigateToDashboardTab = (tabKey) => {
-    if (!isSignedIn) {
-      // If not signed in or registration not complete, prompt login/registration
-      handleGetStarted()
+    if (tabKey === "charts") {
+      // If "Live Charts" is clicked, show standalone chart
+      setShowStandaloneChart(true)
+      setActiveDashboardTab("charts") // Still set for consistency if they go back to dashboard
     } else {
-      // If signed in and registered, navigate directly
-      if (tabKey === "charts") {
-        setShowStandaloneChart(true)
-        setActiveDashboardTab("charts") // Still set for consistency if they go back to dashboard
-      } else {
-        setShowStandaloneChart(false)
-        setActiveDashboardTab(tabKey)
-      }
+      // For other tabs, show dashboard and set the active tab
+      setShowStandaloneChart(false)
+      setActiveDashboardTab(tabKey)
+    }
+
+    if (!isSignedIn || !registrationComplete) {
+      handleGetStarted() // Prompt login/registration if not signed in
     }
   }
 
@@ -109,20 +107,10 @@ const HomePage = () => {
     setActiveDashboardTab("overview") // Default to overview when returning to dashboard
   }
 
-  if (!isLoaded) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
-          <p className="text-lg text-gray-700 dark:text-gray-300">Loading application...</p>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
       <Header onLoginOpen={handleGetStarted} onNavigateToDashboardTab={handleNavigateToDashboardTab} />
+
       {isSignedIn && registrationComplete ? (
         showStandaloneChart ? (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -148,6 +136,7 @@ const HomePage = () => {
                   <Bot className="w-3 h-3 mr-1" />
                   Powered by 6 AI Agents
                 </Badge>
+
                 <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                   Multi-Agentic
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -156,11 +145,13 @@ const HomePage = () => {
                   </span>
                   Intelligence
                 </h2>
+
                 <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                   Harness the power of 6 specialized AI agents providing real-time analysis, predictions, and
                   comprehensive market insights for investors, brokers, and companies. Make smarter decisions with
                   AI-driven intelligence.
                 </p>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                   <Button
                     size="lg"
@@ -179,6 +170,7 @@ const HomePage = () => {
                     <MessageSquare className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
+
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
                   <div className="text-center">
@@ -201,6 +193,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
           {/* Features Grid */}
           <section id="features" className="py-16 bg-white dark:bg-slate-800 transition-colors duration-300">
             <div className="container mx-auto px-4">
@@ -210,6 +203,7 @@ const HomePage = () => {
                   Comprehensive suite of AI-powered tools designed to give you the edge in financial markets
                 </p>
               </div>
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
@@ -223,6 +217,7 @@ const HomePage = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
+
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
                     <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -234,6 +229,7 @@ const HomePage = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
+
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
                     <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -245,6 +241,7 @@ const HomePage = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
+
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
                     <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -256,6 +253,7 @@ const HomePage = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
+
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -267,6 +265,7 @@ const HomePage = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
+
                 <Card className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
                   <CardHeader>
                     <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -281,6 +280,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
           {/* AI Agents Section */}
           <section
             id="agents"
@@ -294,6 +294,7 @@ const HomePage = () => {
                   comprehensive insights
                 </p>
               </div>
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   {
@@ -351,6 +352,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
           {/* User Roles */}
           <section id="roles" className="py-16 bg-white dark:bg-slate-800 transition-colors duration-300">
             <div className="container mx-auto px-4">
@@ -360,6 +362,7 @@ const HomePage = () => {
                   Tailored experiences designed for different market participants with role-specific insights and tools
                 </p>
               </div>
+
               <div className="grid md:grid-cols-3 gap-8">
                 <Card
                   className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
@@ -394,6 +397,7 @@ const HomePage = () => {
                     </Button>
                   </CardContent>
                 </Card>
+
                 <Card
                   className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                   onClick={handleGetStarted}
@@ -427,6 +431,7 @@ const HomePage = () => {
                     </Button>
                   </CardContent>
                 </Card>
+
                 <Card
                   className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                   onClick={handleGetStarted}
@@ -463,6 +468,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
           {/* Testimonials */}
           <section className="py-16 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300">
             <div className="container mx-auto px-4">
@@ -470,6 +476,7 @@ const HomePage = () => {
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Trusted by Market Leaders</h3>
                 <p className="text-gray-600 dark:text-gray-300">See what our users are saying about StockMarket AI</p>
               </div>
+
               <div className="grid md:grid-cols-3 gap-8">
                 {[
                   {
@@ -516,6 +523,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
           {/* CTA Section */}
           <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-800">
             <div className="container mx-auto px-4 text-center">
@@ -531,7 +539,7 @@ const HomePage = () => {
                   className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
                 >
                   Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
                   size="lg"
@@ -545,7 +553,9 @@ const HomePage = () => {
           </section>
         </>
       )}
+
       <Footer />
+
       {/* Modals */}
       <RoleSelection isOpen={showRoleSelection} onClose={handleRoleSelectionClose} onRoleSelect={handleRoleSelect} />
       <Login
@@ -557,5 +567,3 @@ const HomePage = () => {
     </div>
   )
 }
-
-export default HomePage

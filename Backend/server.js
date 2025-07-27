@@ -2,6 +2,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.route.js';
+import csvRoute from "./routes/csv.route.js";
 import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -19,7 +20,7 @@ app.use(cors({
 
 app.use(ClerkExpressWithAuth());
 
-
+app.use("/api", csvRoute);
 app.use('/api/auth', authRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {

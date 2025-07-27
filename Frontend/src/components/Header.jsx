@@ -3,25 +3,95 @@
 import { useState } from "react"
 import { Button } from "./UI/button"
 import { Badge } from "./UI/badge"
-import { TrendingUp, Moon, Sun, ArrowRight, Menu, X, BarChart3, Users, Building2, FileText, Bot } from "lucide-react"
-import { useTheme } from "../Hooks/useTheme"
-import Logout from "./Logout"
-import { useUser } from "@clerk/clerk-react"
-import { useAuthWithBackend } from "../Hooks/useAuthWithBackend"
+import { useNavigate } from "react-router-dom";
+import {
+  TrendingUp,
+  Moon,
+  Sun,
+  ArrowRight,
+  Menu,
+  X,
+  BarChart3,
+  Users,
+  Building2,
+  FileText,
+  Bot,
+  MessageSquare,
+  Brain,
+  Globe,
+} from "lucide-react"
+import { useTheme } from "../Hooks/useTheme" // Corrected import path
+import Logout from "../components/Logout" // Corrected import path
+import { useAuthWithBackend } from "../Hooks/useAuthWithBackend" // Corrected import path
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "./UI/dropdown-menu" // Corrected import path
 
-export default function Header({ onLoginOpen }) {
+export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  // const { isSignedIn, user } = useUser()
   const { isSignedIn, user, userRole } = useAuthWithBackend()
+
+
+  const featuresDropdown = [
+    {
+      name: "Live Charts",
+      icon: <BarChart3 className="h-4 w-4" />,
+      description: "Real-time OHLCV data",
+      dashboardTabKey: "charts",
+      route: "/live-chart",
+    },
+    {
+      name: "Data Table",
+      icon: <FileText className="h-4 w-4" />,
+      description: "Tabular market data",
+      dashboardTabKey: "charts", // Data Table is part of charts tab
+    },
+    {
+      name: "AI Reports",
+      icon: <FileText className="h-4 w-4" />,
+      description: "Generated analysis reports",
+      dashboardTabKey: "reports",
+    },
+    {
+      name: "Balance Sheet",
+      icon: <Building2 className="h-4 w-4" />,
+      description: "Company financial statements",
+      dashboardTabKey: "financials",
+    },
+    {
+      name: "Price Predictions",
+      icon: <Brain className="h-4 w-4" />,
+      description: "ML-powered forecasts",
+      dashboardTabKey: "predictions",
+    },
+    {
+      name: "Market News",
+      icon: <Globe className="h-4 w-4" />,
+      description: "Latest financial news",
+      dashboardTabKey: "news",
+    },
+    {
+      name: "AI Assistant",
+      icon: <MessageSquare className="h-4 w-4" />,
+      description: "Conversational AI for market queries",
+      dashboardTabKey: "chat",
+    },
+  ]
 
   const allNavigation = [
     {
       name: "Features",
-      href: "#features",
+      href: "#features", // This will now trigger the dropdown
       icon: <BarChart3 className="h-4 w-4" />,
       description: "Explore our AI-powered tools",
       roles: ["investor", "broker", "company", "public"],
+      isDropdown: true, // Mark as dropdown
     },
     {
       name: "AI Agents",
@@ -60,6 +130,12 @@ export default function Header({ onLoginOpen }) {
     },
   ]
 
+  const navigate = useNavigate();
+
+  const handleLiveChartClick = () => {
+    navigate("/live-chart");
+  };
+
   const getRoleSpecificNavigation = (currentRole) => {
     const roleToFilter = currentRole || "public" // Default to 'public' if no role is set
     return allNavigation.filter((item) => item.roles.includes(roleToFilter))
@@ -88,7 +164,6 @@ export default function Header({ onLoginOpen }) {
     }
   }
 
-
   return (
     <header className="border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 transition-colors duration-300">
       <div className="container mx-auto px-4 py-4">
@@ -107,16 +182,58 @@ export default function Header({ onLoginOpen }) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-              >
-                {item.icon}
-                <span className="text-sm font-medium">{item.name}</span>
-              </button>
-            ))}
+            {navigation.map((item) => {
+              if (item.isDropdown) {
+                return (
+                  <DropdownMenu key={item.name}>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                      >
+                        {item.icon}
+                        <span className="text-sm font-medium">{item.name}</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-64">
+                      <DropdownMenuLabel>Core Features</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      {featuresDropdown.map((feature) => (
+                        <DropdownMenuItem
+                          key={feature.name}
+                          onClick={() => {
+                            if (feature.route) {
+                              navigate(feature.route); // Redirect to route
+                            } else {
+                              onNavigateToDashboardTab(feature.dashboardTabKey); // Default behavior
+                            }
+                          }}
+                        >
+                          <div className="flex items-center space-x-2">
+                            {feature.icon}
+                            <div>
+                              <p className="font-medium">{feature.name}</p>
+                              <p className="text-xs text-gray-500 dark:text-gray-400">{feature.description}</p>
+                            </div>
+                          </div>
+                        </DropdownMenuItem>
+                      ))}
+
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )
+              }
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  {item.icon}
+                  <span className="text-sm font-medium">{item.name}</span>
+                </button>
+              )
+            })}
           </nav>
 
           {/* Right Side Actions */}
@@ -175,23 +292,59 @@ export default function Header({ onLoginOpen }) {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
             <div className="pt-4 space-y-3">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                >
-                  {item.icon}
-                  <div>
-                    <div className="font-medium">{item.name}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
-                  </div>
-                </button>
-              ))}
+              {navigation.map((item) => {
+                if (item.isDropdown) {
+                  return (
+                    <div key={item.name}>
+                      <button
+                        className="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                        onClick={() => {
+                          // For mobile, we can expand/collapse or just show directly
+                          // For simplicity, let's just show the sub-items directly
+                        }}
+                      >
+                        {item.icon}
+                        <div>
+                          <div className="font-medium">{item.name}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
+                        </div>
+                      </button>
+                      <div className="ml-6 mt-2 space-y-2 border-l border-gray-200 dark:border-gray-700 pl-3">
+                        {featuresDropdown.map((feature) => (
+                          <button
+                            key={feature.name}
+                            onClick={() => {
+                              onNavigateToDashboardTab(feature.dashboardTabKey)
+                              setIsMobileMenuOpen(false) // Close mobile menu after selection
+                            }}
+                            className="flex items-center space-x-2 w-full text-left text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                          >
+                            {feature.icon}
+                            <span>{feature.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                }
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  >
+                    {item.icon}
+                    <div>
+                      <div className="font-medium">{item.name}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
+                    </div>
+                  </button>
+                )
+              })}
 
               {/* Mobile Login/Logout Button */}
               <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-              {isSignedIn ? (
+                {isSignedIn ? (
                   <div className="space-y-3">
                     <div className="text-sm text-gray-600 dark:text-gray-300 text-center flex items-center justify-center">
                       Welcome, {user?.firstName || user?.username || "User"}
