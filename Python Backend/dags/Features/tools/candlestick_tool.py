@@ -117,7 +117,7 @@ class AngelOneCandlestickTool(BaseTool):
                 combined_df.to_csv(filename, index=False)
                 cloud_url = upload_csv_to_cloudinary(filename, folder="candlestick_patterns")
 
-                return f"✅ Candlestick patterns uploaded to Cloudinary: {cloud_url}"
+                return f"{cloud_url}"
             else:
                 df.to_csv(filename, index=False)
                 return f"✅ Saved candlestick + indicator data to new file: {filename}"
