@@ -182,47 +182,59 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => {
-              if (item.isDropdown) {
-                return (
-                  <DropdownMenu key={item.name}>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+          {navigation.map((item) => {
+            if (item.isDropdown) {
+              return isSignedIn ? (
+                <DropdownMenu key={item.name}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                    >
+                      {item.icon}
+                      <span className="text-sm font-medium">{item.name}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-64">
+                    <DropdownMenuLabel>Core Features</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    {featuresDropdown.map((feature) => (
+                      <DropdownMenuItem
+                        key={feature.name}
+                        onClick={() => {
+                          if (feature.route) {
+                            navigate(feature.route)
+                          } else {
+                            onNavigateToDashboardTab(feature.dashboardTabKey)
+                          }
+                        }}
                       >
-                        {item.icon}
-                        <span className="text-sm font-medium">{item.name}</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-64">
-                      <DropdownMenuLabel>Core Features</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      {featuresDropdown.map((feature) => (
-                        <DropdownMenuItem
-                          key={feature.name}
-                          onClick={() => {
-                            if (feature.route) {
-                              navigate(feature.route); // Redirect to route
-                            } else {
-                              onNavigateToDashboardTab(feature.dashboardTabKey); // Default behavior
-                            }
-                          }}
-                        >
-                          <div className="flex items-center space-x-2">
-                            {feature.icon}
-                            <div>
-                              <p className="font-medium">{feature.name}</p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400">{feature.description}</p>
-                            </div>
+                        <div className="flex items-center space-x-2">
+                          {feature.icon}
+                          <div>
+                            <p className="font-medium">{feature.name}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              {feature.description}
+                            </p>
                           </div>
-                        </DropdownMenuItem>
-                      ))}
-
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                )
-              }
+                        </div>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                // Render disabled button if not logged in
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="group flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  {item.icon}
+                  <span className="text-sm font-medium">{item.name}</span>
+                </button>
+              )
+            }else {
+              // 👇 This handles non-dropdown items like "AI Agents", "Resources", etc.
               return (
                 <button
                   key={item.name}
@@ -233,7 +245,10 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
                   <span className="text-sm font-medium">{item.name}</span>
                 </button>
               )
+            }
+
             })}
+
           </nav>
 
           {/* Right Side Actions */}
@@ -293,29 +308,29 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
             <div className="pt-4 space-y-3">
               {navigation.map((item) => {
-                if (item.isDropdown) {
-                  return (
-                    <div key={item.name}>
-                      <button
-                        className="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                        onClick={() => {
-                          // For mobile, we can expand/collapse or just show directly
-                          // For simplicity, let's just show the sub-items directly
-                        }}
-                      >
-                        {item.icon}
-                        <div>
-                          <div className="font-medium">{item.name}</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
-                        </div>
-                      </button>
+                {item.isDropdown && (
+                  <div key={item.name}>
+                    <button
+                      className="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg
+                      text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 
+                      hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200
+                      disabled:cursor-not-allowed disabled:opacity-50"
+                      disabled={!isSignedIn}
+                    >
+                      {item.icon}
+                      <div>
+                        <div className="font-medium">{item.name}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
+                      </div>
+                    </button>
+                    {isSignedIn && (
                       <div className="ml-6 mt-2 space-y-2 border-l border-gray-200 dark:border-gray-700 pl-3">
                         {featuresDropdown.map((feature) => (
                           <button
                             key={feature.name}
                             onClick={() => {
                               onNavigateToDashboardTab(feature.dashboardTabKey)
-                              setIsMobileMenuOpen(false) // Close mobile menu after selection
+                              setIsMobileMenuOpen(false)
                             }}
                             className="flex items-center space-x-2 w-full text-left text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                           >
@@ -324,9 +339,10 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
                           </button>
                         ))}
                       </div>
-                    </div>
-                  )
-                }
+                    )}
+                  </div>
+                )}
+                
                 return (
                   <button
                     key={item.name}
