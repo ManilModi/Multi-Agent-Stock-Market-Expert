@@ -1,93 +1,210 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./UI/card"
-
+import { useEffect, useRef, useState } from "react";
 import {
-  ResponsiveContainer,
-  ComposedChart,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  Bar,
-  Line,
-} from "recharts"
-
-
+  createChart,
+  ColorType,
+  CrosshairMode,
+  PriceScaleMode,
+} from "lightweight-charts";
+import Header from "./Header";
+import Footer from "./Footer"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "./UI/card";
+import { useTheme } from "../Hooks/useTheme"
 
 export default function CandlestickChart() {
-  const [chartData, setChartData] = useState([])
-  const [wsConnected, setWsConnected] = useState(false)
-  const socketRef = useRef(null)
+  const chartContainerRef = useRef();
+  const chartRef = useRef(null);
+  const candleSeriesRef = useRef(null);
+  const volumeSeriesRef = useRef(null);
+  const socketRef = useRef(null);
 
-  // Form state
+  const [chartData, setChartData] = useState([]);
+  const [wsConnected, setWsConnected] = useState(false);
+  const { theme, toggleTheme } = useTheme()
+
   const [formData, setFormData] = useState({
     company_name: "TATAMOTORS",
     stock_name: "TATAMOTORS",
     exchange: "NSE",
-    from_date: "2024-07-01",
-    to_date: "2024-07-27",
+    from_date: "",
+    to_date: "",
     interval: "ONE_MINUTE",
-  })
+  });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
-      socketRef.current.send(JSON.stringify(formData))
+    e.preventDefault();
+    if (socketRef.current?.readyState === WebSocket.OPEN) {
+      socketRef.current.send(JSON.stringify(formData));
     } else {
-      console.error("WebSocket is not connected")
+      console.error("❌ WebSocket not connected");
     }
+  };
+
+  const handleGetStarted = () => {
+    // Handle login modal opening
+    console.log("Get started clicked")
   }
 
+  const handleNavigateToDashboardTab = (tab) => {
+    // Handle navigation to dashboard tab
+    console.log("Navigate to dashboard tab:", tab)
+  }
+
+  // WebSocket setup
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:5000")
-    socketRef.current = socket
+    const socket = new WebSocket("ws://localhost:5000");
+    socketRef.current = socket;
 
     socket.onopen = () => {
-      setWsConnected(true)
-      console.log("✅ WebSocket connected")
-    }
+      setWsConnected(true);
+      console.log("✅ WebSocket connected");
+    };
 
     socket.onmessage = (event) => {
-      const message = JSON.parse(event.data)
-      if (message.data) {
-        setChartData(message.data)
-      } else if (message.error) {
-        console.error("❌ WebSocket Error:", message.error)
+      try {
+        const message = JSON.parse(event.data);
+        if (message.data) {
+          setChartData(message.data);
+        } else if (message.error) {
+          console.error("❌ WebSocket Error:", message.error);
+        }
+      } catch (err) {
+        console.error("❌ Invalid WebSocket message:", err.message);
       }
-    }
+    };
 
     socket.onclose = () => {
-      setWsConnected(false)
-      console.log("🔌 WebSocket disconnected")
-    }
+      setWsConnected(false);
+      console.log("🔌 WebSocket disconnected");
+    };
 
     return () => {
-      socket.close()
-    }
-  }, [])
+      socket.close();
+    };
+  }, []);
+
+  // Chart setup
+  useEffect(() => {
+    if (!chartContainerRef.current) return;
+
+    const chart = createChart(chartContainerRef.current, {
+      width: chartContainerRef.current.clientWidth,
+      height: 500,
+      layout: {
+        background: { type: ColorType.Solid, color: "#ffffff" },
+        textColor: "#333",
+      },
+      crosshair: {
+        mode: CrosshairMode.Normal,
+      },
+      grid: {
+        vertLines: { color: "#eee" },
+        horzLines: { color: "#eee" },
+      },
+      rightPriceScale: {
+        scaleMargins: {
+          top: 0.2,
+          bottom: 0.2,
+        },
+        mode: PriceScaleMode.Normal,
+      },
+      timeScale: {
+        timeVisible: true,
+        secondsVisible: false,
+      },
+    });
+
+    console.log('Chart instance:', chart);
+    console.log('Available methods:', Object.keys(chart));
+
+
+    chartRef.current = chart;
+
+    candleSeriesRef.current = chart.addCandlestickSeries({
+      upColor: "#4ade80",
+      downColor: "#f87171",
+      borderVisible: false,
+      wickUpColor: "#4ade80",
+      wickDownColor: "#f87171",
+    });
+
+    volumeSeriesRef.current = chart.addHistogramSeries({
+      color: "#8884d8",
+      priceFormat: {
+        type: "volume",
+      },
+      priceScaleId: "",
+      scaleMargins: {
+        top: 0.9,
+        bottom: 0,
+      },
+    });
+
+    return () => {
+      chart.remove();
+    };
+  }, []);
+
+  // Update chart data
+  useEffect(() => {
+    if (!candleSeriesRef.current || !volumeSeriesRef.current || !chartData.length) return;
+
+    const candles = chartData.map((d) => ({
+      time: Math.floor(new Date(d.timestamp).getTime() / 1000),
+      open: +d.open,
+      high: +d.high,
+      low: +d.low,
+      close: +d.close,
+    }));
+
+    const volumes = chartData.map((d) => ({
+      time: Math.floor(new Date(d.timestamp).getTime() / 1000),
+      value: +d.volume,
+      color: +d.close > +d.open ? "#4ade80" : "#f87171",
+    }));
+
+    candleSeriesRef.current.setData(candles);
+    volumeSeriesRef.current.setData(volumes);
+  }, [chartData]);
 
   return (
+    
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
+      {/* Header */}
+      <Header onLoginOpen={handleGetStarted} onNavigateToDashboardTab={handleNavigateToDashboardTab} />
+
+      {/* Main Content */}
+      <main className="flex-1 container mx-auto px-4 py-8">
+    
     <Card>
       <CardHeader>
-        <CardTitle>📊 Live Candlestick Chart</CardTitle>
-        <CardDescription>Streaming OHLCV data via WebSocket from FastAPI → Cloudinary → Express</CardDescription>
+        <CardTitle>📈 AngelOne-style Candlestick Chart</CardTitle>
+        <CardDescription>
+          Real-time stock data using WebSockets + Lightweight Charts v5
+        </CardDescription>
       </CardHeader>
 
       <CardContent>
-        {/* Form to trigger FastAPI POST */}
-        <form onSubmit={handleSubmit} className="grid md:grid-cols-3 gap-4 mb-6">
+        <form
+          onSubmit={handleSubmit}
+          className="grid md:grid-cols-3 gap-4 mb-6"
+        >
           <input
             type="text"
             name="company_name"
             value={formData.company_name}
             onChange={handleChange}
-            placeholder="Company Name"
             className="border p-2 rounded"
           />
           <input
@@ -95,10 +212,14 @@ export default function CandlestickChart() {
             name="stock_name"
             value={formData.stock_name}
             onChange={handleChange}
-            placeholder="Stock Symbol"
             className="border p-2 rounded"
           />
-          <select name="interval" value={formData.interval} onChange={handleChange} className="border p-2 rounded">
+          <select
+            name="interval"
+            value={formData.interval}
+            onChange={handleChange}
+            className="border p-2 rounded"
+          >
             <option value="ONE_MINUTE">1M</option>
             <option value="FIVE_MINUTE">5M</option>
             <option value="FIFTEEN_MINUTE">15M</option>
@@ -119,68 +240,24 @@ export default function CandlestickChart() {
             onChange={handleChange}
             className="border p-2 rounded"
           />
-          <button type="submit" className="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700"
+          >
             🚀 Start Stream
           </button>
         </form>
 
-        {/* Live chart display */}
-        <div className="h-96 bg-gray-100 rounded-lg overflow-x-auto p-4 relative">
-          
-        <ResponsiveContainer width="100%" height={400}>
-  <ComposedChart data={chartData}>
-    <CartesianGrid stroke="#eee" strokeDasharray="3 3" />
-    <XAxis dataKey="timestamp" />
-    <YAxis domain={['dataMin - 10', 'dataMax + 10']} />
-    <Tooltip />
-
-    {/* Candle body */}
-    <Bar
-      dataKey="close"
-      fill="#8884d8"
-      shape={({ x, y, width, height, payload }) => {
-        const open = +payload.open
-        const close = +payload.close
-        const high = +payload.high
-        const low = +payload.low
-
-        const candleColor = close > open ? "#4ade80" : "#f87171"
-        const bodyY = Math.min(y, y + height)
-        const bodyHeight = Math.abs(height)
-
-        return (
-          <g>
-            {/* Wick */}
-            <line
-              x1={x + width / 2}
-              x2={x + width / 2}
-              y1={y + (open < close ? 0 : bodyHeight)}
-              y2={y + (open > close ? 0 : bodyHeight)}
-              stroke="#555"
-            />
-            {/* Candle Body */}
-            <rect
-              x={x}
-              y={bodyY}
-              width={width}
-              height={Math.max(bodyHeight, 1)}
-              fill={candleColor}
-            />
-          </g>
-        )
-      }}
-    />
-  </ComposedChart>
-</ResponsiveContainer>
-
-
-          {/* LIVE indicator */}
-          <div className="absolute top-2 right-4 flex items-center space-x-2">
-            <div className={`w-2 h-2 rounded-full ${wsConnected ? "bg-green-500 animate-pulse" : "bg-gray-400"}`}></div>
-            <span className="text-sm text-gray-600">LIVE</span>
-          </div>
-        </div>
+        <div
+          ref={chartContainerRef}
+          className="w-full rounded shadow border"
+        />
       </CardContent>
     </Card>
-  )
+    </main>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
 }
