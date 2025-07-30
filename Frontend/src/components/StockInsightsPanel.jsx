@@ -18,9 +18,7 @@ export default function FinancialDetails() {
     setFinancialData([])
 
     try {
-        const response = await axios.post("http://localhost:8000/balance-sheet-and-ratios/", {
-          stock_name: "TCS"
-        });
+        const response = await axios.post("http://localhost:8000/balance-sheet-and-ratios/?symbol=TCS")
       
         const fileUrl = response.data.details;
       

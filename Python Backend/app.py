@@ -112,15 +112,11 @@ async def add_candlestick(request: CandlestickRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-
-class SymbolRequest(BaseModel):
-    stock_name: str
-
 @app.post("/balance-sheet-and-ratios/")
-async def add_balance_sheet(request: SymbolRequest):
+async def add_balance_sheet(symbol: str):
     try:
         tool = YFinanceFundamentalsTool()
-        result = await tool._arun(request.stock_name)
+        result = await tool._arun(symbol)
         return {
             "message": "✅ Balance sheet and ratios added successfully",
             "details": result

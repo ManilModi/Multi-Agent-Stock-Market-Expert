@@ -62,7 +62,7 @@ class YFinanceFundamentalsTool(BaseTool):
             if cloud_url_balanceSheet:
                 response += f"\n{cloud_url_balanceSheet}"
             # else:
-                # response += f"\n⚠️ No balance sheet data available."
+            #     response += f"\n⚠️ No balance sheet data available."
 
             return response
 
