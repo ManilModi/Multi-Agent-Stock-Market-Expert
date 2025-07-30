@@ -17,6 +17,7 @@
     "lightweight-charts": "^4.1.1",
     "lucide-react": "^0.525.0",
     "next-theme": "^0.1.5",
+    "papaparse": "^5.5.3",
     "plotly.js": "^3.0.3",
     "radix-ui": "^1.4.2",
     "react": "^19.1.0",

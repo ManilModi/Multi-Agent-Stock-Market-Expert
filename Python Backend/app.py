@@ -17,15 +17,16 @@ app = FastAPI()
 
 # app = FastAPI()
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],  # restrict in production
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+from fastapi.middleware.cors import CORSMiddleware
 
-# app.include_router(ws_router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 class CandlestickRequest(BaseModel):
     company_name: str
@@ -111,11 +112,15 @@ async def add_candlestick(request: CandlestickRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
+
+class SymbolRequest(BaseModel):
+    stock_name: str
+
 @app.post("/balance-sheet-and-ratios/")
-async def add_balance_sheet(symbol: str):
+async def add_balance_sheet(request: SymbolRequest):
     try:
         tool = YFinanceFundamentalsTool()
-        result = await tool._arun(symbol)
+        result = await tool._arun(request.stock_name)
         return {
             "message": "✅ Balance sheet and ratios added successfully",
             "details": result

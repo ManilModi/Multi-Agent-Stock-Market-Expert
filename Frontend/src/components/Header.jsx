@@ -59,22 +59,10 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       dashboardTabKey: "reports",
     },
     {
-      name: "Balance Sheet",
+      name: "Financial Details",
       icon: <Building2 className="h-4 w-4" />,
-      description: "Company financial statements",
-      dashboardTabKey: "financials",
-    },
-    {
-      name: "Price Predictions",
-      icon: <Brain className="h-4 w-4" />,
-      description: "ML-powered forecasts",
-      dashboardTabKey: "predictions",
-    },
-    {
-      name: "Market News",
-      icon: <Globe className="h-4 w-4" />,
-      description: "Latest financial news",
-      dashboardTabKey: "news",
+      description: "Balance sheet, news & predictions",
+      route: "/financial-details",
     },
     {
       name: "AI Assistant",
@@ -82,7 +70,8 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Conversational AI for market queries",
       dashboardTabKey: "chat",
     },
-  ]
+  ];
+  
 
   const allNavigation = [
     {

@@ -58,11 +58,11 @@ class YFinanceFundamentalsTool(BaseTool):
                 cloud_url_balanceSheet = upload_csv_to_cloudinary(bs_csv, folder="balance_sheets")
 
             # Final response
-            response = f"✅ Ratios uploaded: {cloud_url_ratios}"
+            response = f"{cloud_url_ratios}"
             if cloud_url_balanceSheet:
-                response += f"\n✅ Balance sheet uploaded: {cloud_url_balanceSheet}"
-            else:
-                response += f"\n⚠️ No balance sheet data available."
+                response += f"\n{cloud_url_balanceSheet}"
+            # else:
+                # response += f"\n⚠️ No balance sheet data available."
 
             return response
 

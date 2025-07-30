@@ -18,8 +18,8 @@ export default function CandlestickChart() {
   const [connectionError, setConnectionError] = useState("")
   const { theme, toggleTheme } = useTheme()
   const [formData, setFormData] = useState({
-    company_name: "TATAMOTORS",
-    stock_name: "TATAMOTORS",
+    company_name: "",
+    stock_name: "",
     exchange: "NSE",
     from_date: "",
     to_date: "",
@@ -50,33 +50,7 @@ export default function CandlestickChart() {
     console.log("Navigate to dashboard tab:", tab)
   }
 
-  // Generate mock data for demonstration
-  const generateMockData = () => {
-    const mockData = []
-    const basePrice = 500
-    const now = new Date()
-
-    for (let i = 0; i < 50; i++) {
-      const timestamp = new Date(now.getTime() - (50 - i) * 60000) // 1 minute intervals
-      const randomChange = (Math.random() - 0.5) * 10
-      const open = basePrice + randomChange
-      const close = open + (Math.random() - 0.5) * 5
-      const high = Math.max(open, close) + Math.random() * 3
-      const low = Math.min(open, close) - Math.random() * 3
-      const volume = Math.floor(Math.random() * 10000) + 1000
-
-      mockData.push({
-        timestamp: timestamp.toISOString(),
-        open: open.toFixed(2),
-        high: high.toFixed(2),
-        low: low.toFixed(2),
-        close: close.toFixed(2),
-        volume: volume.toString(),
-      })
-    }
-
-    return mockData
-  }
+ 
 
   // WebSocket setup with fallback to mock data
   useEffect(() => {
@@ -211,13 +185,18 @@ export default function CandlestickChart() {
     }
 
     try {
-      const candles = chartData.map((d) => ({
-        time: Math.floor(new Date(d.timestamp).getTime() / 1000),
-        open: +d.open,
-        high: +d.high,
-        low: +d.low,
-        close: +d.close,
-      }))
+      const candles = chartData.map((d) => {
+        const utcDate = new Date(d.timestamp);
+        const utcSeconds = Math.floor(utcDate.getTime() / 1000);
+        return {
+          time: utcSeconds,
+          open: +d.open,
+          high: +d.high,
+          low: +d.low,
+          close: +d.close,
+        };
+      });
+      
 
       const volumes = chartData.map((d) => ({
         time: Math.floor(new Date(d.timestamp).getTime() / 1000),

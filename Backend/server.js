@@ -62,7 +62,7 @@ wss.on('connection', async (ws) => {
 
       // Fetch once and set interval
       await fetchAndSend();
-      const interval = setInterval(fetchAndSend, 10000); // every 10 sec
+      const interval = setInterval(fetchAndSend, 60000); // every 60 sec
 
       // Clear interval on disconnect
       ws.on('close', () => {
