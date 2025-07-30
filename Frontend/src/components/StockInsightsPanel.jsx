@@ -17,29 +17,33 @@ export default function FinancialDetails() {
     setError("")
     setFinancialData([])
 
+
     try {
-        const response = await axios.post("http://localhost:8000/balance-sheet-and-ratios/?symbol=TCS")
+        const response = await axios.post("http://localhost:8000/balance-sheet-and-ratios/?symbol=TCS.NS")
       
-        const fileUrl = response.data.details;
+        const urls = response.data.details;
       
-        Papa.parse(fileUrl, {
-          download: true,
-          header: true,
-          complete: (results) => {
-            setFinancialData(results.data);
-          },
-          error: (err) => {
-            console.error("CSV Parse Error", err);
-            setError("Failed to parse CSV");
-          },
-        });
+        // Loop through all returned URLs
+        for (const fileUrl of urls) {
+          Papa.parse(fileUrl, {
+            download: true,
+            header: true,
+            complete: (results) => {
+              setFinancialData((prevData) => [...prevData, ...results.data]);
+            },
+            error: (err) => {
+              console.error("CSV Parse Error", err);
+              setError("Failed to parse CSV");
+            },
+          });
+        }
       } catch (err) {
         console.error("Request Error", err);
         setError("Failed to fetch data");
       } finally {
         setLoading(false);
       }
-      
+         
       
   }
 

@@ -117,9 +117,11 @@ async def add_balance_sheet(symbol: str):
     try:
         tool = YFinanceFundamentalsTool()
         result = await tool._arun(symbol)
+        urls = result.strip().split("\n")
+
         return {
             "message": "✅ Balance sheet and ratios added successfully",
-            "details": result
+            "details": urls
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"❌ {str(e)}")
