@@ -61,13 +61,12 @@ class IndianStockNewsTool(BaseTool):
 
             cloud_url = upload_csv_to_cloudinary(csv_filename, folder="indian_stock_news")
 
-            return f"✅ News data uploaded to Cloudinary: {cloud_url}"
+            return f"{cloud_url}"
 
         except Exception as e:
             return f"❌ Error fetching or saving news: {str(e)}"
 
     async def _arun(self, query: str) -> str:
-        # Just run the same sync logic
         return self._run(query)
 
 
