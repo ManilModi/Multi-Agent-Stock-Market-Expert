@@ -5,14 +5,21 @@ import Header from "./Header"
 import Footer from "./Footer"
 import { Card, CardHeader, CardTitle, CardContent } from "./UI/card"
 import { Building2, BarChart3, Newspaper } from "lucide-react"
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer
+} from "recharts"
+
+const COLORS = ["#4CAF50", "#FF9800", "#F44336"] // Positive, Neutral, Negative
 
 export default function FinancialDetails() {
   const [companyName, setCompanyName] = useState("")
   const [balanceSheet, setBalanceSheet] = useState([])
   const [ratios, setRatios] = useState([])
-  const [news, setNews] = useState([])  // ✅ NEW STATE
+  const [news, setNews] = useState([])
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const [overallSentiment, setOverallSentiment] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,9 +28,9 @@ export default function FinancialDetails() {
     setBalanceSheet([])
     setRatios([])
     setNews([])
+    setOverallSentiment(null)
 
     try {
-      // Fetch balance sheet and ratios
       const financialsRes = await axios.post(`http://localhost:8000/balance-sheet-and-ratios/?symbol=${companyName}.NS`)
       const urls = financialsRes.data.details
 
@@ -31,34 +38,33 @@ export default function FinancialDetails() {
         download: true,
         header: true,
         complete: (results) => setBalanceSheet(results.data),
-        error: (err) => {
-          console.error("CSV Parse Error - Balance Sheet", err)
-          setError("Failed to parse balance sheet CSV")
-        },
+        error: () => setError("Failed to parse balance sheet CSV"),
       })
 
       Papa.parse(urls[1], {
         download: true,
         header: true,
         complete: (results) => setRatios(results.data),
-        error: (err) => {
-          console.error("CSV Parse Error - Ratios", err)
-          setError("Failed to parse ratios CSV")
-        },
+        error: () => setError("Failed to parse ratios CSV"),
       })
 
-      // ✅ Fetch News CSV
       const newsRes = await axios.get(`http://localhost:8000/news/${companyName}`)
       const newsUrl = newsRes.data.result
 
       Papa.parse(newsUrl, {
         download: true,
         header: true,
-        complete: (results) => setNews(results.data),
-        error: (err) => {
-          console.error("CSV Parse Error - News", err)
-          setError("Failed to parse news CSV")
+        complete: (results) => {
+          const newsData = results.data.filter(row => row.title && row.sentiment !== "")
+          setNews(newsData)
+
+          const sentiments = newsData.map(n => parseFloat(n.sentiment)).filter(Number.isFinite)
+          const avg = sentiments.reduce((a, b) => a + b, 0) / sentiments.length
+          setOverallSentiment(
+            avg > 0.1 ? "Positive" : avg < -0.1 ? "Negative" : "Neutral"
+          )
         },
+        error: () => setError("Failed to parse news CSV"),
       })
     } catch (err) {
       console.error("Request Error", err)
@@ -91,10 +97,46 @@ export default function FinancialDetails() {
     </div>
   )
 
+  const renderSentimentCircle = (score) => {
+    const val = parseFloat(score)
+    const percent = Math.round((val + 1) * 50)
+    const color = val > 0.1 ? "stroke-green-500" : val < -0.1 ? "stroke-red-500" : "stroke-yellow-500"
+
+    return (
+      <svg viewBox="0 0 36 36" className="w-12 h-12 mx-auto">
+        <path className="text-gray-200" strokeWidth="3.8" fill="none" stroke="currentColor"
+          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path className={color} strokeWidth="3.8" fill="none" strokeLinecap="round" stroke="currentColor"
+          strokeDasharray={`${percent}, 100`} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <text x="18" y="20.35" className="fill-current text-white text-xs" textAnchor="middle">{val.toFixed(2)}</text>
+      </svg>
+    )
+  }
+
+  // Dummy chart data
+  const dummyLineChart = [
+    { month: "Jan", value: 100 },
+    { month: "Feb", value: 120 },
+    { month: "Mar", value: 140 },
+    { month: "Apr", value: 130 },
+    { month: "May", value: 150 }
+  ]
+  const dummyBarChart = [
+    { quarter: "Q1", revenue: 300 },
+    { quarter: "Q2", revenue: 450 },
+    { quarter: "Q3", revenue: 400 },
+    { quarter: "Q4", revenue: 500 }
+  ]
+
+  const sentimentChartData = [
+    { name: "Positive", value: news.filter(n => parseFloat(n.sentiment) > 0.1).length },
+    { name: "Neutral", value: news.filter(n => Math.abs(parseFloat(n.sentiment)) <= 0.1).length },
+    { name: "Negative", value: news.filter(n => parseFloat(n.sentiment) < -0.1).length }
+  ]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-slate-800 text-gray-900 dark:text-white">
       <Header />
-
       <main className="container mx-auto px-4 py-10">
         <Card className="max-w-2xl mx-auto mb-8 shadow-lg">
           <CardHeader>
@@ -128,9 +170,7 @@ export default function FinancialDetails() {
                 <Building2 className="w-5 h-5" />
                 <CardTitle className="text-lg">Balance Sheet</CardTitle>
               </CardHeader>
-              <CardContent>
-                {renderTable(balanceSheet)}
-              </CardContent>
+              <CardContent>{renderTable(balanceSheet)}</CardContent>
             </Card>
           )}
 
@@ -140,26 +180,75 @@ export default function FinancialDetails() {
                 <BarChart3 className="w-5 h-5" />
                 <CardTitle className="text-lg">Financial Ratios</CardTitle>
               </CardHeader>
-              <CardContent>
-                {renderTable(ratios)}
-              </CardContent>
+              <CardContent>{renderTable(ratios)}</CardContent>
             </Card>
           )}
 
+          {/* Charts */}
+          <Card className="col-span-2">
+            <CardHeader>
+              <CardTitle className="text-lg">📈 Key Financial Charts</CardTitle>
+            </CardHeader>
+            <CardContent className="grid md:grid-cols-3 gap-6">
+              <ResponsiveContainer width="100%" height={200}>
+                <LineChart data={dummyLineChart}>
+                  <XAxis dataKey="month" /><YAxis />
+                  <Tooltip /><Legend />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Line type="monotone" dataKey="value" stroke="#8884d8" />
+                </LineChart>
+              </ResponsiveContainer>
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={dummyBarChart}>
+                  <XAxis dataKey="quarter" /><YAxis />
+                  <Tooltip /><Legend />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Bar dataKey="revenue" fill="#82ca9d" />
+                </BarChart>
+              </ResponsiveContainer>
+              <ResponsiveContainer width="100%" height={200}>
+                <PieChart>
+                  <Pie data={sentimentChartData} cx="50%" cy="50%" outerRadius={60} fill="#8884d8" dataKey="value" label>
+                    {sentimentChartData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+
           {news.length > 0 && (
-            <Card className="shadow-md col-span-1 md:col-span-2">
-              <CardHeader className="flex flex-row items-center gap-2">
-                <Newspaper className="w-5 h-5" />
-                <CardTitle className="text-lg">📢 Latest News</CardTitle>
+            <Card className="shadow-md col-span-2">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Newspaper className="w-5 h-5" />
+                  <CardTitle className="text-lg">📢 Latest News</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                {renderTable(news)}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {news.map((item, idx) => (
+                    <div key={idx} className="border rounded p-4 bg-white dark:bg-slate-800">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 dark:text-blue-300 hover:underline font-semibold block mb-2"
+                      >
+                        {item.title}
+                      </a>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{item.date} • {item.source}</p>
+                      <div className="mt-2 flex justify-center">{renderSentimentCircle(item.sentiment)}</div>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           )}
         </div>
       </main>
-
       <Footer />
     </div>
   )

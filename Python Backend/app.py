@@ -4,11 +4,18 @@ from typing import List, Optional
 from dags.Features.tools.candlestick_tool import AngelOneCandlestickTool
 from dags.Features.tools.yfinance_tool import YFinanceFundamentalsTool
 from dags.Features.tools.stock_news_tool import IndianStockNewsTool
-
+from fastapi.middleware.cors import CORSMiddleware
+from websocket_manager import ConnectionManager
+import json
 import httpx
 import csv
 import io
 import asyncio
+import requests
+import pandas as pd
+from io import StringIO
+from starlette.websockets import WebSocketState
+import datetime
 
 app = FastAPI()
 
@@ -16,8 +23,6 @@ app = FastAPI()
 # from ws_routes import router as ws_router
 
 # app = FastAPI()
-
-from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,13 +33,92 @@ app.add_middleware(
 )
 
 
-class CandlestickRequest(BaseModel):
+
+
+manager = ConnectionManager()
+@app.websocket("/ws/candlestick")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+
+    try:
+        data = await websocket.receive_text()
+        print("WebSocket received:", data)
+        params = json.loads(data)
+
+        required_fields = ["company_name", "stock_name", "exchange", "interval"]
+        for field in required_fields:
+            if field not in params or not params[field]:
+                await websocket.send_json({"error": f"Missing required field: {field}"})
+                return
+
+        tool = AngelOneCandlestickTool()
+
+        while websocket.application_state == WebSocketState.CONNECTED:
+            try:
+                result = tool._run(
+                    company_name=params["company_name"],
+                    stock_name=params["stock_name"],
+                    exchange=params["exchange"],
+                    interval=params["interval"]
+                )
+
+                csv_url = result if isinstance(result, str) else result.get("message")
+                if not csv_url or not csv_url.startswith("http"):
+                    await websocket.send_json({"error": f"Invalid CSV URL: {csv_url}"})
+                    break
+
+                async with httpx.AsyncClient() as client:
+                    response = await client.get(csv_url)
+                    decoded = response.content.decode("utf-8")
+                    reader = csv.DictReader(io.StringIO(decoded))
+                    records = []
+
+                    for row in reader:
+                        try:
+                            ts = row.get("timestamp") or row.get("date")
+                            if ts.endswith("Z"):
+                                dt = datetime.datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc)
+                            else:
+                                dt = datetime.datetime.fromisoformat(ts).astimezone(datetime.timezone.utc)
+
+                            row["timestamp"] = dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+                            records.append(row)
+                        except Exception as e:
+                            print(f"Error normalizing row: {e}")
+
+                if websocket.application_state == WebSocketState.CONNECTED:
+                    await websocket.send_json({"data": records})
+                else:
+                    print("WebSocket is disconnected before sending data.")
+                    break
+
+                await asyncio.sleep(60)
+
+            except Exception as e:
+                print("Loop error:", e)
+                if websocket.application_state == WebSocketState.CONNECTED:
+                    await websocket.send_json({"error": str(e)})
+                else:
+                    print("WebSocket is disconnected. Exiting loop.")
+                    break
+
+    except WebSocketDisconnect:
+        print("WebSocket client disconnected.")
+    except Exception as e:
+        print("WebSocket error:", e)
+    finally:
+        manager.disconnect(websocket)
+        print("WebSocket disconnected.")
+
+
+
+class StockRequest(BaseModel):
     company_name: str
     stock_name: str
     exchange: str = "NSE"
-    from_date: str | None = None
-    to_date: str | None = None
     interval: str = "ONE_MINUTE"
+
+
 
 
 class RatioItem(BaseModel):
@@ -60,54 +144,19 @@ class BalanceSheetSchema(BaseModel):
 #     result = await db.reports.insert_one(report.dict())
 #     return {"id": str(result.inserted_id)}
 
-# router = APIRouter()
-
-# @router.websocket("/ws/candlesticks")
-# async def candlestick_stream(websocket: WebSocket):
-#     await websocket.accept()
-#     try:
-#         # Sample public CSV URL from Cloudinary
-#         public_url = "https://res.cloudinary.com/dscl5nnzv/raw/upload/candlestick_pattern/tatamotors.ns_balance_sheet.csv.csv"
-        
-#         async with httpx.AsyncClient() as client:
-#             response = await client.get(public_url)
-#             csv_content = response.text
-        
-#         reader = csv.reader(io.StringIO(csv_content))
-#         headers = next(reader)  # Skip headers
-
-#         for row in reader:
-#             if len(row) < 6:
-#                 continue
-#             payload = {
-#                 "time": row[0],
-#                 "open": float(row[1]),
-#                 "high": float(row[2]),
-#                 "low": float(row[3]),
-#                 "close": float(row[4]),
-#                 "volume": int(row[5])
-#             }
-#             await websocket.send_json(payload)
-#             await asyncio.sleep(1)  # Delay for streaming effect
-
-#     except WebSocketDisconnect:
-#         print("WebSocket disconnected")
-#     except Exception as e:
-#         print("WebSocket error:", e)
-#         await websocket.close(code=1003)
 
 @app.post("/candlesticks/")
-async def add_candlestick(request: CandlestickRequest):
+async def add_candlestick(request: StockRequest):
+    print("Received:", request)
     try:
         tool = AngelOneCandlestickTool()
         result = tool._run(
             company_name=request.company_name,
             stock_name=request.stock_name,
             exchange=request.exchange,
-            from_date=request.from_date,
-            to_date=request.to_date,
             interval=request.interval
         )
+        print("Result:", result)
         return {"message": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

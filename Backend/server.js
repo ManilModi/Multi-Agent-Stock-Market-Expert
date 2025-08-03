@@ -38,42 +38,47 @@ wss.on('connection', async (ws) => {
   console.log('Frontend connected to WebSocket');
 
   ws.on('message', async (message) => {
-    const params = JSON.parse(message);
+    const params = JSON.parse(message);  // Company/stock names
 
     try {
-      // Step 1: Get CSV link from FastAPI
-      const response = await axios.post('http://127.0.0.1:8000/candlesticks', params, {
-        timeout: 45000  // in case FastAPI takes time
-      });
+      // Call FastAPI backend to get CSV URL
+      const response = await axios.post('http://127.0.0.1:8000/candlesticks/', params);
       const csvUrl = response.data.message;
-      console.log('CSV URL:', csvUrl);
 
-      // Step 2: Continuously fetch CSV every 10 seconds
       const fetchAndSend = async () => {
         try {
           const csvRes = await axios.get(csvUrl);
           const records = csvParse.parse(csvRes.data, { columns: true });
-          ws.send(JSON.stringify({ data: records }));
+      
+          if (ws.readyState === ws.OPEN) {
+            ws.send(JSON.stringify({ data: records }));
+          }
         } catch (err) {
-          console.error('CSV Fetch Error:', err.message);
-          ws.send(JSON.stringify({ error: 'Error fetching CSV data.' }));
+          if (ws.readyState === ws.OPEN) {
+            ws.send(JSON.stringify({ error: 'Error fetching CSV data' }));
+          }
         }
       };
+      
 
-      // Fetch once and set interval
+      // Fetch once + set interval
       await fetchAndSend();
-      const interval = setInterval(fetchAndSend, 60000); // every 60 sec
+      const interval = setInterval(fetchAndSend, 60000);
 
-      // Clear interval on disconnect
+      // 🔁 Clean up on close
       ws.on('close', () => {
         clearInterval(interval);
-        console.log('Client disconnected');
+        console.log("Client disconnected");
       });
 
     } catch (err) {
-      console.error('Error in WebSocket handler:', err.message);
-      ws.send(JSON.stringify({ error: err.message }));
+      if (ws.readyState === ws.OPEN) {
+        ws.send(JSON.stringify({ error: 'Error fetching CSV data' }));
+      } else {
+        console.log("WebSocket closed, not sending error");
+      }
     }
+    
   });
 });
 

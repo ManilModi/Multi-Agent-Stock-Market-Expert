@@ -21,24 +21,25 @@ export default function CandlestickChart() {
     company_name: "",
     stock_name: "",
     exchange: "NSE",
-    from_date: "",
-    to_date: "",
     interval: "ONE_MINUTE",
-  })
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (socketRef.current?.readyState === WebSocket.OPEN) {
-      socketRef.current.send(JSON.stringify(formData))
-    } else {
-      console.error("❌ WebSocket not connected")
-      setConnectionError("WebSocket not connected. Please check your connection.")
+    e.preventDefault();
+    setConnectionError("");
+    if (!formData.company_name || !formData.stock_name) {
+      setConnectionError("Please fill all required fields.");
+      return;
     }
-  }
+  
+    // Setting state will trigger useEffect
+    setFormData({ ...formData });
+  };
+  
 
   const handleGetStarted = () => {
     // Handle login modal opening
@@ -50,169 +51,164 @@ export default function CandlestickChart() {
     console.log("Navigate to dashboard tab:", tab)
   }
 
- 
+  // WebSocket logic to fetch candlestick chart data
+useEffect(() => {
+  if (!formData.company_name || !formData.stock_name) {
+    return;
+  }
+  
 
-  // WebSocket setup with fallback to mock data
-  useEffect(() => {
-    const socket = new WebSocket("ws://localhost:5000");
-    socketRef.current = socket;
+  const socket = new WebSocket("ws://localhost:8000/ws/candlestick");
+  socketRef.current = socket;
 
-    socket.onopen = () => {
-      setWsConnected(true);
-      console.log("✅ WebSocket connected");
-    };
+  socket.onopen = () => {
+    console.log(formData);
+    console.log(wsConnected);
+    console.log("✅ Connected");
 
-    socket.onmessage = (event) => {
-      try {
-        const message = JSON.parse(event.data);
-        if (message.data) {
-          setChartData(message.data);
-        } else if (message.error) {
-          console.error("❌ WebSocket Error:", message.error);
-        }
-      } catch (err) {
-        console.error("❌ Invalid WebSocket message:", err.message);
-      }
-    };
+    setWsConnected(true);
+    socket.send(JSON.stringify(formData));
+  };
 
-    socket.onclose = () => {
-      setWsConnected(false);
-      console.log("🔌 WebSocket disconnected");
-    };
-
-    return () => {
-      socket.close();
-    };
-  }, []);
-
-  // Chart setup with theme support
-  useEffect(() => {
-    if (!chartContainerRef.current) return
-
+  socket.onmessage = (event) => {
+    console.log("📦 Message received:", event.data);
     try {
-      const isDark = theme === "dark"
-
-      const chart = createChart(chartContainerRef.current, {
-        width: chartContainerRef.current.clientWidth,
-        height: 500,
-        layout: {
-          background: {
-            type: ColorType.Solid,
-            color: isDark ? "#1e293b" : "#ffffff",
-          },
-          textColor: isDark ? "#e2e8f0" : "#333333",
-        },
-        crosshair: {
-          mode: CrosshairMode.Normal,
-        },
-        grid: {
-          vertLines: {
-            color: isDark ? "#334155" : "#eeeeee",
-          },
-          horzLines: {
-            color: isDark ? "#334155" : "#eeeeee",
-          },
-        },
-        rightPriceScale: {
-          scaleMargins: {
-            top: 0.1,
-            bottom: 0.4,
-          },
-          mode: PriceScaleMode.Normal,
-          borderColor: isDark ? "#475569" : "#d1d5db",
-        },
-        timeScale: {
-          timeVisible: true,
-          secondsVisible: false,
-          borderColor: isDark ? "#475569" : "#d1d5db",
-        },
-      })
-
-      console.log("Chart instance:", chart)
-      console.log("Available methods:", Object.keys(chart))
-
-      chartRef.current = chart
-
-      // Use the correct API for adding series
-      candleSeriesRef.current = chart.addCandlestickSeries({
-        upColor: "#22c55e",
-        downColor: "#ef4444",
-        borderVisible: false,
-        wickUpColor: "#22c55e",
-        wickDownColor: "#ef4444",
-        priceScaleId: "right",
-      })
-
-      volumeSeriesRef.current = chart.addHistogramSeries({
-        color: isDark ? "#6366f1" : "#8884d8",
-        priceFormat: {
-          type: "volume",
-        },
-        priceScaleId: "volume",
-        scaleMargins: {
-          top: 0.7, // Start volume chart at 70% from top (creates space)
-          bottom: 0.05, // Small margin at bottom
-        },
-      })
-
-      // Create separate price scale for volume
-      chart.priceScale("volume").applyOptions({
-        scaleMargins: {
-          top: 0.7,
-          bottom: 0.05,
-        },
-        borderColor: isDark ? "#475569" : "#d1d5db",
-      })
-
-      console.log("✅ Chart series added successfully")
-
-      // Handle resize
-      
-
-      return () => {
-        chart.remove()
+      const message = JSON.parse(event.data);
+      if (message.data) {
+        console.log("📊 Parsed chart data:", message.data); // log raw chart data
+        setChartData(message.data);
+      } else if (message.error) {
+        console.error("❌ Server error:", message.error);
+        setConnectionError("Server error: " + message.error);
       }
-    } catch (error) {
-      console.error("❌ Error creating chart:", error)
+    } catch (err) {
+      console.error("❌ Failed to parse WebSocket message:", err);
+      setConnectionError("Failed to parse server response.");
     }
-  }, [theme]) // Re-create chart when theme changes
+  };
+  
 
-  // Update chart data
-  useEffect(() => {
-    if (!candleSeriesRef.current || !volumeSeriesRef.current || !chartData.length) {
-      
-      return
+  socket.onerror = (err) => {
+    console.error("❌ WebSocket error:", err);
+    setConnectionError("WebSocket encountered an error.");
+  };
+
+  socket.onclose = () => {
+    setWsConnected(false);
+    console.log("🔌 WebSocket disconnected");
+  };
+
+  return () => {
+    socket.close();
+  };
+}, [formData]); // Rerun when formData changes
+
+
+useEffect(() => {
+  // Clear chart data when stock name changes
+  candleSeriesRef.current?.setData([]);
+  volumeSeriesRef.current?.setData([]);
+}, [formData.stock_name]);
+
+useEffect(() => {
+  // Handle chart resize
+  const handleResize = () => {
+    if (chartRef.current && chartContainerRef.current) {
+      chartRef.current.resize(chartContainerRef.current.clientWidth, 500);
     }
+  };
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
-    try {
-      const candles = chartData.map((d) => {
-        const utcDate = new Date(d.timestamp);
-        const utcSeconds = Math.floor(utcDate.getTime() / 1000);
-        return {
-          time: utcSeconds,
-          open: +d.open,
-          high: +d.high,
-          low: +d.low,
-          close: +d.close,
-        };
-      });
-      
+useEffect(() => {
+  // Initialize chart with theming
+  if (!chartContainerRef.current) return;
 
-      const volumes = chartData.map((d) => ({
-        time: Math.floor(new Date(d.timestamp).getTime() / 1000),
-        value: +d.volume,
-        color: +d.close > +d.open ? "#22c55e" : "#ef4444",
-      }))
+  const isDark = theme === "dark";
 
-      // console.log("Updating chart with data:", { candles: candles.length, volumes: volumes.length })
+  const chart = createChart(chartContainerRef.current, {
+    width: chartContainerRef.current.clientWidth,
+    height: 500,
+    layout: {
+      background: { type: ColorType.Solid, color: isDark ? "#1e293b" : "#ffffff" },
+      textColor: isDark ? "#e2e8f0" : "#333333",
+    },
+    crosshair: { mode: CrosshairMode.Normal },
+    grid: {
+      vertLines: { color: isDark ? "#334155" : "#eeeeee" },
+      horzLines: { color: isDark ? "#334155" : "#eeeeee" },
+    },
+    rightPriceScale: {
+      scaleMargins: { top: 0.1, bottom: 0.4 },
+      mode: PriceScaleMode.Normal,
+      borderColor: isDark ? "#475569" : "#d1d5db",
+    },
+    timeScale: {
+      timeVisible: true,
+      secondsVisible: false,
+      borderColor: isDark ? "#475569" : "#d1d5db",
+    },
+  });
 
-      candleSeriesRef.current.setData(candles)
-      volumeSeriesRef.current.setData(volumes)
+  chartRef.current = chart;
 
-    } catch (error) {
-      console.error("❌ Error updating chart data:", error)
-    }
-  }, [chartData])
+  candleSeriesRef.current = chart.addCandlestickSeries({
+    upColor: "#22c55e",
+    downColor: "#ef4444",
+    borderVisible: false,
+    wickUpColor: "#22c55e",
+    wickDownColor: "#ef4444",
+    priceScaleId: "right",
+  });
+
+  volumeSeriesRef.current = chart.addHistogramSeries({
+    color: "#8884d8", // fallback (but overridden per bar below)
+    priceFormat: { type: "volume" },
+    priceScaleId: "volume",
+    scaleMargins: { top: 0.7, bottom: 0.05 },
+  });
+
+  chart.priceScale("volume").applyOptions({
+    scaleMargins: { top: 0.7, bottom: 0.05 },
+    borderColor: isDark ? "#475569" : "#d1d5db",
+  });
+
+  // candleSeriesRef.current = null;
+  // volumeSeriesRef.current = null;
+  // chartRef.current = null;
+
+  return () => {
+    chart.remove();
+    candleSeriesRef.current = null;
+    volumeSeriesRef.current = null;
+    chartRef.current = null;
+  };
+  
+}, [theme]);
+
+useEffect(() => {
+  if (!chartData || chartData.length === 0) return;
+
+  const candles = chartData.map(d => ({
+    time: Math.floor(new Date(d.timestamp).getTime() / 1000),
+    open: +d.open,
+    high: +d.high,
+    low: +d.low,
+    close: +d.close,
+  }));
+
+  const volumes = chartData.map(d => ({
+    time: Math.floor(new Date(d.timestamp).getTime() / 1000),
+    value: Math.max(0, +d.volume),
+    color: +d.close > +d.open ? "#22c55e" : "#ef4444"
+  }));
+
+  candleSeriesRef.current?.setData(candles);
+  volumeSeriesRef.current?.setData(volumes);
+}, [chartData]);
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
@@ -306,27 +302,7 @@ export default function CandlestickChart() {
                 </select>
               </div>
 
-              <div className="flex flex-col">
-                <label className="text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">From Date</label>
-                <input
-                  type="date"
-                  name="from_date"
-                  value={formData.from_date}
-                  onChange={handleChange}
-                  className="border border-gray-300 dark:border-slate-600 p-2 rounded bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-colors duration-300"
-                />
-              </div>
-
-              <div className="flex flex-col">
-                <label className="text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">To Date</label>
-                <input
-                  type="date"
-                  name="to_date"
-                  value={formData.to_date}
-                  onChange={handleChange}
-                  className="border border-gray-300 dark:border-slate-600 p-2 rounded bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-colors duration-300"
-                />
-              </div>
+              
 
               <div className="flex flex-col justify-end">
                 <button
