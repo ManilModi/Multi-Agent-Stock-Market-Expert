@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import axios from "axios"
 import Papa from "papaparse"
 import Header from "./Header"
@@ -9,6 +9,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer
 } from "recharts"
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 const COLORS = ["#4CAF50", "#FF9800", "#F44336"] // Positive, Neutral, Negative
 
@@ -20,6 +21,9 @@ export default function FinancialDetails() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [overallSentiment, setOverallSentiment] = useState(null)
+
+  const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff8042', '#8dd1e1'];
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -74,6 +78,46 @@ export default function FinancialDetails() {
     }
   }
 
+
+
+  const GenericBarChart = ({ data, color = "#4CAF50" }) => (
+    <ResponsiveContainer width="100%" height={200}>
+      <BarChart data={data}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="value" fill={color} />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+  
+
+  const ratiosMap = useMemo(() => {
+    const map = {};
+    ratios.forEach(entry => {
+      if (entry.Item && entry.Value) {
+        map[entry.Item] = parseFloat(entry.Value.replace(/,/g, '')) || 0;
+      }
+    });
+    return map;
+  }, [ratios]);
+
+  
+  const balanceSheetMap = useMemo(() => {
+    const map = {};
+    balanceSheet.forEach(entry => {
+      const item = entry?.Item?.trim();
+      const value = entry?.Value?.replace(/,/g, '').trim();
+      if (item && value) {
+        map[item.toLowerCase()] = parseFloat(value) || 0;
+      }
+    });
+    console.log("Parsed Map:", map); // Debug
+    return map;
+  }, [balanceSheet]); 
+  
+  
+
   const renderTable = (data) => (
     <div className="max-h-[400px] overflow-auto rounded border border-gray-200 dark:border-slate-700">
       <table className="min-w-full text-sm">
@@ -97,6 +141,75 @@ export default function FinancialDetails() {
     </div>
   )
 
+
+
+  const capitalStructure = balanceSheet.length > 0 ? [{
+    name: "Capital Structure",
+    equity: parseFloat(ratiosMap["Common Stock Equity"]) || 0,
+    debt: parseFloat(ratiosMap["Total Debt"]) || 0,
+    retained: parseFloat(ratiosMap["Retained Earnings"]) || 0,
+  }] : []
+
+  console.log("Capital Structure Data:", capitalStructure);
+
+  
+  const assetComposition = [{
+  name: "Assets",
+  cash: parseFloat(ratiosMap["Cash And Cash Equivalents"]) || 0,
+  receivables: parseFloat(ratiosMap["Other Receivables"]) || 0,
+  netPpe: parseFloat(ratiosMap["Net PPE"]) || 0,
+  investments: parseFloat(ratiosMap["Cash Cash Equivalents And Short Term Investments"]) || 0,
+}];
+
+
+  console.log("Ratios Data", ratiosMap["Net Debt"])
+  
+  const profitability = [{
+    name: "Profitability",
+    // roa: parseFloat(data["Return on Assets"]) || 0,
+    // roe: parseFloat(data["Return on Equity"]) || 0,
+    grossMargin: parseFloat(balanceSheetMap["Grossmargins"]) || 0,
+    opMargin: parseFloat(balanceSheetMap["Operatingmargins"]) || 0,
+  }];
+
+  console.log(balanceSheetMap)
+  console.log("Balance Sheet:", balanceSheet);
+
+  
+  const getMetricValue = (metricName) => {
+    const metricObj = balanceSheet.find(item => item.Metric?.toLowerCase() === metricName.toLowerCase());
+    return parseFloat(metricObj?.Value.replace(/,/g, '')) || 0;
+  };
+  
+  const valuation = [{
+    name: "Valuation",
+    peRatio: getMetricValue("Trailingpe"),
+    pbRatio: getMetricValue("Pricetobook"),
+    psRatio: getMetricValue("Pricetosalestrailing12Months"),
+  }];
+  
+  
+
+  
+  const liabilityComposition = [{
+    name: "Liabilities",
+    totalDebt: parseFloat(ratiosMap["Total Debt"]) || 0,
+    accountsPayable: parseFloat(ratiosMap["Accounts Payable"]) || 0,
+    otherLiabilities: parseFloat(ratiosMap["Other Current Liabilities"]) || 0,
+  }];
+  
+
+  const liquidity = [{
+    name: "Liquidity",
+    currentRatio: parseFloat(ratiosMap["Current Assets"]) / parseFloat(ratiosMap["Current Liabilities"]) || 0,
+    quickRatio: (
+      parseFloat(ratiosMap["Current Assets"]) 
+      - parseFloat(balanceSheetMap["Inventory"]) 
+    ) / parseFloat(ratiosMap["Current Liabilities"]) || 0,
+    interestCoverage: parseFloat(balanceSheetMap["Ebitda"]) / (parseFloat(ratiosMap["Minority Interest"]) || 1) || 0, // If no interest, default to 1 to avoid NaN
+  }];
+  
+
   const renderSentimentCircle = (score) => {
     const val = parseFloat(score)
     const percent = Math.round((val + 1) * 50)
@@ -113,20 +226,6 @@ export default function FinancialDetails() {
     )
   }
 
-  // Dummy chart data
-  const dummyLineChart = [
-    { month: "Jan", value: 100 },
-    { month: "Feb", value: 120 },
-    { month: "Mar", value: 140 },
-    { month: "Apr", value: 130 },
-    { month: "May", value: 150 }
-  ]
-  const dummyBarChart = [
-    { quarter: "Q1", revenue: 300 },
-    { quarter: "Q2", revenue: 450 },
-    { quarter: "Q3", revenue: 400 },
-    { quarter: "Q4", revenue: 500 }
-  ]
 
   const sentimentChartData = [
     { name: "Positive", value: news.filter(n => parseFloat(n.sentiment) > 0.1).length },
@@ -190,33 +289,136 @@ export default function FinancialDetails() {
               <CardTitle className="text-lg">📈 Key Financial Charts</CardTitle>
             </CardHeader>
             <CardContent className="grid md:grid-cols-3 gap-6">
-              <ResponsiveContainer width="100%" height={200}>
-                <LineChart data={dummyLineChart}>
-                  <XAxis dataKey="month" /><YAxis />
-                  <Tooltip /><Legend />
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <Line type="monotone" dataKey="value" stroke="#8884d8" />
-                </LineChart>
-              </ResponsiveContainer>
-              <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={dummyBarChart}>
-                  <XAxis dataKey="quarter" /><YAxis />
-                  <Tooltip /><Legend />
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <Bar dataKey="revenue" fill="#82ca9d" />
-                </BarChart>
-              </ResponsiveContainer>
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={sentimentChartData} cx="50%" cy="50%" outerRadius={60} fill="#8884d8" dataKey="value" label>
-                    {sentimentChartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                
+
+                {/* Sentiment Pie Chart */}
+                <ResponsiveContainer width="100%" height={200}>
+                    <PieChart>
+                    <Pie data={sentimentChartData} cx="50%" cy="50%" outerRadius={60} fill="#8884d8" dataKey="value" label>
+                        {sentimentChartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                    </Pie>
+                    <Tooltip />
+                    </PieChart>
+                </ResponsiveContainer>
+
+                {/* Capital Structure Bar Chart */}
+                {capitalStructure.length > 0 && (
+                    <ResponsiveContainer width="100%" height={200}>
+                    <BarChart data={capitalStructure}>
+                        <XAxis dataKey="name" /><YAxis />
+                        <Tooltip /><Legend />
+                        <Bar dataKey="equity" stackId="a" fill="#4CAF50" />
+                        <Bar dataKey="debt" stackId="a" fill="#F44336" />
+                        <Bar dataKey="retained" stackId="a" fill="#FF9800" />
+                    </BarChart>
+                    </ResponsiveContainer>
+                )}
+
+                  
+                  <BarChart width={400} height={300} data={capitalStructure}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="equity" fill="#8884d8" name="Equity" />
+                    <Bar dataKey="debt" fill="#82ca9d" name="Debt" />
+                    <Bar dataKey="retained" fill="#ffc658" name="Retained Earnings" />
+                  </BarChart>
+
+
+                  <PieChart width={400} height={300}>
+                  <Pie
+                    data={Object.entries(assetComposition[0])
+                      .filter(([key]) => key !== "name")
+                      .map(([key, value]) => ({ name: key, value }))}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    label
+                  >
+                    {COLORS.map((color, index) => (
+                      <Cell key={`cell-${index}`} fill={color} />
                     ))}
                   </Pie>
                   <Tooltip />
                 </PieChart>
-              </ResponsiveContainer>
-            </CardContent>
+
+
+                <RadarChart outerRadius={90} width={400} height={300} data={Object.entries(profitability[0])
+              .filter(([key]) => key !== "name")
+              .map(([key, value]) => ({ subject: key, A: value }))}>
+              <PolarGrid />
+              <PolarAngleAxis dataKey="subject" />
+              <PolarRadiusAxis angle={30} domain={[0, 100]} />
+              <Radar name="Profitability" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+              <Tooltip />
+            </RadarChart>
+
+
+            <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={valuation}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="peRatio" fill="#8884d8" name="P/E Ratio" />
+              <Bar dataKey="pbRatio" fill="#82ca9d" name="P/B Ratio" />
+              <Bar dataKey="psRatio" fill="#ffc658" name="P/S Ratio" />
+            </BarChart>
+          </ResponsiveContainer>
+
+
+
+          <PieChart width={400} height={300}>
+          <Pie
+            data={Object.entries(liabilityComposition[0])
+              .filter(([key]) => key !== "name")
+              .map(([key, value]) => ({ name: key, value }))}
+            cx="50%"
+            cy="50%"
+            outerRadius={100}
+            fill="#8884d8"
+            label
+          >
+            {COLORS.map((color, index) => (
+              <Cell key={`cell-${index}`} fill={color} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+
+
+
+        <RadarChart outerRadius={90} width={400} height={300} data={Object.entries(liquidity[0])
+        .filter(([key]) => key !== "name")
+        .map(([key, value]) => ({ subject: key, A: value }))}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" />
+        <PolarRadiusAxis angle={30} />
+        <Radar name="Liquidity" dataKey="A" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+        <Tooltip />
+      </RadarChart>
+
+
+
+
+                {/* Profitability Radar Chart */}
+                {/* {profitability.length > 0 && (
+                    <ResponsiveContainer width="100%" height={250}>
+                    <RadarChart data={profitability} outerRadius={80}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="metric" />
+                        <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                        <Radar name="Profitability" dataKey="roa" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    </RadarChart>
+                    </ResponsiveContainer>
+                )} */}
+                </CardContent>
           </Card>
 
           {news.length > 0 && (
