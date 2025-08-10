@@ -1,5 +1,26 @@
 # agents.py
 
+import os
+import sys
+import types
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Disable telemetry via env var
+os.environ["CREWAI_TELEMETRY_DISABLED"] = "true"
+
+import requests
+
+# Monkey patch requests to never timeout
+_old_request = requests.Session.request
+def _new_request(self, *args, **kwargs):
+    kwargs['timeout'] = None  # no timeout
+    return _old_request(self, *args, **kwargs)
+
+requests.Session.request = _new_request
+
 from crewai import Agent, LLM
 from dotenv import load_dotenv
 import os
@@ -52,7 +73,7 @@ def get_agents(company_name: str, stock_ticker: str):
         "chart_analysis_agent": Agent(
     role="Technical Chart Analyst",
     goal="Analyze stock trends using Angel One candlestick data.",
-    backstory="You're an expert technical analyst who fetches and studies candlestick charts to derive trading signals.",
+    backstory="You're an expert technical analyst who fetches and studies candlestick charts to derive trading signals from only ONE_MINUTE time period candlestick chart.",
     tools=[candlestick_tool],
     llm=llm,
     verbose=True

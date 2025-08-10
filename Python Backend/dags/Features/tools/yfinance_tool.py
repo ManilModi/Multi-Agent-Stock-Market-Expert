@@ -1,3 +1,25 @@
+import os
+import sys
+import types
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Disable telemetry via env var
+os.environ["CREWAI_TELEMETRY_DISABLED"] = "true"
+
+import requests
+
+# Monkey patch requests to never timeout
+_old_request = requests.Session.request
+def _new_request(self, *args, **kwargs):
+    kwargs['timeout'] = None  # no timeout
+    return _old_request(self, *args, **kwargs)
+
+requests.Session.request = _new_request
+
+
 from crewai.tools import BaseTool
 import yfinance as yf
 import pandas as pd
@@ -74,9 +96,9 @@ class YFinanceFundamentalsTool(BaseTool):
 
 
 # Debug/testing
-if __name__ == "__main__":
-    tool = YFinanceFundamentalsTool()
-    result = tool._run("TATAMOTORS.NS")
-    print("\n========== TOOL OUTPUT ==========\n")
-    print(result)
-    print("\n=================================\n")
+# if __name__ == "__main__":
+#     tool = YFinanceFundamentalsTool()
+#     result = tool._run("TATAMOTORS.NS")
+#     print("\n========== TOOL OUTPUT ==========\n")
+#     print(result)
+#     print("\n=================================\n")

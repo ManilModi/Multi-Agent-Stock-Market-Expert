@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+os.environ["CREWAI_TELEMETRY_DISABLED"] = "true"
+
 from Features.agents import get_agents
 from Features.tasks import get_tasks
 from crewai import Crew, Process

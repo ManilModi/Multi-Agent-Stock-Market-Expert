@@ -1,4 +1,4 @@
-from fastapi import FastAPI, WebSocket, HTTPException, WebSocketDisconnect, APIRouter
+from fastapi import FastAPI, WebSocket, HTTPException, WebSocketDisconnect, APIRouter, Query
 from pydantic import BaseModel
 from typing import List, Optional
 from dags.Features.tools.candlestick_tool import AngelOneCandlestickTool
@@ -16,6 +16,8 @@ import pandas as pd
 from io import StringIO
 from starlette.websockets import WebSocketState
 import datetime
+from main import run
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
@@ -138,11 +140,6 @@ class BalanceSheetSchema(BaseModel):
     sheet: List[BalanceSheetItem]
 
 
-# Add report
-# @app.post("/reports/")
-# async def add_report(report: ReportSchema):
-#     result = await db.reports.insert_one(report.dict())
-#     return {"id": str(result.inserted_id)}
 
 
 @app.post("/candlesticks/")
@@ -185,3 +182,24 @@ def get_news(company_name: str):
         return {"result": result}
     except Exception as e:
         return {"error": str(e)}
+
+
+@app.post("/report")
+async def report(
+    company_name: str = Query(..., description="Company name"),
+    stock_ticker: str = Query(..., description="Stock ticker")
+):
+    """
+    Generates a report using agents and returns the generated Markdown file.
+    """
+    try:
+        md_file_path = await asyncio.to_thread(run, company_name, stock_ticker)
+        return FileResponse(
+            md_file_path,
+            media_type="text/markdown",
+            filename=f"{company_name.lower()}_report.md"
+        )
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

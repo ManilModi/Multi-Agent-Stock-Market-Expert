@@ -1,3 +1,23 @@
+import os
+import sys
+import types
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Disable telemetry via env var
+os.environ["CREWAI_TELEMETRY_DISABLED"] = "true"
+
+import requests
+
+# Monkey patch requests to never timeout
+_old_request = requests.Session.request
+def _new_request(self, *args, **kwargs):
+    kwargs['timeout'] = None  # no timeout
+    return _old_request(self, *args, **kwargs)
+
+requests.Session.request = _new_request
 from crewai.tools import BaseTool
 import pandas as pd
 import datetime as dt
@@ -23,13 +43,9 @@ class AngelOneCandlestickTool(BaseTool):
             if interval not in valid_intervals:
                 return f"❌ Invalid interval '{interval}'. Choose from {valid_intervals}."
 
-            if interval == "ONE_DAY":
-                from_date = (today - dt.timedelta(days=7)).strftime("%Y-%m-%d 09:15")
-                to_date = today.strftime("%Y-%m-%d %H:%M")
-
-            else:
-                from_date = (today - dt.timedelta(days=7)).strftime("%Y-%m-%d 09:15")
-                to_date = today.strftime("%Y-%m-%d %H:%M")
+            from_date = (today - dt.timedelta(days=7)).strftime("%Y-%m-%d 09:15")
+            to_date = today.strftime("%Y-%m-%d %H:%M")
+                
 
             # Step 2: Setup credentials & login
             load_dotenv()
@@ -125,18 +141,18 @@ class AngelOneCandlestickTool(BaseTool):
         except Exception as e:
             return f"❌ Error fetching candlestick data: {str(e)}"
 
-if __name__ == "__main__":
-    tool = AngelOneCandlestickTool()
-    company_name = "MRF"
-    stock_name = "MRF"
-    exchange = "NSE"
-    # interval = "ONE_MINUTE"
+# if __name__ == "__main__":
+#     tool = AngelOneCandlestickTool()
+#     company_name = "MRF"
+#     stock_name = "MRF"
+#     exchange = "NSE"
+#     # interval = "ONE_MINUTE"
 
-    result = tool._run(
-        company_name=company_name,
-        stock_name=stock_name,
-        exchange=exchange,
-        # interval=interval
-    )
+#     result = tool._run(
+#         company_name=company_name,
+#         stock_name=stock_name,
+#         exchange=exchange,
+#         # interval=interval
+#     )
 
-    print(result)
+#     print(result)
