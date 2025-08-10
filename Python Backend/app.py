@@ -18,6 +18,7 @@ from starlette.websockets import WebSocketState
 import datetime
 from main import run
 from fastapi.responses import FileResponse
+from main import run
 
 app = FastAPI()
 
@@ -140,6 +141,21 @@ class BalanceSheetSchema(BaseModel):
     sheet: List[BalanceSheetItem]
 
 
+@app.get("/generate_report")
+def generate_report(
+    company_name: str = Query(..., description="Company name"),
+    stock_ticker: str = Query(..., description="Stock ticker symbol, e.g., RELIANCE.NSE")
+):
+    try:
+        cloud_url = run(company_name, stock_ticker)
+        return {
+            "status": "success",
+            "company": company_name,
+            "stock_ticker": stock_ticker,
+            "report_url": cloud_url
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 
 @app.post("/candlesticks/")
@@ -182,24 +198,3 @@ def get_news(company_name: str):
         return {"result": result}
     except Exception as e:
         return {"error": str(e)}
-
-
-@app.post("/report")
-async def report(
-    company_name: str = Query(..., description="Company name"),
-    stock_ticker: str = Query(..., description="Stock ticker")
-):
-    """
-    Generates a report using agents and returns the generated Markdown file.
-    """
-    try:
-        md_file_path = await asyncio.to_thread(run, company_name, stock_ticker)
-        return FileResponse(
-            md_file_path,
-            media_type="text/markdown",
-            filename=f"{company_name.lower()}_report.md"
-        )
-    except FileNotFoundError as e:
-        raise HTTPException(status_code=404, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
