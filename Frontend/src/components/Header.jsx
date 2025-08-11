@@ -57,6 +57,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       icon: <FileText className="h-4 w-4" />,
       description: "Generated analysis reports",
       dashboardTabKey: "reports",
+      route: "/ai-reports",
     },
     {
       name: "Financial Details",

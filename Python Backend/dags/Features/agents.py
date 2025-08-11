@@ -32,9 +32,9 @@ from .tools.yfinance_tool import YFinanceFundamentalsTool
 from crewai_tools.tools import ScrapeWebsiteTool
 
 load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY2")
+api_key = os.getenv("GEMINI_API_KEY1")
 
-llm = LLM(model="gemini/gemini-2.0-flash", temperature=0.7, api_key=api_key)
+llm = LLM(model="gemini/gemini-2.5-pro", temperature=0.7, api_key=api_key)
 
 def get_agents(company_name: str, stock_ticker: str):
     finance_url = f"https://finance.yahoo.com/quote/{stock_ticker}"

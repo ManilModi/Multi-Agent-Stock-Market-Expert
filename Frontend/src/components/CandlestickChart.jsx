@@ -6,6 +6,8 @@ import Header from "./Header"
 import Footer from "./Footer"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./UI/card"
 import { useTheme } from "../Hooks/useTheme"
+import { useAuthWithBackend } from "../Hooks/useAuthWithBackend"
+import { useNavigate } from "react-router-dom"
 
 export default function CandlestickChart() {
   const chartContainerRef = useRef()
@@ -23,6 +25,15 @@ export default function CandlestickChart() {
     exchange: "NSE",
     interval: "ONE_MINUTE",
   });
+
+  const { isSignedIn, user, userRole } = useAuthWithBackend()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isSignedIn) {
+      navigate("/");
+    }
+  }, [isSignedIn, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })

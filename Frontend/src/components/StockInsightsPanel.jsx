@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import axios from "axios"
 import Papa from "papaparse"
 import Header from "./Header"
@@ -10,6 +10,9 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer
 } from "recharts"
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { useNavigate } from "react-router-dom"
+import { useTheme } from "../Hooks/useTheme"
+import { useAuthWithBackend } from "../Hooks/useAuthWithBackend"
 
 const COLORS = ["#4CAF50", "#FF9800", "#F44336"] // Positive, Neutral, Negative
 
@@ -24,6 +27,14 @@ export default function FinancialDetails() {
 
   const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff8042', '#8dd1e1'];
 
+  const { isSignedIn, user, userRole } = useAuthWithBackend()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isSignedIn) {
+      navigate("/"); // redirect to login page
+    }
+  }, [isSignedIn, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault()

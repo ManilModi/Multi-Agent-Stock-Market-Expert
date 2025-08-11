@@ -101,7 +101,7 @@ def get_tasks(company_name: str, stock_ticker: str, agents: dict):
         ),
 Task(
     description=(
-        f"Write a full investment report for {company_name} ({stock_ticker}) using context from other agents.\n"
+        f"Write a full investment report for {company_name} ({stock_ticker}) using context from other agents of the current date queried. I want a good formatted markdown file with bullet points wherever required.\n"
         "Use the following block tags to extract structured values:\n"
         "- FUNDAMENTALS → for ratios (P/E, ROE, D/E, etc.)\n"
         "- BALANCE SHEET → Analysis all the key items of balance sheet ratios and then give liability analysis of the company\n"
