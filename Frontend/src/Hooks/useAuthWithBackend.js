@@ -17,7 +17,7 @@ export const useAuthWithBackend = () => {
       if (isSignedIn && user && !registrationComplete) {
         try {
           const token = await getToken()
-          const response = await fetch("http://127.0.0.1:5000/api/auth/profile", {
+          const response = await fetch("https://multi-agent-stock-market-expert.onrender.com/api/auth/profile", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -46,7 +46,7 @@ export const useAuthWithBackend = () => {
       setIsRegistering(true)
       const token = await getToken()
 
-      const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
+      const response = await fetch("https://multi-agent-stock-market-expert.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
