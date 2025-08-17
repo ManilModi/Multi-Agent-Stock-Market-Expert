@@ -141,18 +141,18 @@ class AngelOneCandlestickTool(BaseTool):
         except Exception as e:
             return f"❌ Error fetching candlestick data: {str(e)}"
 
-# if __name__ == "__main__":
-#     tool = AngelOneCandlestickTool()
-#     company_name = "MRF"
-#     stock_name = "MRF"
-#     exchange = "NSE"
-#     # interval = "ONE_MINUTE"
+if __name__ == "__main__":
+    tool = AngelOneCandlestickTool()
+    company_name = "MRF"
+    stock_name = "MRF"
+    exchange = "NSE"
+    # interval = "ONE_MINUTE"
 
-#     result = tool._run(
-#         company_name=company_name,
-#         stock_name=stock_name,
-#         exchange=exchange,
-#         # interval=interval
-#     )
+    result = tool._run(
+        company_name=company_name,
+        stock_name=stock_name,
+        exchange=exchange,
+        # interval=interval
+    )
 
-#     print(result)
+    print(result)

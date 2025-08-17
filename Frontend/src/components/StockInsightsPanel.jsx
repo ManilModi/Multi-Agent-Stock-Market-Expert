@@ -14,10 +14,11 @@ import { useNavigate } from "react-router-dom"
 import { useTheme } from "../Hooks/useTheme"
 import { useAuthWithBackend } from "../Hooks/useAuthWithBackend"
 
-const COLORS = ["#4CAF50", "#FF9800", "#F44336"] // Positive, Neutral, Negative
+const COLORS = ["#4CAF50", "#FF9800", "#F44336"] 
 
 export default function FinancialDetails() {
-  const [companyName, setCompanyName] = useState("")
+  const [companyName, setCompanyName] = useState("")  // for news
+  const [stockSymbol, setStockSymbol] = useState("")  // for balance sheet
   const [balanceSheet, setBalanceSheet] = useState([])
   const [ratios, setRatios] = useState([])
   const [news, setNews] = useState([])
@@ -46,7 +47,10 @@ export default function FinancialDetails() {
     setOverallSentiment(null)
 
     try {
-      const financialsRes = await axios.post(`http://localhost:8000/balance-sheet-and-ratios/?symbol=${companyName}.NS`)
+      // ✅ Balance Sheet API requires stock symbol
+      const financialsRes = await axios.post(
+        `http://localhost:8000/balance-sheet-and-ratios/?symbol=${stockSymbol}.NS`
+      )
       const urls = financialsRes.data.details
 
       Papa.parse(urls[0], {
@@ -63,6 +67,7 @@ export default function FinancialDetails() {
         error: () => setError("Failed to parse ratios CSV"),
       })
 
+      // ✅ News API requires company name
       const newsRes = await axios.get(`http://localhost:8000/news/${companyName}`)
       const newsUrl = newsRes.data.result
 
@@ -253,18 +258,30 @@ export default function FinancialDetails() {
             <CardTitle className="text-xl">📊 Financial Details Dashboard</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 flex-wrap">
+              
+              {/* Company Name (for news) */}
               <input
                 type="text"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
-                placeholder="Enter company name e.g. TCS"
+                placeholder="Enter company name (e.g. TCS)"
                 className="flex-1 px-4 py-2 rounded border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-black dark:text-white"
               />
+
+              {/* Stock Symbol (for balance sheet) */}
+              <input
+                type="text"
+                value={stockSymbol}
+                onChange={(e) => setStockSymbol(e.target.value)}
+                placeholder="Enter stock symbol (e.g. TCS)"
+                className="flex-1 px-4 py-2 rounded border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-black dark:text-white"
+              />
+
               <button
                 type="submit"
                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-                disabled={!companyName || loading}
+                disabled={!companyName || !stockSymbol || loading}
               >
                 {loading ? "Loading..." : "Get Financials"}
               </button>

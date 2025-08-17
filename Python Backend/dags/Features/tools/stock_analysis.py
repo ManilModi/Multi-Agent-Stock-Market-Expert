@@ -77,6 +77,6 @@ class IndianStockTool(BaseTool):
         return self._run(query)
 
 # Optional test run:
-# if __name__ == "__main__":
-#     tool = IndianStockTool()
-#     print(tool._run(query="RELIANCE.BSE"))
+if __name__ == "__main__":
+    tool = IndianStockTool()
+    print(tool._run(query="RELIANCE.BSE"))
