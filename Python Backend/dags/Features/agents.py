@@ -6,7 +6,6 @@ import types
 import traceback
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
 # Disable telemetry via env var
