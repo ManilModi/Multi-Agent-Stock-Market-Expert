@@ -47,10 +47,11 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       route: "/live-chart",
     },
     {
-      name: "Data Table",
+      name: "Forecasting",
       icon: <FileText className="h-4 w-4" />,
-      description: "Tabular market data",
-      dashboardTabKey: "charts", // Data Table is part of charts tab
+      description: "Time Series Stocks Predictions",
+      dashboardTabKey: "charts",
+      route: "/forecast",
     },
     {
       name: "AI Reports",

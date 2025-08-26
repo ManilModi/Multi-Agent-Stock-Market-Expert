@@ -1,191 +1,186 @@
-import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import xgboost as xgb
-import plotly.graph_objs as go
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import plotly.graph_objects as go
 import plotly.io as pio
-pio.renderers.default = 'browser'
+import tensorflow as tf
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, LSTM, Dense, RepeatVector, TimeDistributed, Dropout
+import joblib
+from tensorflow.keras.losses import MeanSquaredError
 
-# Load data
-df = pd.read_csv('./Final_Datasets/Final_dataset_with_sentiment_and_features.csv')
-df['timestamp'] = pd.to_datetime(df['timestamp'])
-df = df.sort_values('timestamp')
+# --------------------
+# Load dataset
+# --------------------
+df = pd.read_csv("./datasets/sbi_candles_angel.csv", parse_dates=["timestamp"])
+df = df[["timestamp", "open", "high", "low", "close", "volume", "RSI", "MACD", "MACD_signal", "MACD_hist"]]
 
-# Create lag features
-for col in ['close', 'open', 'high', 'low', 'volume', 'RSI', 'MACD', 'sentiment', 
-            'MACD_signal', 'MACD_hist', 'Doji']:
-    df[f'{col}_lag1'] = df[col].shift(1)
-    df[f'{col}_lag2'] = df[col].shift(2)
+# Scale features (using only price + volume here, but can add indicators)
+scaler = MinMaxScaler()
+scaled = scaler.fit_transform(df[["open", "high", "low", "close", "volume"]])
 
-# Rolling features
-df['close_roll_mean3'] = df['close'].rolling(3).mean()
-df['close_roll_mean10'] = df['close'].rolling(10).mean()
-df['close_roll_std3'] = df['close'].rolling(3).std()
+# --------------------
+# Prepare sequences
+# --------------------
+window = 60   # use last 60 minutes (1 hour) history
+horizon = 10  # predict next 10 minutes at once (multi-step Seq2Seq)
 
-df['volume_roll_mean3'] = df['volume'].rolling(3).mean()
-df['volume_roll_mean10'] = df['volume'].rolling(10).mean()
-df['volume_roll_std3'] = df['volume'].rolling(3).std()
+X, y = [], []
+for i in range(window, len(scaled) - horizon):
+    X.append(scaled[i - window:i])
+    y.append(scaled[i:i + horizon, 0:4])  # predict OHLC only
 
-# Price change %
-df['close_change_pct'] = (df['close'] - df['close_lag1']) / df['close_lag1']
+X, y = np.array(X), np.array(y)
 
-# Time features
-df['hour'] = df['timestamp'].dt.hour
-df['weekday'] = df['timestamp'].dt.weekday
-df['month'] = df['timestamp'].dt.month
+# --------------------
+# Train/Test Split (80% train, 20% test)
+# --------------------
+split = int(len(X) * 0.8)
+X_train, X_test = X[:split], X[split:]
+y_train, y_test = y[:split], y[split:]
 
-# Interaction feature
-df['rsi_sentiment'] = df['RSI'] * df['sentiment']
+# --------------------
+# Seq2Seq LSTM Model
+# --------------------
+latent_dim = 64
 
-# Drop NaNs
-df.dropna(inplace=True)
+encoder_inputs = Input(shape=(window, X.shape[2]))
+encoder_lstm = LSTM(latent_dim, return_state=True)
+encoder_outputs, state_h, state_c = encoder_lstm(encoder_inputs)
+encoder_states = [state_h, state_c]
 
-# Target: next candle's OHLC
-df['open_next'] = df['open'].shift(-1)
-df['high_next'] = df['high'].shift(-1)
-df['low_next'] = df['low'].shift(-1)
-df['close_next'] = df['close'].shift(-1)
+# Decoder
+decoder_inputs = RepeatVector(horizon)(encoder_outputs)
+decoder_lstm = LSTM(latent_dim, return_sequences=True)(decoder_inputs, initial_state=encoder_states)
+decoder_outputs = TimeDistributed(Dense(4))(decoder_lstm)  # OHLC
 
-df.dropna(inplace=True)
+model = Model(encoder_inputs, decoder_outputs)
+model.compile(optimizer="adam", loss=MeanSquaredError())
 
-# Features
-features = [col for col in df.columns if col not in [
-    'timestamp', 'date', 'open_next', 'high_next', 'low_next', 'close_next',
-    'open', 'high', 'low', 'close'
-]]
+model.summary()
 
-X = df[features]
-y = df[['open_next', 'high_next', 'low_next', 'close_next']]
+# --------------------
+# Train
+# --------------------
+history = model.fit(
+    X_train, y_train,
+    epochs=20,
+    batch_size=32,
+    validation_data=(X_test, y_test),
+    verbose=1
+)
 
-# Split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.1, shuffle=False)
+# --------------------
+# Model Evaluation
+# --------------------
+y_pred = model.predict(X_test, verbose=0)
 
-# Train XGBoost models
-models = {}
-y_pred = pd.DataFrame(index=y_test.index)
+# Inverse scaling (add dummy volume for inverse_transform)
+y_pred_rescaled = []
+y_true_rescaled = []
 
-for col in y.columns:
-    print(f"\n🚀 Training model for {col}...")
-    model = xgb.XGBRegressor(
-        n_estimators=200, learning_rate=0.05, max_depth=5,
-        subsample=0.9, colsample_bytree=0.9, random_state=42
-    )
-    model.fit(X_train, y_train[col])
-    y_pred[col] = model.predict(X_test)
-    models[col] = model
+for i in range(y_pred.shape[0]):
+    pred = scaler.inverse_transform(
+        np.hstack([y_pred[i], np.zeros((horizon, 1))])
+    )[:, :4]
+    true = scaler.inverse_transform(
+        np.hstack([y_test[i], np.zeros((horizon, 1))])
+    )[:, :4]
+    y_pred_rescaled.append(pred)
+    y_true_rescaled.append(true)
 
-# Evaluation
-print("\n✅ Model Evaluation Metrics:")
-for col in y.columns:
-    mae = mean_absolute_error(y_test[col], y_pred[col])
-    rmse = np.sqrt(mean_squared_error(y_test[col], y_pred[col]))
-    r2 = r2_score(y_test[col], y_pred[col])
-    print(f"{col}: MAE={mae:.4f}, RMSE={rmse:.4f}, R²={r2:.4f}")
+y_pred_rescaled = np.array(y_pred_rescaled).reshape(-1, 4)
+y_true_rescaled = np.array(y_true_rescaled).reshape(-1, 4)
 
-# Save predictions
-predictions = y_test.copy()
-predictions['pred_open'] = y_pred['open_next']
-predictions['pred_high'] = y_pred['high_next']
-predictions['pred_low'] = y_pred['low_next']
-predictions['pred_close'] = y_pred['close_next']
-predictions.to_csv('ohlc_predictions.csv', index=False)
-print("\n✅ Predictions saved to ohlc_predictions.csv")
+mse = mean_squared_error(y_true_rescaled, y_pred_rescaled)
+rmse = np.sqrt(mse)
+mae = mean_absolute_error(y_true_rescaled, y_pred_rescaled)
+r2 = r2_score(y_true_rescaled, y_pred_rescaled)
 
-# Plot: actual vs predicted close
+print("📊 Model Performance on Test Data:")
+print(f"➡️ MSE:  {mse:.4f}")
+print(f"➡️ RMSE: {rmse:.4f}")
+print(f"➡️ MAE:  {mae:.4f}")
+print(f"➡️ R²:   {r2:.4f}")
+
+# --------------------
+# Predict next 5 days (recursive multi-step)
+# --------------------
+minutes_per_day = 390
+n_future = 5 * minutes_per_day  # 5 trading days
+last_seq = scaled[-window:]
+future_preds = []
+
+for _ in range(n_future // horizon):
+    pred = model.predict(last_seq.reshape(1, window, X.shape[2]), verbose=0)[0]
+    future_preds.append(pred)
+    # slide the window forward
+    last_seq = np.vstack([last_seq[horizon:], np.hstack([pred, np.tile(last_seq[-1, 4:], (horizon, 1))])])
+
+future_preds = np.vstack(future_preds)
+
+# inverse scaling
+future_preds = scaler.inverse_transform(
+    np.hstack([future_preds, np.zeros((future_preds.shape[0], 1))])
+)[:, :4]
+
+# --------------------
+# Build forecast DataFrame
+# --------------------
+future_dates = pd.date_range(df["timestamp"].iloc[-1], periods=n_future + 1, freq="T")[1:]
+forecast_df = pd.DataFrame({
+    "timestamp": future_dates,
+    "open": future_preds[:, 0],
+    "high": future_preds[:, 1],
+    "low": future_preds[:, 2],
+    "close": future_preds[:, 3]
+})
+
+# --------------------
+# Plot candlestick
+# --------------------
 fig = go.Figure()
-fig.add_trace(go.Scatter(y=y_test['close_next'], mode='lines', name='Actual Close'))
-fig.add_trace(go.Scatter(y=y_pred['close_next'], mode='lines', name='Predicted Close'))
-fig.update_layout(title='Actual vs Predicted Close Price', xaxis_title='Index', yaxis_title='Price', template='plotly_dark')
+
+# Historical last 200 minutes for context
+fig.add_trace(go.Candlestick(
+    x=df["timestamp"].iloc[-200:],
+    open=df["open"].iloc[-200:],
+    high=df["high"].iloc[-200:],
+    low=df["low"].iloc[-200:],
+    close=df["close"].iloc[-200:],
+    name="Historical"
+))
+
+# Future predictions
+fig.add_trace(go.Candlestick(
+    x=forecast_df["timestamp"],
+    open=forecast_df["open"],
+    high=forecast_df["high"],
+    low=forecast_df["low"],
+    close=forecast_df["close"],
+    name="Predicted"
+))
+
+fig.update_layout(
+    title="Stock Price Prediction (Next 5 Trading Days) with Seq2Seq LSTM",
+    xaxis_rangeslider_visible=False
+)
+
+pio.renderers.default = "browser"
 fig.show()
 
-# Plot: actual candlestick + predicted close
-fig2 = go.Figure()
-fig2.add_trace(go.Candlestick(
-    x=predictions.index,
-    open=predictions['open_next'], high=predictions['high_next'],
-    low=predictions['low_next'], close=predictions['close_next'],
-    name='Actual Candlestick'
-))
-fig2.add_trace(go.Scatter(
-    x=predictions.index, y=predictions['pred_close'],
-    mode='lines', name='Predicted Close', line=dict(color='cyan')
-))
-fig2.update_layout(title='Actual Candlestick with Predicted Close Price', xaxis_title='Index', yaxis_title='Price', template='plotly_dark')
-fig2.show()
+# --------------------
+# Save forecast to CSV
+# --------------------
+forecast_df.to_csv("sbi_forecast_5days_seq2seq.csv", index=False)
+print("✅ Forecast saved to sbi_forecast_5days_seq2seq.csv")
 
-# -------------------------
-# 📅 Forecast tomorrow (every minute 9:15–15:30)
-minutes_in_day = 375  # 9:15 AM to 3:30 PM
-forecast_steps = minutes_in_day
-start_time = pd.Timestamp(df['timestamp'].max().date() + pd.Timedelta(days=1)).replace(hour=9, minute=15)
+# --------------------
+# Save Model
+# --------------------
+model.save("sbi_seq2seq_model.h5")
+print("✅ Seq2Seq Model saved as sbi_seq2seq_model.h5")
 
-last_known = df.iloc[-1:].copy()
-forecast_rows = []
-
-print(f"\n⏳ Forecasting tomorrow's market ({forecast_steps} minutes)...")
-
-for step in range(forecast_steps):
-    curr_time = start_time + pd.Timedelta(minutes=step)
-    new_features = {}
-
-    # Build each feature from training 'features' list
-    for feature in features:
-        if feature in ['hour', 'weekday', 'month']:
-            new_features['hour'] = curr_time.hour
-            new_features['weekday'] = curr_time.weekday()
-            new_features['month'] = curr_time.month
-        elif feature == 'close_change_pct':
-            prev_close = last_known.iloc[-1]['close']
-            prev_close_lag1 = last_known.iloc[-1]['close_lag1']
-            new_features['close_change_pct'] = (prev_close - prev_close_lag1) / prev_close_lag1 if prev_close_lag1 != 0 else 0
-        elif feature == 'rsi_sentiment':
-            new_features['rsi_sentiment'] = last_known.iloc[-1]['RSI'] * last_known.iloc[-1]['sentiment']
-        else:
-            new_features[feature] = last_known.iloc[-1][feature]
-
-    # Predict next OHLC
-    X_forecast = pd.DataFrame([new_features])
-    pred_open = models['open_next'].predict(X_forecast)[0]
-    pred_high = models['high_next'].predict(X_forecast)[0]
-    pred_low = models['low_next'].predict(X_forecast)[0]
-    pred_close = models['close_next'].predict(X_forecast)[0]
-
-    forecast_rows.append({
-        'timestamp': curr_time,
-        'open': pred_open,
-        'high': pred_high,
-        'low': pred_low,
-        'close': pred_close
-    })
-
-    # Prepare next row
-    new_row = last_known.iloc[-1:].copy()
-    new_row['open'] = pred_open
-    new_row['high'] = pred_high
-    new_row['low'] = pred_low
-    new_row['close'] = pred_close
-
-    # Update lags
-    for col in ['close', 'open', 'high', 'low', 'volume', 'RSI', 'MACD', 'sentiment', 
-                'MACD_signal', 'MACD_hist', 'Doji']:
-        new_row[f'{col}_lag2'] = last_known.iloc[-1][f'{col}_lag1']
-        new_row[f'{col}_lag1'] = pred_close if col == 'close' else last_known.iloc[-1][col]
-
-    last_known = pd.concat([last_known, new_row], ignore_index=True)
-
-# 📦 Save & plot
-forecast_df = pd.DataFrame(forecast_rows)
-forecast_df.to_csv('tomorrow_forecast.csv', index=False)
-print("\n✅ Tomorrow's forecast saved to tomorrow_forecast.csv")
-
-fig3 = go.Figure()
-fig3.add_trace(go.Candlestick(
-    x=forecast_df['timestamp'],
-    open=forecast_df['open'], high=forecast_df['high'],
-    low=forecast_df['low'], close=forecast_df['close'],
-    name="Forecasted Candles"
-))
-fig3.update_layout(title="Tomorrow's Forecast (9:15 AM to 3:30 PM)", xaxis_title='Time', yaxis_title='Price', template='plotly_dark')
-fig3.show()
+joblib.dump(scaler, "sbi_scaler.pkl")
+print("✅ Scaler saved as sbi_scaler.pkl")

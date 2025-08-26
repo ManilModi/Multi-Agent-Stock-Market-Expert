@@ -7,6 +7,7 @@ import HomePage from "./components/Home";
 import CandlestickChart from "./components/CandlestickChart";
 import CompanyDetails from "./components/StockInsightsPanel";
 import AIReports from "./components/AIReport";
+import ForecastDashboard from "./components/ForecastDashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/live-chart" element={<CandlestickChart />} />
       <Route path="/financial-details" element={<CompanyDetails />} />
       <Route path="/ai-reports" element={<AIReports />} />
+      <Route path="/forecast" element={<ForecastDashboard />} />
     </Routes>
   );
 }

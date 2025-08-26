@@ -3,13 +3,17 @@
 import { useAuth, useUser } from "@clerk/clerk-react"
 import { useState, useEffect } from "react"
 
+const API_URL = "http://127.0.0.1:5000"
+
 export const useAuthWithBackend = () => {
   const { isSignedIn, getToken, signOut } = useAuth()
   const { user } = useUser()
+
   const [isRegistering, setIsRegistering] = useState(false)
   const [registrationComplete, setRegistrationComplete] = useState(false)
   const [userRole, setUserRole] = useState(null)
   const [backendUser, setBackendUser] = useState(null)
+  const [error, setError] = useState(null)
 
   // Check if user is registered in backend
   useEffect(() => {
@@ -17,7 +21,7 @@ export const useAuthWithBackend = () => {
       if (isSignedIn && user && !registrationComplete) {
         try {
           const token = await getToken()
-          const response = await fetch("https://multi-agent-stock-market-expert.onrender.com/api/auth/profile", {
+          const response = await fetch(`${API_URL}/api/auth/profile`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -28,25 +32,28 @@ export const useAuthWithBackend = () => {
             setBackendUser(userData)
             setUserRole(userData.role)
             setRegistrationComplete(true)
+            setError(null)
           } else if (response.status === 404) {
-            // User not found in backend, needs registration
-            setRegistrationComplete(false)
+            setRegistrationComplete(false) // Not registered yet
+          } else {
+            setError(`Backend error: ${response.status}`)
           }
-        } catch (error) {
-          console.error("Error checking backend registration:", error)
+        } catch (err) {
+          console.error("Error checking backend registration:", err)
+          setError(err.message)
         }
       }
     }
 
     checkBackendRegistration()
-  }, [isSignedIn, user])
+  }, [isSignedIn, user, registrationComplete, getToken])
 
   const registerWithBackend = async (role) => {
     try {
       setIsRegistering(true)
       const token = await getToken()
 
-      const response = await fetch("https://multi-agent-stock-market-expert.onrender.com/api/auth/register", {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,15 +66,18 @@ export const useAuthWithBackend = () => {
 
       if (response.ok || response.status === 409) {
         setBackendUser(data.user || data)
-        setUserRole(role)
+        setUserRole(data.user?.role || role)
         setRegistrationComplete(true)
+        setError(null)
         return { success: true, user: data.user || data }
       } else {
+        setError(data.error || "Registration failed")
         return { success: false, error: data.error }
       }
-    } catch (error) {
-      console.error("Registration error:", error)
-      return { success: false, error: error.message }
+    } catch (err) {
+      console.error("Registration error:", err)
+      setError(err.message)
+      return { success: false, error: err.message }
     } finally {
       setIsRegistering(false)
     }
@@ -78,6 +88,7 @@ export const useAuthWithBackend = () => {
     setRegistrationComplete(false)
     setUserRole(null)
     setBackendUser(null)
+    setError(null)
   }
 
   return {
@@ -90,6 +101,7 @@ export const useAuthWithBackend = () => {
     registrationComplete,
     userRole,
     backendUser,
+    error,
 
     // Actions
     registerWithBackend,
