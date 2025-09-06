@@ -10,35 +10,54 @@ import { useTheme } from "../Hooks/useTheme";
 import AIFinanceLoader from "./reportLoader";
 import { useAuthWithBackend } from "../Hooks/useAuthWithBackend";
 
-// 🔹 Helper to parse sections from markdown
+// 🔹 Helper to parse sections from markdown using headings
 function parseReportSections(markdown) {
-  const extract = (tag) => {
-    const regex = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, "i");
+  const getSection = (heading) => {
+    const regex = new RegExp(`##\\s+${heading}[\\s\\S]*?(?=\\n##|$)`, "i");
     const match = markdown.match(regex);
-    return match ? match[1].trim() : null;
+    return match
+      ? match[0].replace(new RegExp(`##\\s+${heading}`, "i"), "").trim()
+      : null;
   };
 
   return {
-    fundamentals: extract("FUNDAMENTALS"),
-    balanceSheet: extract("BALANCE SHEET"),
-    technicals: extract("TECHNICALS"),
-    recommendation: extract("RECOMMENDATION"),
+    fundamentals: getSection("1. Company Overview and Key Financial Ratios"),
+    balanceSheet: getSection("2. Balance Sheet Summary"),
+    technicals: getSection("3. Technical Analysis"),
+    recommendation: getSection("5. Final Recommendation"),
   };
 }
 
-// 🔹 Styled Cards
-function SectionCard({ title, emoji, content, gradient, delay }) {
+// 🔹 Styled Cards (catchy version)
+function SectionCard({ title, emoji, content, gradient, delay, theme }) {
   return (
     <motion.div
-      className={`bg-gradient-to-br ${gradient} p-6 rounded-2xl shadow-xl mb-6`}
-      initial={{ opacity: 0, y: 20 }}
+      className={`relative bg-gradient-to-br ${gradient} p-6 rounded-2xl shadow-xl mb-8 border border-gray-200 dark:border-gray-700`}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.6, delay }}
+      whileHover={{ scale: 1.02 }}
     >
-      <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-        {emoji} {title}
-      </h3>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-4">
+        <span className="text-2xl">{emoji}</span>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+          {title}
+        </h3>
+      </div>
+
+      <hr className="border-gray-300 dark:border-gray-600 mb-4" />
+
+      {/* Content */}
+      <div
+        className={`prose max-w-none ${
+          theme === "dark"
+            ? "prose-invert text-gray-100"
+            : "text-gray-900"
+        } prose-headings:text-xl prose-headings:font-semibold`}
+      >
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+      </div>
     </motion.div>
   );
 }
@@ -107,38 +126,46 @@ export default function AIReports() {
 
       <div className="max-w-5xl mx-auto p-6">
         {/* Title */}
-        <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 mb-6">
+        <motion.h2
+          className="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           📊 AI Investment Report Generator
-        </h2>
+        </motion.h2>
 
         {/* Input Section */}
-        <div className="flex flex-wrap gap-3 mb-6 bg-white/50 dark:bg-slate-800/50 p-4 rounded-xl shadow-lg backdrop-blur">
+        <motion.div
+          className="flex flex-wrap gap-3 mb-10 bg-white/70 dark:bg-slate-800/70 p-6 rounded-2xl shadow-lg backdrop-blur-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <input
             type="text"
             placeholder="Company Name (e.g., RELIANCE)"
             value={companyName}
             onChange={(e) => setCompanyName(e.target.value)}
-            className="flex-1 border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-slate-700 dark:text-white"
+            className="flex-1 border border-gray-300 dark:border-gray-600 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-slate-700 dark:text-white"
           />
           <input
             type="text"
             placeholder="Stock Ticker (e.g., RELIANCE.NSE)"
             value={stockTicker}
             onChange={(e) => setStockTicker(e.target.value)}
-            className="flex-1 border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-slate-700 dark:text-white"
+            className="flex-1 border border-gray-300 dark:border-gray-600 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-slate-700 dark:text-white"
           />
           <button
             onClick={fetchReport}
             disabled={loading}
-            className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-lg shadow-lg hover:from-blue-600 hover:to-indigo-600 transition disabled:opacity-50"
+            className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:from-blue-600 hover:to-indigo-600 transition disabled:opacity-50"
           >
             {loading ? "⏳ Generating..." : "🚀 Generate Report"}
           </button>
-        </div>
+        </motion.div>
 
         {/* Report URL */}
         {reportUrl && (
-          <div className="mb-6 bg-white/40 dark:bg-slate-800/40 p-4 rounded-lg shadow backdrop-blur">
+          <div className="mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-lg shadow backdrop-blur">
             <p className="font-medium text-gray-700 dark:text-gray-200">
               📂 Report URL:{" "}
               <a
@@ -165,6 +192,7 @@ export default function AIReports() {
                 content={sections.fundamentals}
                 gradient="from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800"
                 delay={0.1}
+                theme={theme}
               />
             )}
             {sections.balanceSheet && (
@@ -174,6 +202,7 @@ export default function AIReports() {
                 content={sections.balanceSheet}
                 gradient="from-green-100 to-green-200 dark:from-green-900 dark:to-green-800"
                 delay={0.2}
+                theme={theme}
               />
             )}
             {sections.technicals && (
@@ -183,6 +212,7 @@ export default function AIReports() {
                 content={sections.technicals}
                 gradient="from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800"
                 delay={0.3}
+                theme={theme}
               />
             )}
             {sections.recommendation && (
@@ -192,6 +222,7 @@ export default function AIReports() {
                 content={sections.recommendation}
                 gradient="from-yellow-100 to-yellow-200 dark:from-yellow-900 dark:to-yellow-800"
                 delay={0.4}
+                theme={theme}
               />
             )}
           </>
@@ -202,7 +233,12 @@ export default function AIReports() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                className={`${
+                  theme === "dark" ? "text-gray-100" : "text-gray-900"
+                }`}
+              >
                 {markdown}
               </ReactMarkdown>
             </motion.div>

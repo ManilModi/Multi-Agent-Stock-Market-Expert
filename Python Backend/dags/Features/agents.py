@@ -35,7 +35,7 @@ from crewai_tools.tools import ScrapeWebsiteTool
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY1")
 
-llm = LLM(model="gemini/gemini-2.5-pro", temperature=0.7, api_key=api_key)
+llm = LLM(model="gemini/gemini-2.0-flash", temperature=0.7, api_key=api_key)
 
 # ✅ Wrap ScrapeWebsiteTool with error handling + logging
 class SafeScrapeWebsiteTool(ScrapeWebsiteTool):
