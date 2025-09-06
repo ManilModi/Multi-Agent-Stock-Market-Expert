@@ -23,6 +23,10 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import joblib
 import traceback
+import xgboost as xgb
+from ta.momentum import RSIIndicator
+from ta.trend import MACD
+
 
 app = FastAPI()
 
@@ -32,6 +36,9 @@ FEATURES = ["open", "high", "low", "close", "volume"]
 
 model = load_model("Utils/sbi_seq2seq_model.h5")
 scaler = joblib.load("Utils/sbi_scaler.pkl") 
+
+xgb_model = joblib.load("Utils/sbi_xgboost_close_model.pkl")
+scaler = joblib.load("Utils/sbi_xgb_scaler.pkl")
 
 
 
@@ -304,5 +311,132 @@ async def forecast(request: ForecastRequest):
 
     except Exception as e:
         print("Forecast error:", str(e))
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+
+
+# ------------------ Helper ------------------
+def load_xgb_model(path="Utils/xgb_model.json"):
+    model = xgb.XGBRegressor()
+    model.load_model(path)
+    return model
+
+xgb_model = load_xgb_model()
+
+
+
+# Load model + scaler
+xgb_model = xgb.XGBRegressor()
+xgb_model.load_model("Utils/xgb_model.json")
+scaler = joblib.load("Utils/sbi_xgb_scaler.pkl")
+
+def make_xgb_forecast(candles: list, n_minutes: int = 60):
+    # Convert to DataFrame
+    df = pd.DataFrame(candles)
+
+    # Ensure sorted
+    df["timestamp"] = pd.to_datetime(df["timestamp"])
+    df = df.sort_values("timestamp").reset_index(drop=True)
+
+    # ------------------------
+    # Feature engineering (same as training)
+    # ------------------------
+    df["RSI"] = RSIIndicator(df["close"], window=14).rsi()
+    macd = MACD(df["close"])
+    df["MACD"] = macd.macd()
+    df["MACD_signal"] = macd.macd_signal()
+    df["MACD_hist"] = macd.macd_diff()
+    df["rolling_mean"] = df["close"].rolling(5).mean().bfill()
+    df["rolling_std"] = df["close"].rolling(5).std().bfill()
+
+    window = 60
+    for lag in range(1, window + 1):
+        df[f"lag_close_{lag}"] = df["close"].shift(lag)
+
+    df = df.dropna().reset_index(drop=True)
+
+    # Feature columns (must match training)
+    feature_cols = (
+        ["open", "high", "low", "close", "volume", "RSI", "MACD", "MACD_signal", "MACD_hist"]
+        + [f"lag_close_{i}" for i in range(1, window + 1)]
+    )
+
+    last_features = df.iloc[-1][feature_cols].values.reshape(1, -1)
+
+    # Scale features
+    last_features_scaled = scaler.transform(last_features)
+
+    # ------------------------
+    # Recursive Forecast
+    # ------------------------
+    preds = []
+    last_row = last_features_scaled.copy()
+
+    for _ in range(n_minutes):
+        # Predict
+        y_pred = xgb_model.predict(last_row)[0]
+        preds.append(y_pred)
+
+        # Roll lag features manually
+        last_raw = last_row.flatten()
+
+        # Replace the "close" with new prediction
+        # NOTE: Here we only update lag features with new y_pred
+        new_lags = np.roll(last_raw[-window:], 1)
+        new_lags[0] = y_pred
+
+        # Keep OHLCV+indicators static
+        static_features = last_raw[:9]
+
+        # Combine new features
+        new_features = np.concatenate([static_features, new_lags])
+        last_row = new_features.reshape(1, -1)
+
+    # Build forecast DataFrame
+    future_dates = pd.date_range(df["timestamp"].iloc[-1], periods=n_minutes + 1, freq="T")[1:]
+    forecast_df = pd.DataFrame({"timestamp": future_dates, "close": preds})
+
+    return forecast_df.to_dict(orient="records")
+
+
+# ------------------ Endpoint ------------------
+@app.post("/forecast/xgb/")
+async def forecast_xgb(request: ForecastRequest):
+    try:
+        # Step 1: Get OHLCV CSV link
+        tool = AngelOneCandlestickTool()
+        result = tool._run(
+            company_name=request.company_name,
+            stock_name=request.stock_name,
+            exchange=request.exchange,
+            interval=request.interval
+        )
+
+        csv_url = result if isinstance(result, str) else result.get("message")
+        if not csv_url or not csv_url.startswith("http"):
+            raise HTTPException(status_code=400, detail=f"Invalid CSV URL: {csv_url}")
+
+        # Step 2: Download and parse candles
+        response = requests.get(csv_url)
+        decoded = response.content.decode("utf-8")
+        df = pd.read_csv(StringIO(decoded))
+
+        df = df.sort_values("timestamp")
+
+        candles = df[["timestamp", "open", "high", "low", "close", "volume"]].to_dict(orient="records")
+
+        # Step 3: Call XGB forecast
+        predictions = make_xgb_forecast(candles, n_minutes=request.horizon)
+
+        return {
+            "company": request.company_name,
+            "stock": request.stock_name,
+            "exchange": request.exchange,
+            "interval": request.interval,
+            "forecast": predictions
+        }
+
+    except Exception as e:
+        print("XGB Forecast error:", str(e))
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")

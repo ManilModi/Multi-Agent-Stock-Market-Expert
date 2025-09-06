@@ -45,6 +45,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Real-time OHLCV data",
       dashboardTabKey: "charts",
       route: "/live-chart",
+      roles: ["investor", "broker", "company", "public"], // ✅ added
     },
     {
       name: "Forecasting",
@@ -52,6 +53,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Time Series Stocks Predictions",
       dashboardTabKey: "charts",
       route: "/forecast",
+      roles: ["investor", "broker", "company", "public"], // ✅ added
     },
     {
       name: "AI Reports",
@@ -59,20 +61,23 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Generated analysis reports",
       dashboardTabKey: "reports",
       route: "/ai-reports",
+      roles: ["investor", "broker", "company"], // ✅ example restriction
     },
     {
       name: "Financial Details",
       icon: <Building2 className="h-4 w-4" />,
       description: "Balance sheet, news & predictions",
       route: "/financial-details",
+      roles: ["broker"], // ✅ restricted to brokers only
     },
     {
       name: "AI Assistant",
       icon: <MessageSquare className="h-4 w-4" />,
       description: "Conversational AI for market queries",
       dashboardTabKey: "chat",
+      roles: ["investor", "broker", "company", "public"], // ✅ added
     },
-  ];
+  ]
   
 
   const allNavigation = [
@@ -166,7 +171,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">StockMarket AI</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">FinSight</h1>
               <p className="text-xs text-gray-500 dark:text-gray-400 hidden sm:block">Multi-Agentic Intelligence</p>
             </div>
           </div>
@@ -189,7 +194,9 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
                   <DropdownMenuContent className="w-64">
                     <DropdownMenuLabel>Core Features</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    {featuresDropdown.map((feature) => (
+                    {featuresDropdown
+                    .filter((feature) => feature.roles.includes(userRole || "public"))
+                    .map((feature) => (
                       <DropdownMenuItem
                         key={feature.name}
                         onClick={() => {
@@ -210,7 +217,8 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
                           </div>
                         </div>
                       </DropdownMenuItem>
-                    ))}
+                  ))}
+
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
