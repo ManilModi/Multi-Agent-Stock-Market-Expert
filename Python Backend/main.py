@@ -3,7 +3,6 @@ import sys
 import types
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
 # Disable telemetry & enable debug
@@ -47,10 +46,12 @@ def run(company_name: str = company_name, stock_ticker: str = stock_ticker) -> s
     )
 
     try:
-        # ✅ Wrap kickoff in try/except so we actually see what fails
         result = crew.kickoff({
-            "query": f"Fetch stock insights for {company_name} ({stock_ticker})"
-        })
+    "query": f"Fetch stock insights for {company_name} ({stock_ticker})",
+    "company_name": company_name,
+    "stock_ticker": stock_ticker,
+})
+
         print("\n📝 Final Output:\n", result)
     except Exception as e:
         import traceback

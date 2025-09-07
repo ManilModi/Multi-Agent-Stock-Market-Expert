@@ -26,6 +26,16 @@ import traceback
 import xgboost as xgb
 from ta.momentum import RSIIndicator
 from ta.trend import MACD
+import chromadb
+from groq import Groq
+from dotenv import load_dotenv
+load_dotenv()
+
+# ---------------- RAG imports ----------------
+from pydantic import BaseModel
+from fastapi import HTTPException
+from dags.Features.RAG import  query_interface as rag_module
+
 
 
 app = FastAPI()
@@ -440,3 +450,25 @@ async def forecast_xgb(request: ForecastRequest):
         print("XGB Forecast error:", str(e))
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+
+
+# ---------------- RAG Endpoint ----------------
+class QueryRequest(BaseModel):
+    query: str
+
+class QueryResponse(BaseModel):
+    answer: str
+
+@app.post("/rag/ask", response_model=QueryResponse)
+def rag_ask(request: QueryRequest):
+    """Agentic RAG endpoint"""
+    try:
+        answer = rag_module.agentic_rag(request.query)  # <-- call from module
+        return QueryResponse(answer=answer)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"RAG error: {str(e)}")
+
+
+@app.get("/rag")
+def rag_root():
+    return {"message": "RAG API is running 🚀"}
