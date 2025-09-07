@@ -37,6 +37,30 @@ api_key = os.getenv("GEMINI_API_KEY1")
 
 llm = LLM(model="gemini/gemini-2.0-flash", temperature=0.7, api_key=api_key)
 
+from crewai import Tool
+import chromadb
+
+# Connect to Chroma
+chroma_client = chromadb.PersistentClient(path="vector_store")
+collection = chroma_client.get_collection("stock_data")
+
+class VectorDBTool(Tool):
+    def __init__(self):
+        super().__init__(
+            name="VectorDB Retrieval Tool",
+            description="Retrieve company CSV data (fundamentals, ratios, news, candlesticks) from vector database."
+        )
+
+    def run(self, query: str):
+        results = collection.query(query_texts=[query], n_results=5)
+        docs = results.get("documents", [[]])[0]
+        metas = results.get("metadatas", [[]])[0]
+        if not docs:
+            return "No relevant data found."
+        return "\n".join(
+            [f"[{m['company']} - {m['doc_type']}] {d}" for d, m in zip(docs, metas)]
+        )
+
 # ✅ Wrap ScrapeWebsiteTool with error handling + logging
 class SafeScrapeWebsiteTool(ScrapeWebsiteTool):
     def run(self, *args, **kwargs):
@@ -62,6 +86,7 @@ def get_agents(company_name: str, stock_ticker: str):
     candlestick_tool = AngelOneCandlestickTool()
     chart_search_tool = IndianCandlestickChartSearchTool()
     news_tool = IndianStockNewsTool()
+    vector_tool = VectorDBTool()
 
     return {
         "scraper_agent": Agent(
@@ -80,7 +105,7 @@ def get_agents(company_name: str, stock_ticker: str):
                 "like P/E ratio, ROE, debt levels, margins, and balance sheet strength to make investment decisions. "
                 "You help investors make informed BUY/HOLD/SELL decisions."
             ),
-            tools=[yfinance_tool],
+            tools=[yfinance_tool, vector_tool],
             llm=llm,
             verbose=True
         ),

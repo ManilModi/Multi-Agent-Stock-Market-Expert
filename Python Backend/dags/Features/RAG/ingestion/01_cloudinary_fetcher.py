@@ -18,24 +18,6 @@
       },
       "generated_at": 1680000000
     }
-
-Usage:
-    # list files and print summary
-    python ingestion/01_cloudinary_fetcher.py --list
-
-    # download files found in the folders (default)
-    python ingestion/01_cloudinary_fetcher.py --download
-
-    # override folders on the CLI
-    python ingestion/01_cloudinary_fetcher.py --download --folders stocks/candlesticks stocks/ratios
-
-Requires:
-    pip install cloudinary requests
-
-ENV (set in shell or .env loader):
-    CLOUDINARY_CLOUD_NAME
-    CLOUDINARY_API_KEY
-    CLOUDINARY_API_SECRET
 """
 
 import os
@@ -49,7 +31,6 @@ from typing import List, Dict, Any
 from dotenv import load_dotenv
 load_dotenv()
 
-
 import requests
 import cloudinary
 import cloudinary.api
@@ -59,11 +40,18 @@ DATA_DIR = Path("data")
 RAW_DIR = DATA_DIR / "raw"
 MANIFEST_PATH = DATA_DIR / "manifest.json"
 
-# Default Cloudinary folders to scan (edit as necessary)
-DEFAULT_FOLDERS =["indian_stock_news", "ratios", "balance_sheets", "candlestick_patterns", "reports"]
+# Default Cloudinary folders to scan
+DEFAULT_FOLDERS = [
+    "indian_stock_news",
+    "ratios",
+    "balance_sheets",
+    "candlestick_patterns",
+    "reports",
+]
 
-# Max results per Cloudinary page (max allowed is 500)
+# Max results per Cloudinary page
 PAGE_SIZE = 500
+
 
 # -------- Helpers --------
 def init_cloudinary():
@@ -74,22 +62,32 @@ def init_cloudinary():
     if not (cloud_name and api_key and api_secret):
         raise RuntimeError(
             "Missing Cloudinary credentials. "
-            "Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET."
+            "Set CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET."
         )
 
     cloudinary.config(
         cloud_name=cloud_name,
         api_key=api_key,
         api_secret=api_secret,
-        secure=True
+        secure=True,
     )
+
 
 def sha1(s: str) -> str:
     return hashlib.sha1(s.encode("utf-8")).hexdigest()
 
+
 def ensure_dirs():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def normalize_filename(fname: str) -> str:
+    """Remove accidental double `.csv` extensions."""
+    if fname.endswith(".csv.csv"):
+        return fname[:-4]  # remove one ".csv"
+    return fname
+
 
 def load_manifest() -> Dict[str, Any]:
     if not MANIFEST_PATH.exists():
@@ -100,10 +98,12 @@ def load_manifest() -> Dict[str, Any]:
     except Exception:
         return {"files": {}, "generated_at": None}
 
+
 def save_manifest(manifest: Dict[str, Any]):
     manifest["generated_at"] = int(time.time())
     with MANIFEST_PATH.open("w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
+
 
 # -------- Cloudinary listing & download --------
 def list_cloudinary_csvs(folders: List[str]) -> List[Dict[str, Any]]:
@@ -122,28 +122,31 @@ def list_cloudinary_csvs(folders: List[str]) -> List[Dict[str, Any]]:
                 resource_type="raw",
                 prefix=folder,
                 max_results=PAGE_SIZE,
-                next_cursor=next_cursor or None
+                next_cursor=next_cursor or None,
             )
             for item in resp.get("resources", []):
                 url = item.get("secure_url") or item.get("url")
                 public_id = item.get("public_id")
-                # If secure_url is missing attempt to build from public_id (not guaranteed)
                 if not url and public_id:
                     url = f"https://res.cloudinary.com/{cloudinary.config().cloud_name}/raw/upload/{public_id}"
                 if not url:
                     continue
                 if url.lower().endswith(".csv"):
-                    filename = Path(public_id).name + ".csv"
-                    resources.append({
-                        "public_id": public_id,
-                        "secure_url": url,
-                        "folder": folder,
-                        "filename": filename,
-                    })
+                    raw_name = Path(public_id).name + ".csv"
+                    filename = normalize_filename(raw_name)
+                    resources.append(
+                        {
+                            "public_id": public_id,
+                            "secure_url": url,
+                            "folder": folder,
+                            "filename": filename,
+                        }
+                    )
             next_cursor = resp.get("next_cursor")
             if not next_cursor:
                 break
     return resources
+
 
 def download_to_local(url: str, folder: Path, filename: str) -> Path:
     """
@@ -162,6 +165,7 @@ def download_to_local(url: str, folder: Path, filename: str) -> Path:
     tmp_path.replace(local_path)
     return local_path
 
+
 # -------- Main ingestion-runner --------
 def run(folders: List[str], download: bool = True, force_download: bool = False):
     init_cloudinary()
@@ -172,10 +176,10 @@ def run(folders: List[str], download: bool = True, force_download: bool = False)
     print(f"[info] discovered {len(found)} CSV resources across folders")
 
     for item in found:
-        filename = item["filename"]
+        filename = normalize_filename(item["filename"])
         url = item["secure_url"]
         folder = item["folder"]
-        key = filename  # unique key in manifest, you can adjust if needed
+        key = filename  # manifest key = clean filename
 
         etag = sha1(url)
         existing = manifest["files"].get(key)
@@ -193,17 +197,16 @@ def run(folders: List[str], download: bool = True, force_download: bool = False)
             "filename": filename,
             "etag": etag,
             "downloaded_at": None,
-            "local_path": None
+            "local_path": None,
         }
 
         if download:
-            # create folder per remote folder under data/raw, replace slashes with _
             safe_folder = folder.replace("/", "_")
             out_folder = RAW_DIR / safe_folder
             try:
                 local_path = download_to_local(url, out_folder, filename)
                 entry["downloaded_at"] = int(time.time())
-                entry["local_path"] = str(local_path)
+                entry["local_path"] = str(local_path).replace("\\", "/")
                 print(f"    ✓ downloaded -> {local_path}")
             except Exception as e:
                 print(f"    ! download failed for {filename}: {e}", file=sys.stderr)
@@ -219,6 +222,7 @@ def run(folders: List[str], download: bool = True, force_download: bool = False)
     print(f"  local raw dir: {RAW_DIR.resolve()}")
     print(f"  total files in manifest: {len(manifest['files'])}")
 
+
 # -------- CLI --------
 def parse_args():
     ap = argparse.ArgumentParser()
@@ -227,6 +231,7 @@ def parse_args():
     ap.add_argument("--folders", nargs="*", help="Override folders to scan")
     ap.add_argument("--force", action="store_true", help="Force re-download even if etag matches")
     return ap.parse_args()
+
 
 def main():
     args = parse_args()
@@ -239,6 +244,7 @@ def main():
     # default to download behavior if --download passed or neither flag passed
     download = True if (args.download or not args.list) else False
     run(folders, download=download, force_download=args.force)
+
 
 if __name__ == "__main__":
     main()

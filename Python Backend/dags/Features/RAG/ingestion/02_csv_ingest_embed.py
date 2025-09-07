@@ -3,7 +3,7 @@
 02_csv_ingest_embed.py
 
 - Loads manifest.json produced by 01_cloudinary_fetcher.py
-- For each file:
+- For each file listed in manifest:
     - Parse filename to extract company name + doc type
     - Load CSV rows into text chunks
     - Add metadata (company, doc_type, filename, row_index)
@@ -19,7 +19,6 @@ Dependencies:
 """
 
 import os
-import re
 import json
 import argparse
 from pathlib import Path
@@ -32,12 +31,21 @@ from chromadb.config import Settings
 
 # -------- CONFIG --------
 DATA_DIR = Path("data")
+RAW_DIR = DATA_DIR / "raw"   # where actual csv files live
 MANIFEST_PATH = DATA_DIR / "manifest.json"
 CHROMA_DIR = DATA_DIR / "chroma"
 
-COLLECTION_NAME = "stock_research"
+COLLECTION_NAME = "stock_data"
+EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
 
-EMBED_MODEL_NAME = "all-MiniLM-L6-v2"  
+# Initialize Chroma client
+chroma_client = chromadb.PersistentClient(
+    path="vector_store"  # this is where embeddings will be saved
+)
+
+# Initialize SentenceTransformer model
+model = SentenceTransformer(EMBED_MODEL_NAME)
+
 
 # -------- Helpers --------
 def load_manifest() -> Dict[str, Any]:
@@ -45,6 +53,7 @@ def load_manifest() -> Dict[str, Any]:
         raise FileNotFoundError(f"manifest.json not found: {MANIFEST_PATH}")
     with MANIFEST_PATH.open("r", encoding="utf-8") as f:
         return json.load(f)
+
 
 def parse_filename(filename: str) -> Dict[str, str]:
     """
@@ -59,8 +68,27 @@ def parse_filename(filename: str) -> Dict[str, str]:
     return {"company": company.lower(), "doc_type": doc_type.lower()}
 
 
+def normalize_path(file_path: str) -> str:
+    """
+    Fix manifest paths so they match actual nested structure under data/raw/.
+    """
+    # remove accidental double .csv
+    if file_path.endswith(".csv.csv"):
+        file_path = file_path[:-4]
 
-def csv_to_chunks(file_path, company, doc_type, chunk_size=500):
+    # already exists → return
+    if os.path.exists(file_path):
+        return file_path
+
+    # search inside data/raw/*/*
+    for root, _, files in os.walk(RAW_DIR):
+        if os.path.basename(file_path) in files:
+            return os.path.join(root, os.path.basename(file_path))
+
+    return file_path  # last fallback
+
+
+def csv_to_chunks(file_path: str, company: str, doc_type: str, chunk_size: int = 500) -> List[Dict[str, Any]]:
     try:
         if os.path.getsize(file_path) == 0:  # quick check for empty file
             print(f"[skip] {file_path} is empty, skipping...")
@@ -75,15 +103,16 @@ def csv_to_chunks(file_path, company, doc_type, chunk_size=500):
         # Convert dataframe to string chunks
         text = df.to_csv(index=False)
         chunks = [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
-        
+
         docs = [
             {
                 "id": f"{company}_{doc_type}_{i}",
                 "text": chunk,
-                "metadata": {   # ✅ added metadata
+                "metadata": {
                     "company": company,
                     "doc_type": doc_type,
-                    "source": os.path.basename(file_path)
+                    "source": os.path.basename(file_path),
+                    "row_index": i
                 }
             }
             for i, chunk in enumerate(chunks)
@@ -98,61 +127,64 @@ def csv_to_chunks(file_path, company, doc_type, chunk_size=500):
         return []
 
 
-# -------- Main pipeline --------
-def run(reset: bool = False, persist: bool = True):
-    manifest = load_manifest()
-
-    # Init embedder
-    print("[embed] loading sentence-transformer...")
-    embedder = SentenceTransformer(EMBED_MODEL_NAME)
-
-    # Init Chroma client
-    print("[db] initializing Chroma...")
-    client = chromadb.PersistentClient(path=str(CHROMA_DIR)) if persist else chromadb.Client(Settings())
-
+def run(reset=False, persist=False):
     if reset:
+        print("[db] resetting collection...")
         try:
-            client.delete_collection(COLLECTION_NAME)
-            print(f"[db] existing collection {COLLECTION_NAME} deleted.")
+            chroma_client.delete_collection(name=COLLECTION_NAME)
         except Exception:
-            pass
+            pass  # if it doesn’t exist yet
 
-    collection = client.get_or_create_collection(name=COLLECTION_NAME)
+    collection = chroma_client.get_or_create_collection(COLLECTION_NAME)
 
-    # Gather chunks
+    manifest = load_manifest()
+    files = manifest.get("files", [])
+
+    if not files:
+        print("[warn] No files listed in manifest.json.")
+        return
+
     all_chunks = []
-    for file_entry in manifest["files"].values():
-        local_path = file_entry.get("local_path")
-        if not local_path:
-            print(f"[skip] {file_entry['filename']} (no local_path)")
+    for file_path in files:
+        file_path = normalize_path(file_path)
+
+        if not os.path.exists(file_path):
+            print(f"[skip] file not found: {file_path}")
             continue
-        meta = parse_filename(file_entry["filename"])
-        company, doc_type = meta["company"], meta["doc_type"]
-        file_path = Path(local_path)
-        if not file_path.exists():
-            print(f"[missing] {file_path}")
-            continue
+
+        filename = os.path.basename(file_path)
+        meta = parse_filename(filename)
+
+        company = meta["company"]
+        doc_type = meta["doc_type"]
+
         print(f"[ingest] {file_path} (company={company}, doc_type={doc_type})")
         chunks = csv_to_chunks(file_path, company, doc_type)
         all_chunks.extend(chunks)
 
-    print(f"[ingest] total chunks to embed: {len(all_chunks)}")
+    if not all_chunks:
+        print("[warn] No chunks to insert.")
+        return
 
-    # Embed + upsert
-    texts = [c["text"] for c in all_chunks]
-    ids = [c["id"] for c in all_chunks]
-    metadatas = [c["metadata"] for c in all_chunks]
+    # Split into batches (<= 5000 to avoid chroma error)
+    BATCH_SIZE = 5000
+    for i in range(0, len(all_chunks), BATCH_SIZE):
+        batch = all_chunks[i:i+BATCH_SIZE]
 
-    embeddings = embedder.encode(texts, convert_to_numpy=True).tolist()
+        ids = [c["id"] for c in batch]
+        texts = [c["text"] for c in batch]
+        metadatas = [c["metadata"] for c in batch]
 
-    collection.upsert(
-        documents=texts,
-        ids=ids,
-        embeddings=embeddings,
-        metadatas=metadatas
-    )
+        embeddings = model.encode(texts).tolist()
 
-    print(f"[db] upserted {len(all_chunks)} chunks into collection '{COLLECTION_NAME}'.")
+        print(f"[db] upserting batch {i//BATCH_SIZE + 1} with {len(batch)} chunks...")
+        collection.upsert(
+            ids=ids,
+            documents=texts,
+            embeddings=embeddings,
+            metadatas=metadatas,
+        )
+
 
 # -------- CLI --------
 def parse_args():
@@ -161,9 +193,11 @@ def parse_args():
     ap.add_argument("--persist", action="store_true", help="Use persistent Chroma at ./data/chroma/")
     return ap.parse_args()
 
+
 def main():
     args = parse_args()
     run(reset=args.reset, persist=args.persist)
+
 
 if __name__ == "__main__":
     main()

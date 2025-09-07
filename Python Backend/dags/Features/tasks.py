@@ -50,19 +50,22 @@ def get_tasks(company_name: str, stock_ticker: str, agents: dict):
         Task(
             description=(
         f"1. Use the Yahoo Finance Fundamentals Tool to fetch full financial ratios and balance sheet for {company_name} ({stock_ticker}).\n"
-        f"2. Carefully analyze the output:\n"
+        f"2. Use the VectorDB Retrieval Tool to query embedded CSV data for {company_name}. "
+        f"This includes fundamentals, ratios, candlesticks, and news stored in the local ChromaDB.\n"
+        f"3. Carefully analyze the combined output:\n"
         f"   - Highlight important financial ratios (e.g. ROE, Debt/Equity, Margins, P/E)\n"
         f"   - Highlight any anomalies or strong balance sheet indicators\n"
         f"   - Explain what these values mean in context\n"
-        f"3. Based on your analysis, write a comprehensive investment note:\n"
+        f"4. Based on your analysis, write a comprehensive investment note:\n"
         f"   - Begin with a summary of the company’s financial strengths/weaknesses\n"
         f"   - Include 2–3 paragraphs of detailed analysis using ratios and fundamentals\n"
         f"   - End with a BUY, HOLD, or SELL recommendation with reasoning."
     ),
     expected_output=(
-        f"A 3–4 paragraph investment note that includes:\n"
+         f"A 3–4 paragraph investment note that includes:\n"
         f"- Key ratio analysis (e.g., ROE, P/E, Debt/Equity)\n"
         f"- Commentary on the company’s financial health and stability\n"
+        f"- Insights retrieved from RAG database (CSV embeddings)\n"
         f"- Final investment recommendation with strong justification"
     ),
             agent=agents["analysis_agent"]
