@@ -8,6 +8,7 @@ import CandlestickChart from "./components/CandlestickChart";
 import CompanyDetails from "./components/StockInsightsPanel";
 import AIReports from "./components/AIReport";
 import ForecastDashboard from "./components/ForecastDashboard";
+import RAGChatbot from "./components/RAGChatbot";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/financial-details" element={<CompanyDetails />} />
       <Route path="/ai-reports" element={<AIReports />} />
       <Route path="/forecast" element={<ForecastDashboard />} />
+      <Route path="/rag-chatbot" element={<RAGChatbot />} />                                      
     </Routes>
   );
 }

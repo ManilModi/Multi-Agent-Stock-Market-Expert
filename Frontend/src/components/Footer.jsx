@@ -86,7 +86,7 @@ export default function Footer() {
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               </div>
               <div>
-                <span className="text-2xl font-bold">StockMarket AI</span>
+                <span className="text-2xl font-bold" onClick={() => window.location.href = "/"}>FinSight</span>
                 <p className="text-sm text-gray-400">Multi-Agentic Intelligence</p>
               </div>
             </div>

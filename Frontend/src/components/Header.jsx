@@ -45,7 +45,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Real-time OHLCV data",
       dashboardTabKey: "charts",
       route: "/live-chart",
-      roles: ["investor", "broker", "company", "public"], // ✅ added
+      roles: ["investor", "broker", "company", "public"],
     },
     {
       name: "Forecasting",
@@ -53,7 +53,7 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Time Series Stocks Predictions",
       dashboardTabKey: "charts",
       route: "/forecast",
-      roles: ["investor", "broker", "company", "public"], // ✅ added
+      roles: ["investor", "broker", "company", "public"],
     },
     {
       name: "AI Reports",
@@ -61,21 +61,22 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
       description: "Generated analysis reports",
       dashboardTabKey: "reports",
       route: "/ai-reports",
-      roles: ["investor", "broker", "company"], // ✅ example restriction
+      roles: ["investor", "broker", "company"],
     },
     {
       name: "Financial Details",
       icon: <Building2 className="h-4 w-4" />,
       description: "Balance sheet, news & predictions",
       route: "/financial-details",
-      roles: ["broker"], // ✅ restricted to brokers only
+      roles: ["broker"],
     },
     {
       name: "AI Assistant",
       icon: <MessageSquare className="h-4 w-4" />,
       description: "Conversational AI for market queries",
       dashboardTabKey: "chat",
-      roles: ["investor", "broker", "company", "public"], // ✅ added
+      roles: ["investor", "broker", "company", "public"],
+      route: "/rag-chatbot",
     },
   ]
   
@@ -166,12 +167,12 @@ export default function Header({ onLoginOpen, onNavigateToDashboardTab }) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="relative">
+            <div className="relative" onClick={() => window.location.href = "/"}>
               <TrendingUp className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">FinSight</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white" onClick={() => window.location.href = "/"}>FinSight</h1>
               <p className="text-xs text-gray-500 dark:text-gray-400 hidden sm:block">Multi-Agentic Intelligence</p>
             </div>
           </div>
